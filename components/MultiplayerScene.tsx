@@ -167,7 +167,6 @@ export default function MultiplayerScene(props: any) {
             )}
           </div>
         )}
-
         {others.map(({ connectionId, presence }) => {
           if (
             presence == null ||
@@ -176,7 +175,7 @@ export default function MultiplayerScene(props: any) {
           ) {
             return null;
           }
-
+          //TODO: fix layout shift -> make fixed?
           return (
             <Cursor
               key={connectionId}
