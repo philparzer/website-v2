@@ -6,6 +6,7 @@ home screen wrapper, renders multiplayer cursors
 import { useMyPresence, useOthers } from "../liveblocks.config";
 import { useState, useEffect, useRef } from "react";
 import Cursor from "./Cursor";
+import Layout from "./IndexLayout";
 
 const COLORS = ["#DC2626", "#D97706", "#059669", "#7C3AED", "#DB2777"];
 
@@ -75,7 +76,7 @@ export default function MultiplayerScene(props: any) {
     <>
       {/*Wrapper*/}
       <div
-        className="absolute h-screen w-full flex items-center justify-center"
+        className="absolute h-screen w-full"
         // style={{
         //   cursor: "url(cursor.svg) 0 0, auto",
         // }}
@@ -90,7 +91,7 @@ export default function MultiplayerScene(props: any) {
           });
         }}
         onPointerLeave={() => {
-          1;
+          // 1;
           updateMyPresence({
             cursor: null,
           });
@@ -187,7 +188,6 @@ export default function MultiplayerScene(props: any) {
             />
           );
         })}
-
         {props.children}
       </div>
     </>

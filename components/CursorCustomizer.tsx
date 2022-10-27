@@ -32,11 +32,11 @@ export default function CursorCustomizer(props: Props) {
   };
 
   return (
-    <div className="fixed flex">
+    <div className="flex">
       <form className="flex flex-col gap-4 items-start" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col">
         <label className="text-sm">Username</label>
-        <input className="bg-red-50 p-1" {...register("username")} />
+        <input className="bg-red-100 p-1" {...register("username")} />
         </div>
         <div className="flex gap-2 items-middle">
         <label className="text-sm">Visible to others</label>
