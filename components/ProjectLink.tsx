@@ -22,7 +22,7 @@ export default function ProjectLink({
   logoPath,
 }: Props) {
   return (
-    <div>
+    <div> {/*TODO: Look into height*/}
       <div className="w-[106px]">
         <div className="relative h-[100px]">
           <div

@@ -5,7 +5,10 @@ module.exports = {
     colors: {
       'main-black': "#483434",
       'trans-white': "rgba(255, 255, 255, 0.2);"
-    }
+    },
+    fontFamily: {
+      robotoFlex: ["Roboto Flex", "sans-serif"],
+    },
   }
 }
 };

@@ -8,6 +8,11 @@
   }
 }
 
+@font-face {
+  font-family: "Roboto Flex";
+  src: url("../public/fonts/RobotoFlex-VariableFont_GRAD,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf");
+}
+
 .background {
   /*signature background gradient animation*/
   background: linear-gradient(-15deg, #f5bc54, #ed4167, #f5bc54);
@@ -38,4 +43,10 @@
       rgba(255, 255, 255, 0.05) 85.2%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.01);
   backdrop-filter: blur(20px);
+}
+
+
+.h1-projects {
+  color: #483434;
+  font-variation-settings: 'wght' 850, 'wdth' 300;
 }

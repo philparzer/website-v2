@@ -8,7 +8,7 @@ export default function Page(props: any) {
   return (
     <>
     <Layout>
-      <div>test mobile</div>
+      <div className="font-robotoFlex text-2xl h1-projects">NFTs going local</div>
       <div>
         {props.links.map((link: any, index: number) => (
           <a key={index} href={link.data.url}>

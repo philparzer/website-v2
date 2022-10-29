@@ -2,9 +2,7 @@
 WHAT:
 Glassmorphic wrapper / main content box wrapper on index
 */
-import rgbHex from "rgb-hex";
 import CursorCustomizer from "./CursorCustomizer";
-import Image from "next/image";
 import ProjectLink from "./ProjectLink";
 import { useState } from "react";
 
@@ -25,7 +23,9 @@ enum FilterOptions {
 }
 
 export default function HomeBox({ projects, cookie }: Props) {
-  const [filterOption, setFilterOption] = useState<FilterOptions>(FilterOptions.Recents);
+  const [filterOption, setFilterOption] = useState<FilterOptions>(
+    FilterOptions.Recents
+  );
 
   return (
     <>
@@ -40,7 +40,7 @@ export default function HomeBox({ projects, cookie }: Props) {
             {/* <IndexBoxFilter /> */}
           </div>
 
-          <div className="flex flex-wrap px-10 pt-20">
+          <div className="flex flex-wrap px-10 pt-20 gap-10">
             {projects.map((link: any, index: number) => (
               <ProjectLink
                 key={index}

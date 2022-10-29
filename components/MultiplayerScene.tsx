@@ -6,7 +6,6 @@ home screen wrapper, renders multiplayer cursors
 import { useMyPresence, useOthers } from "../liveblocks.config";
 import { useState, useEffect, useRef } from "react";
 import Cursor from "./Cursor";
-import Layout from "./IndexLayout";
 
 const COLORS = ["#DC2626", "#D97706", "#059669", "#7C3AED", "#DB2777"];
 
