@@ -8,6 +8,9 @@ import {
   useIsPreviewing,
 } from "@builder.io/react";
 
+//FIXME:
+if (process.env.BUILDERIO_KEY) {builder.init(process.env.BUILDERIO_KEY);}
+
 export async function getStaticProps({ params }: any) {
   /*
     Fetch the first page from Builder that matches the current URL.
