@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@builder.io/react": "^2.0.10",
     "@liveblocks/client": "^0.18.5",
     "@liveblocks/node": "^0.18.5",
     "@liveblocks/react": "^0.18.5",

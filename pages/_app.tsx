@@ -1,6 +1,10 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
 import "../styles/globals.css";
+import { builder } from '@builder.io/react';
+
+//init builder client once
+if (process.env.BUILDERIO_KEY) {builder.init(process.env.BUILDERIO_KEY);}
 
 function App({ Component, pageProps }: AppProps) {
   return (

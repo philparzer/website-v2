@@ -5,9 +5,9 @@ import { useCookie } from "next-cookie";
 import MultiplayerScene from "../components/MultiplayerScene";
 import CursorCustomizer from "../components/CursorCustomizer";
 import Layout from "../components/IndexLayout";
+import { builder } from '@builder.io/sdk'
 
 export default function Page(props: any) {
-  
   const roomId = useOverrideRoomId("nextjs-live-cursors-chat");
   const cookie = useCookie(props.cookie);
 
@@ -26,6 +26,13 @@ export default function Page(props: any) {
       <MultiplayerScene>{/*Renders Cursors*/}
         <Layout>
           <CursorCustomizer cookie={props.cookie} />
+          <div>
+          {props.links.map((link:any, index:number) => (
+            <a key={index} href={link.data.url}>
+              {link.data.title}
+            </a>
+          ))}
+          </div>
         </Layout>
       </MultiplayerScene>
     </RoomProvider>
@@ -41,4 +48,19 @@ function useOverrideRoomId(roomId: string) {
   }, [query, roomId]);
 
   return overrideRoomId;
+}
+
+
+export async function getStaticProps() {
+  const links = await builder.getAll('project', {
+    // You can use options for queries, sorting, and targeting here
+    // https://github.com/BuilderIO/builder/blob/main/packages/core/docs/interfaces/GetContentOptions.md
+  });
+
+  return {
+    props: {
+      links: links || null,
+    },
+    revalidate: 5,
+  };
 }
