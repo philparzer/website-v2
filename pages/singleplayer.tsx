@@ -1,7 +1,3 @@
-/*
-WHAT:
-
-*/
 import { useRouter } from "next/router";
 import { builder } from "@builder.io/sdk";
 import Layout from "../components/IndexLayout";

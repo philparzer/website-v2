@@ -3,7 +3,6 @@ import React, { useMemo } from "react";
 import { useRouter } from "next/router";
 import { useCookie } from "next-cookie";
 import MultiplayerScene from "../components/MultiplayerScene";
-import CursorCustomizer from "../components/CursorCustomizer";
 import Layout from "../components/IndexLayout";
 import { builder } from '@builder.io/sdk'
 import HomeBox from "../components/HomeBox";

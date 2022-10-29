@@ -1,6 +1,6 @@
 /*
 WHAT:
-
+TODO: button with padding, border and svg
 */
 
 interface Props {

@@ -1,15 +1,13 @@
 // middleware.ts
 import { NextResponse, userAgent } from "next/server";
 import type { NextRequest } from "next/server";
-import { basename } from "path";
 
-// This function can be marked `async` if using `await` inside
+//middleware reroutes mobile users so to not use liveblocks
 export function middleware(request: NextRequest) {
   const url = request.nextUrl;
   const { device } = userAgent(request);
   const viewport = device.type === "mobile" ? "mobile" : "desktop";
-  console.log(url)
-  console.log(viewport)
+
   if (viewport === "mobile" && url.pathname !== "/singleplayer") {
     return NextResponse.redirect(new URL("/singleplayer", url));
   }

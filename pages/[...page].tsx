@@ -6,7 +6,6 @@ import {
   BuilderComponent,
   builder,
   useIsPreviewing,
-  Builder,
 } from "@builder.io/react";
 
 export async function getStaticProps({ params }: any) {
