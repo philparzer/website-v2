@@ -29,8 +29,8 @@
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(114deg, rgba(255, 255, 255, 0.25) 7.08%, rgba(255, 255, 255, 0.25) 36.18%, rgba(255, 255, 255, 0.05) 85.2%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.01);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(245, 188, 84, 0.2)
+
 }
