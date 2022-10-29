@@ -6,6 +6,7 @@ import MultiplayerScene from "../components/MultiplayerScene";
 import CursorCustomizer from "../components/CursorCustomizer";
 import Layout from "../components/IndexLayout";
 import { builder } from '@builder.io/sdk'
+import HomeBox from "../components/HomeBox";
 
 export default function Page(props: any) {
   const roomId = useOverrideRoomId("nextjs-live-cursors-chat");
@@ -25,14 +26,7 @@ export default function Page(props: any) {
     >
       <MultiplayerScene>{/*Renders Cursors*/}
         <Layout>
-          <CursorCustomizer cookie={props.cookie} />
-          <div>
-          {props.links.map((link:any, index:number) => (
-            <a key={index} href={link.data.url}>
-              {link.data.title}
-            </a>
-          ))}
-          </div>
+          <HomeBox projects={props.links} cookie={cookie} />
         </Layout>
       </MultiplayerScene>
     </RoomProvider>

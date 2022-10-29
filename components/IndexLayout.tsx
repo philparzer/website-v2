@@ -1,6 +1,6 @@
 /*
 WHAT:
-
+full height layout for index pages
 */
 
 interface Props {
