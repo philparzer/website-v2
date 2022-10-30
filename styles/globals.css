@@ -13,6 +13,12 @@
   src: url("../public/fonts/RobotoFlex-VariableFont_GRAD,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf");
 }
 
+@font-face {
+  font-family: "Roboto";
+  src: url("../public/fonts/Roboto-Medium.ttf");
+}
+
+
 .background {
   /*signature background gradient animation*/
   background: linear-gradient(-15deg, #f5bc54, #ed4167, #f5bc54);
@@ -117,3 +123,33 @@
     left: 100%;
   }
 }
+
+.animation-prefix p {
+  height: 2.25rem;
+  float: left;
+}
+.animation-prefix {
+  overflow: hidden;
+  position: relative;
+  height: 2.25rem;
+  top: 0px;
+}
+.animation-prefix .animation-subject {
+  display: inline-block;
+  color: #ffffff;
+  position: relative;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  
+  animation: 8s cubic-bezier(0.4, 0, 0.2, 1) infinite move;
+}
+
+@keyframes move{
+  0%, 9%  { top: 0rem; }
+  9%, 10%  { top: -2.25rem; }
+  19%, 20% { top: -4.5rem; }
+  29%, 30% { top: -6.75rem; }
+  39%, 40% { top: -9rem; }
+  49%, 100% { top: 0rem; }
+  }

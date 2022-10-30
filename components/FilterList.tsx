@@ -31,7 +31,7 @@ export default function FilterList({ updateFilter }:Props) {
                 <div key={index} className={`${FilterOptions[option] === FilterOptions[FilterOptions.About] && "grow flex flex-col items-start justify-end"}`}>
                     <button 
                     onClick={() => onFilterButtonClick(option)} 
-                    className={`mx-3 px-2 rounded-full hover:bg-trans-white ${activeFilter === option  && "bg-main-black hover:bg-main-black"}`}
+                    className={`mx-3 px-4 rounded-full hover:bg-trans-white ${activeFilter === option  && "bg-main-black hover:bg-main-black"}`}
                     >{FilterOptions[option]}</button>
                 </div>
             )}

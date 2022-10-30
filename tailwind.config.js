@@ -8,6 +8,7 @@ module.exports = {
     },
     fontFamily: {
       robotoFlex: ["Roboto Flex", "sans-serif"],
+      roboto: ["Roboto", "sans-serif"]
     },
     animation: {
       folderBounce: "folderBounce 1000ms ease-in-out 450ms infinite",

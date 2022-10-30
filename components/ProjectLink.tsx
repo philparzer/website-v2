@@ -6,7 +6,6 @@ WHAT:
 import rgbHex from "rgb-hex";
 import Image from "next/image";
 import Link from "next/link";
-import { link } from "fs";
 
 interface Props {
   url: string;
@@ -25,7 +24,7 @@ export default function ProjectLink({
 }: Props) {
 
   return (
-    <div className="flex flex-col w-[127px] group">
+    <div className="flex flex-col w-[127px] font-roboto group">
       <Link href={url}>
       <div className="">
         <div className="relative h-[100px] left-[9px]">
