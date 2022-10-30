@@ -10,8 +10,8 @@ module.exports = {
       robotoFlex: ["Roboto Flex", "sans-serif"],
     },
     animation: {
-      folderBounce: "folderBounce 1s cubic-bezier(0.4, 0, 0.2, 1) 200ms infinite",
-      folderBounceDelayed: "folderBounce 1s cubic-bezier(0.4, 0, 0.2, 1) 275ms infinite"
+      folderBounce: "folderBounce 1000ms ease-in-out 450ms infinite",
+      folderBounceDelayed: "folderBounce 1000ms ease-in-out 525ms infinite"
     },
     keyframes: {
       folderBounce: {

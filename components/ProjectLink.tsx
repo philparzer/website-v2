@@ -30,11 +30,11 @@ export default function ProjectLink({
       <div className="">
         <div className="relative h-[100px] left-[9px]">
           <div
-            className={`w-[106px] h-[73px] opacity-70 left-[9px] absolute rounded-[15px] transition-all ease-in-out duration-800 group-hover:animate-folderBounce group-hover:-mt-2`}
+            className={`w-[106px] h-[73px] opacity-70 left-[9px] absolute rounded-[15px] transition-all duration-500 group-hover:animate-folderBounce group-hover:-mt-2`}
             style={{ backgroundColor: `#${rgbHex(color)}` }}
           ></div>
           <div
-            className={`w-[106px] h-[73px] opacity-70 absolute top-[9px] rounded-[15px] transition-all ease-in-out duration-800 group-hover:animate-folderBounceDelayed group-hover:-mt-2`}
+            className={`w-[106px] h-[73px] opacity-70 absolute top-[9px] rounded-[15px] transition-all duration-500 delay-75 group-hover:animate-folderBounceDelayed group-hover:-mt-2`}
             style={{ backgroundColor: `#${rgbHex(color)}` }}
           ></div>
         </div>
