@@ -4,28 +4,23 @@ Glassmorphic wrapper / main content box wrapper on index
 */
 import CursorCustomizer from "./CursorCustomizer";
 import ProjectLink from "./ProjectLink";
+import FilterList from "./FilterList";
 import { useState } from "react";
+import { FilterOptions } from '../shared-ts/enums'
 
 interface Props {
   projects: any;
   cookie: any;
 }
 
-enum FilterOptions {
-  "Recents",
-  "Favorites",
-  "Dev",
-  "Design",
-  "3D",
-  "Language",
-  "Misc",
-  "About",
-}
-
 export default function HomeBox({ projects, cookie }: Props) {
   const [filterOption, setFilterOption] = useState<FilterOptions>(
     FilterOptions.Recents
   );
+
+  const updateFilter = (option:FilterOptions) => {
+
+  }
 
   return (
     <>
@@ -36,8 +31,9 @@ export default function HomeBox({ projects, cookie }: Props) {
         </div>
         <div className="flex h-full">
           <div className="w-[20%] border-r-2 border-trans-white pt-20">
-            {/*TODO: Filter Options*/}
-            {/* <IndexBoxFilter /> */}
+            <FilterList 
+              updateFilter={updateFilter}
+            />
           </div>
 
           <div className="flex flex-wrap px-10 pt-20 gap-10">
