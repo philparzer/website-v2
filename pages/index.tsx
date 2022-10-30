@@ -8,40 +8,40 @@ import { builder } from '@builder.io/sdk'
 import HomeBox from "../components/HomeBox";
 
 export default function Page(props: any) {
-  const roomId = useOverrideRoomId("nextjs-live-cursors-chat");
+  // const roomId = useOverrideRoomId("nextjs-live-cursors-chat");
   const cookie = useCookie(props.cookie);
 
   return (
-    <RoomProvider
-      id={roomId}
-      initialPresence={() => ({
-        cursor: null,
-        message: "",
-        username: cookie.has("name") ? cookie.get("name") : "User",
-        hidden: cookie.has("visibilityPref")
-          ? !JSON.parse(cookie.get("visibilityPref"))
-          : false,
-      })}
-    >
-      <MultiplayerScene>{/*Renders Cursors*/}
+    // <RoomProvider TODO: uncomment to enable multiplayer
+    //   id={roomId}
+    //   initialPresence={() => ({
+    //     cursor: null,
+    //     message: "",
+    //     username: cookie.has("name") ? cookie.get("name") : "User",
+    //     hidden: cookie.has("visibilityPref")
+    //       ? !JSON.parse(cookie.get("visibilityPref"))
+    //       : false,
+    //   })}
+    // >
+      // <MultiplayerScene>{/*Renders Cursors*/}
         <Layout>
           <HomeBox projects={props.links} cookie={cookie} />
         </Layout>
-      </MultiplayerScene>
-    </RoomProvider>
+      // </MultiplayerScene>
+    // </RoomProvider>
   );
 }
 
-function useOverrideRoomId(roomId: string) {
+// function useOverrideRoomId(roomId: string) {
   
-  const { query } = useRouter();
+//   const { query } = useRouter();
 
-  const overrideRoomId = useMemo(() => {
-    return query?.roomId ? `${roomId}-${query.roomId}` : roomId;
-  }, [query, roomId]);
+//   const overrideRoomId = useMemo(() => {
+//     return query?.roomId ? `${roomId}-${query.roomId}` : roomId;
+//   }, [query, roomId]);
 
-  return overrideRoomId;
-}
+//   return overrideRoomId;
+// }
 
 
 export async function getStaticProps() {

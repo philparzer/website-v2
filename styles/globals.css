@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-white overflow-hidden box-border text-white;
+    @apply bg-white overflow-hidden box-border font-robotoFlex font-medium text-lg;
   }
 }
 
@@ -35,6 +35,9 @@
   }
 }
 
+/*custom CSS*/
+
+
 .card {
   /* glassmorphic effect main content wrapper on index*/
   background: linear-gradient(114deg,
@@ -49,4 +52,63 @@
 .h1-projects {
   color: #483434;
   font-variation-settings: 'wght' 850, 'wdth' 300;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #483434; 
+  border-radius: 30px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #483434;
+}
+
+.filter-select-desktop {
+  display: none
+}
+
+@media screen and (max-height: 570px) {
+  .filter-list-desktop {
+    display: none
+  }
+
+  .filter-select-desktop {
+    display: flex
+  }
+
+  /*TODO: show select*/
+}
+.text-container {
+  width: 5rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.text-scroll {
+  display: inline-block;
+  position: relative;
+  animation: 5s linear 2s infinite alternate advanced;
+}
+
+@keyframes advanced {
+  0%, 20% {
+    transform: translateX(0%);
+    left: 0%;
+  }
+  100% {
+    transform: translateX(-100%);
+    left: 100%;
+  }
 }
