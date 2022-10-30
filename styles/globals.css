@@ -48,6 +48,11 @@
   backdrop-filter: blur(20px);
 }
 
+.card-noise {
+  background-image: url("../public/images/card-noise.webp");
+  
+}
+
 
 .h1-projects {
   color: #483434;
@@ -99,10 +104,10 @@
 .text-scroll {
   display: inline-block;
   position: relative;
-  animation: 5s linear 2s infinite alternate advanced;
+  animation: 5s linear 2s infinite alternate text-overflow-scroll;
 }
 
-@keyframes advanced {
+@keyframes text-overflow-scroll {
   0%, 20% {
     transform: translateX(0%);
     left: 0%;
