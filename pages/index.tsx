@@ -59,7 +59,7 @@ export async function getStaticProps({ params }:any) {
   return {
     props: {
       links: links || null,
-      announce: about || null,
+      about: about || null,
     },
     revalidate: 5,
   };
