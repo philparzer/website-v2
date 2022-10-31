@@ -13,11 +13,12 @@ import IAM from "./IAM";
 interface Props {
   projects: any;
   cookie: any;
+  about: any;
 }
 
 let projectCounter:number = 0;
 
-export default function HomeBox({ projects, cookie }: Props) {
+export default function HomeBox({ projects, cookie, about }: Props) {
   const [filterOption, setFilterOption] = useState<FilterOptions>(
     FilterOptions.Recents
   );
@@ -76,7 +77,7 @@ export default function HomeBox({ projects, cookie }: Props) {
                 {/*Render something if no projects for current selection*/}
                 {projectCounter === 0 && (
                   filterOption === FilterOptions.About 
-                  ? <>Todo About</>
+                  ? <>{about}</>
                   : <>hmmm</> )
                 }
               </>

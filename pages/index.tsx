@@ -26,7 +26,10 @@ export default function Page(props: any) {
     // >
       // <MultiplayerScene>{/*Renders Cursors*/}
         <Layout>
-          <HomeBox projects={props.links} cookie={cookie}/>
+          <HomeBox 
+          projects={props.links} cookie={cookie} 
+            about={<BuilderComponent model="about" content={props.about} />}
+          />
         </Layout>
       // </MultiplayerScene>
     // </RoomProvider>
@@ -45,15 +48,18 @@ export default function Page(props: any) {
 // }
 
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }:any) {
+  const urlPath = '/' + (params?.page?.join('/') || '');
   const links = await builder.getAll('project', {
-    // You can use options for queries, sorting, and targeting here
-    // https://github.com/BuilderIO/builder/blob/main/packages/core/docs/interfaces/GetContentOptions.md
   });
+  const about = await builder
+    .get('about', { userAttributes: { urlPath } })
+    .toPromise();
 
   return {
     props: {
       links: links || null,
+      announce: about || null,
     },
     revalidate: 5,
   };
