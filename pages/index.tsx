@@ -27,7 +27,6 @@ export default function Page(props: any) {
       // <MultiplayerScene>{/*Renders Cursors*/}
         <Layout>
           <HomeBox projects={props.links} cookie={cookie}/>
-          <BuilderComponent />
         </Layout>
       // </MultiplayerScene>
     // </RoomProvider>

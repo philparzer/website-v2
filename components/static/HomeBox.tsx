@@ -9,7 +9,6 @@ import { useState } from "react";
 import { FilterOptions } from "../../shared-ts/enums";
 import FilterSelect from "./FilterSelect";
 import IAM from "./IAM";
-import { BuilderComponent } from "@builder.io/react";
 
 interface Props {
   projects: any;
@@ -77,7 +76,7 @@ export default function HomeBox({ projects, cookie }: Props) {
                 {/*Render something if no projects for current selection*/}
                 {projectCounter === 0 && (
                   filterOption === FilterOptions.About 
-                  ? <BuilderComponent />
+                  ? <>Todo About</>
                   : <>hmmm</> )
                 }
               </>
