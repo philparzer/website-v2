@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { builder } from "@builder.io/sdk";
-import Layout from "../components/IndexLayout";
+import Layout from "../components/static/IndexLayout";
 
 export default function Page(props: any) {
   const router = useRouter();
