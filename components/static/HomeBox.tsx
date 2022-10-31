@@ -6,18 +6,20 @@ import CursorCustomizer from "./CursorCustomizer";
 import ProjectLink from "./ProjectLink";
 import FilterList from "./FilterList";
 import { useState } from "react";
-import { FilterOptions } from "../shared-ts/enums";
+import { FilterOptions } from "../../shared-ts/enums";
 import FilterSelect from "./FilterSelect";
 import IAM from "./IAM";
+import { BuilderComponent } from "@builder.io/react";
 
 interface Props {
   projects: any;
   cookie: any;
+  builder: any;
 }
 
 let projectCounter:number = 0;
 
-export default function HomeBox({ projects, cookie }: Props) {
+export default function HomeBox({ projects, cookie, builder }: Props) {
   const [filterOption, setFilterOption] = useState<FilterOptions>(
     FilterOptions.Recents
   );
@@ -76,8 +78,8 @@ export default function HomeBox({ projects, cookie }: Props) {
                 {/*Render something if no projects for current selection*/}
                 {projectCounter === 0 && (
                   filterOption === FilterOptions.About 
-                  ? <>TODO About content</>
-                  : <>hmmmmmmmmmm...</> )
+                  ? <BuilderComponent />
+                  : <>hmmm</> )
                 }
               </>
             </div>

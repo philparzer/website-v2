@@ -5,9 +5,9 @@ used to update multiplayer settings for cursors (username, visibility) -> sets c
 
 import { useForm } from "react-hook-form";
 import { useCookie } from "next-cookie";
-import { useMyPresence } from "../liveblocks.config";
+import { useMyPresence } from "../../liveblocks.config";
 import { useState, useRef } from "react";
-import { useOutsideClick } from "../hooks/useOutsideClick";
+import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 type Props = {
   cookie: string;

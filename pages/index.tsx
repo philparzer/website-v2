@@ -2,13 +2,14 @@ import { RoomProvider } from "../liveblocks.config";
 import React, { useMemo } from "react";
 import { useRouter } from "next/router";
 import { useCookie } from "next-cookie";
-import MultiplayerScene from "../components/MultiplayerScene";
-import Layout from "../components/IndexLayout";
+import MultiplayerScene from "../components/static/MultiplayerScene";
+import Layout from "../components/static/IndexLayout";
 import { builder } from '@builder.io/sdk'
-import HomeBox from "../components/HomeBox";
+import HomeBox from "../components/static/HomeBox";
+import { BuilderComponent } from "@builder.io/react";
 
 export default function Page(props: any) {
-  // const roomId = useOverrideRoomId("nextjs-live-cursors-chat");
+  // const roomId = useOverrideRoomId("nextjs-live-cursors-chat"); //TODO: test this w more than 10
   const cookie = useCookie(props.cookie);
 
   return (
@@ -25,7 +26,7 @@ export default function Page(props: any) {
     // >
       // <MultiplayerScene>{/*Renders Cursors*/}
         <Layout>
-          <HomeBox projects={props.links} cookie={cookie} />
+          <HomeBox projects={props.links} cookie={cookie} builder={<BuilderComponent />}/>
         </Layout>
       // </MultiplayerScene>
     // </RoomProvider>

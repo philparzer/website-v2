@@ -3,7 +3,7 @@ WHAT:
 home screen wrapper, renders multiplayer cursors
 */
 
-import { useMyPresence, useOthers } from "../liveblocks.config";
+import { useMyPresence, useOthers } from "../../liveblocks.config";
 import { useState, useEffect, useRef } from "react";
 import Cursor from "./Cursor";
 

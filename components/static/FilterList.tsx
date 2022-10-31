@@ -3,8 +3,8 @@ WHAT:
 list to filter projects on desktop index
 */
 
-import { FilterOptions } from "../shared-ts/enums"
-import { enumToKeyArray } from "../shared-ts/utils"
+import { FilterOptions } from "../../shared-ts/enums"
+import { enumToKeyArray } from "../../shared-ts/utils"
 import { useState } from "react"
 
 interface Props {

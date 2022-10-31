@@ -3,8 +3,8 @@ WHAT:
 select input to filter projects on mobile or desktop index if screen height is less than 570px
 */
 
-import { FilterOptions } from "../shared-ts/enums"
-import { enumToValueArray } from "../shared-ts/utils"
+import { FilterOptions } from "../../shared-ts/enums"
+import { enumToValueArray } from "../../shared-ts/utils"
 
 interface Props {
     updateFilter: (option: number) => void
