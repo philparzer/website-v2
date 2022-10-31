@@ -14,12 +14,11 @@ import { BuilderComponent } from "@builder.io/react";
 interface Props {
   projects: any;
   cookie: any;
-  builder: any;
 }
 
 let projectCounter:number = 0;
 
-export default function HomeBox({ projects, cookie, builder }: Props) {
+export default function HomeBox({ projects, cookie }: Props) {
   const [filterOption, setFilterOption] = useState<FilterOptions>(
     FilterOptions.Recents
   );
