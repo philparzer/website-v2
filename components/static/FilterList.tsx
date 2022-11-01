@@ -5,23 +5,24 @@ list to filter projects on desktop index
 
 import { FilterOptions } from "../../shared-ts/enums"
 import { enumToKeyArray } from "../../shared-ts/utils"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 interface Props {
-   updateFilter: (option: number) => void
+   updateFilter: (option: number) => void,
+   filterOption: FilterOptions
 }
 
 const filterOptions = enumToKeyArray(Object.values(FilterOptions));
 
 
-export default function FilterList({ updateFilter }:Props) {
+export default function FilterList({ updateFilter, filterOption }:Props) {
     //TODO: style
-    const [activeFilter, setActiveFilter] = useState(FilterOptions.Recents) 
     
     const onFilterButtonClick = (option: number) => {
         updateFilter(option);
-        setActiveFilter(option);
     }
+
+
 
     return (
             <div className="flex justify-center h-full">
@@ -31,7 +32,7 @@ export default function FilterList({ updateFilter }:Props) {
                 <div key={index} className={`${FilterOptions[option] === FilterOptions[FilterOptions.About] && "grow flex flex-col items-start justify-end"}`}>
                     <button 
                     onClick={() => onFilterButtonClick(option)} 
-                    className={`mx-3 px-4 rounded-full hover:bg-trans-white ${activeFilter === option  && "bg-main-black hover:bg-main-black"}`}
+                    className={`mx-3 px-4 py-0.5 rounded-full hover:bg-trans-white ${index === filterOption  && "bg-main-black hover:bg-main-black"}`}
                     >{FilterOptions[option]}</button>
                 </div>
             )}

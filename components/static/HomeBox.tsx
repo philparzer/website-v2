@@ -30,26 +30,26 @@ export default function HomeBox({ projects, cookie, about }: Props) {
 
   return (
     <>
-      <div className="relative lg:w-7/12 max-w-[895px]">
+      <div className="relative w-11/12 max-w-[340px] lg:w-7/12 sm:max-w-[895px]">
         <IAM />
       </div>
-      <div className="relative lg:w-7/12 max-w-[895px] lg:h-[65%] max-h-[567.54px] rounded-[30px] card">
+      <div className="relative w-11/12 max-w-[340px] lg:w-7/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>
         <div className="absolute right-10 top-5">
           {/* <CursorCustomizer cookie={cookie} /> TODO: uncomment to enable liveblocks */}
         </div>
-        <div className="flex flex-row h-full">
-          <div className="flex flex-col justify-center border-r-2 border-trans-white w-[20%]">
+        <div className="flex flex-col lg:flex-row h-full">
+          <div className="flex flex-col justify-center border-b-2 lg:border-r-2 border-trans-white lg:w-[20%]">
             <div className="h-[70%] filter-list-desktop text-white">
-              <FilterList updateFilter={updateFilter} />
+              <FilterList updateFilter={updateFilter} filterOption={filterOption}/>
             </div>
-            <div className="h-[70%] filter-select-desktop">
-              <FilterSelect updateFilter={updateFilter} />
+            <div className="flex h-[70%] filter-select-desktop w-full px-5 lg:justify-center lg:items-center">
+              <FilterSelect updateFilter={updateFilter} filterOption={filterOption} />
             </div>
           </div>
 
-          <div className="flex flex-col px-10 py-20 text-white w-[80%] overflow-auto">
-            <div className="flex flex-row flex-wrap gap-10">
+          <div className="flex flex-col w-full px-5 lg:px-10 py-10 lg:py-20 text-white lg:w-[80%] overflow-auto">
+            <div className="flex flex-row flex-wrap gap-7 lg:gap-10">
               <>
               {
                   projects.map((link: any, index: number) => {

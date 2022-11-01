@@ -7,13 +7,14 @@ import { FilterOptions } from "../../shared-ts/enums"
 import { enumToValueArray } from "../../shared-ts/utils"
 
 interface Props {
-    updateFilter: (option: number) => void
+    updateFilter: (option: number) => void,
+    filterOption: FilterOptions
 }
 
 const filterOptions:string[] = enumToValueArray(Object.values(FilterOptions));
 
 
-export default function FilterSelect({ updateFilter }:Props) {
+export default function FilterSelect({ updateFilter, filterOption }:Props) {
 
     const onFilterSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         console.log(e.target.value);
@@ -21,10 +22,10 @@ export default function FilterSelect({ updateFilter }:Props) {
     }
 
     return (
-        <div >
-           <select className="bg-transparent" onChange={(e) => onFilterSelectChange(e)}>
+        <div className="bg-main-black text-white rounded-[30px] px-4 py-3 mt-2 mb-1 flex items-center" >
+           <select className="bg-main-black dark:placeholder-white focus:outline-none" value={filterOption} onChange={(e) => onFilterSelectChange(e)}>
                 {filterOptions.map((option, index) => 
-                    <option className="" key={index} value={index}>{option}</option>
+                    <option className="bg-main-black" key={index} value={index}>{option}</option>
                 )}
             </select>
         </div>

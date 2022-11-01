@@ -24,7 +24,7 @@
   background: linear-gradient(-15deg, #f5bc54, #ed4167, #f5bc54);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); /*TODO: look into*/
 }
 
 @keyframes gradient {
@@ -86,8 +86,20 @@
   background: #483434;
 }
 
+
+
 .filter-select-desktop {
   display: none
+}
+
+@media screen and (max-width: 1024px) { 
+  .filter-select-desktop {
+    display: flex
+  }
+
+  .filter-list-desktop {
+    display: none
+  }
 }
 
 @media screen and (max-height: 570px) {

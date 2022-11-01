@@ -7,7 +7,7 @@ export default function Page(props: any) {
   console.log(router.query.viewport);
   return (
     <>
-    <Layout>
+      <Layout>
       <div className="font-robotoFlex text-2xl h1-projects">NFTs going local</div>
       <div>
         {props.links.map((link: any, index: number) => (
