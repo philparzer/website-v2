@@ -9,6 +9,7 @@ import { useState } from "react";
 import { FilterOptions } from "../../shared-ts/enums";
 import FilterSelect from "./FilterSelect";
 import IAM from "./IAM";
+import ProjectSearch from "./ProjectSearch"
 
 interface Props {
   projects: any;
@@ -23,28 +24,45 @@ export default function HomeBox({ projects, cookie, about }: Props) {
     FilterOptions.Recents
   );
 
+  const [searchEnabled, setSearchEnabled] = useState<boolean>(false);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
   const updateFilter = (option: number) => {
     setFilterOption(option);
     projectCounter = 0;
   };
 
+  const updateFilterMode = (status: boolean) => {
+    setSearchEnabled(status);
+  }
+
+  const updateSearchInput = (input: string) => {
+    setSearchTerm(input);
+  }
+
   return (
     <>
-      <div className="relative w-11/12 max-w-[340px] lg:w-7/12 sm:max-w-[895px]">
+      <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px]">
         <IAM />
       </div>
-      <div className="relative w-11/12 max-w-[340px] lg:w-7/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
+      <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>
-        <div className="absolute right-10 top-5">
-          {/* <CursorCustomizer cookie={cookie} /> TODO: uncomment to enable liveblocks */}
+        <div className="absolute p+ä
+         top-5 w-full flex justify-end">
+          {/* <CursorCustomizer cookie={cookie} /> TODO: uncomment when liveblocks */}
+          <ProjectSearch updateFilterMode={updateFilterMode} updateSearchInput={updateSearchInput} searchEnabled={searchEnabled} />
         </div>
         <div className="flex flex-col lg:flex-row h-full">
-          <div className="flex flex-col justify-center border-b-2 lg:border-r-2 border-trans-white lg:w-[20%]">
+          <div className="flex flex-col justify-center border-b-2 lg:border-r-2 lg:border-b-0 border-trans-white lg:w-[20%]">
             <div className="h-[70%] filter-list-desktop text-white">
+            {searchEnabled === false && 
               <FilterList updateFilter={updateFilter} filterOption={filterOption}/>
+            } 
             </div>
-            <div className="flex h-[70%] filter-select-desktop w-full px-5 lg:justify-center lg:items-center">
+            <div className="flex h-[58px] lg:h-full lg:pt-20 filter-select-desktop w-full px-5 lg:items-start items-center lg:justify-center">
+            {searchEnabled === false && 
               <FilterSelect updateFilter={updateFilter} filterOption={filterOption} />
+            }
             </div>
           </div>
 
@@ -56,7 +74,27 @@ export default function HomeBox({ projects, cookie, about }: Props) {
                     let linkTags = link.data.category.map((project: string) =>
                       project.toLowerCase()
                     );
-                    if (linkTags.includes(FilterOptions[filterOption].toLowerCase())) {
+
+                    if (searchEnabled === true) {
+                      let projectNameLower = link.name.toLowerCase();
+                      if (projectNameLower.includes(searchTerm)) {
+                        projectCounter++;
+                        if (projectCounter > 0) {
+                          return (
+                            <ProjectLink
+                              key={index}
+                              url={link.data.link.value.data.url}
+                              color={link.data.color}
+                              name={link.name}
+                              altText={link.data.logoAltText}
+                              logoPath={link.data.logo}
+                            />
+                          );
+                        }
+                      }
+                    }
+
+                    else if (linkTags.includes(FilterOptions[filterOption].toLowerCase())) {
                       projectCounter++;
                       if (projectCounter > 0) {
                         return (

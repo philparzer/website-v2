@@ -8,8 +8,8 @@ import { enumToKeyArray } from "../../shared-ts/utils"
 import { useState, useEffect } from "react"
 
 interface Props {
-   updateFilter: (option: number) => void,
-   filterOption: FilterOptions
+   updateFilter: (option: number) => void, //onchange handler that is passed down from homebox
+   filterOption: FilterOptions //currently selected filter option
 }
 
 const filterOptions = enumToKeyArray(Object.values(FilterOptions));
