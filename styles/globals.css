@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-white overflow-hidden box-border font-robotoFlex font-medium text-lg;
+    @apply bg-white box-border font-robotoFlex font-medium text-lg;
   }
 }
 
@@ -66,23 +66,23 @@
 }
 
 /* width */
-::-webkit-scrollbar {
+.index *::-webkit-scrollbar {
   width: 7px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+.index *::-webkit-scrollbar-track {
   
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+.index *::-webkit-scrollbar-thumb {
   background: #483434; 
   border-radius: 30px;
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+.card::-webkit-scrollbar-thumb:hover {
   background: #483434;
 }
 

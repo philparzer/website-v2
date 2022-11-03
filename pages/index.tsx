@@ -25,12 +25,14 @@ export default function Page(props: any) {
     //   })}
     // >
       // <MultiplayerScene>{/*Renders Cursors*/}
+      <div className="index">
         <Layout>
           <HomeBox 
           projects={props.links} cookie={cookie} 
             about={<BuilderComponent model="about" content={props.about} />}
           />
         </Layout>
+        </div>
       // </MultiplayerScene>
     // </RoomProvider>
   );

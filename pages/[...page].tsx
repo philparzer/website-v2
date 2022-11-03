@@ -2,12 +2,10 @@ import { useRouter } from "next/router";
 import DefaultErrorPage from "next/error";
 import Head from "next/head";
 import React from "react";
-import {
-  BuilderComponent,
-  builder,
-  useIsPreviewing,
-} from "@builder.io/react";
+import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
 import dynamic from "next/dynamic";
+import Background from "../components/static/Background";
+import Layout from "../components/static/ProjectContentWrapper"
 
 export async function getStaticProps({ params }: any) {
   /*
@@ -38,7 +36,6 @@ export async function getStaticPaths() {
     and only return the `data.url` field from the matching pages.
   */
 
-  
   const pages = await builder.getAll("page", {
     fields: "data.url", // only request the `data.url` field
     options: { noTargeting: true },
@@ -77,19 +74,12 @@ export default function Page({ page }: any) {
         <title>{page?.data.title}</title>
         <meta name="description" content={page?.data.descripton} />
       </Head>
-      <div style={{ padding: 50, textAlign: "center" }}>
-        {/* Put your header or main layout here */}
-        Your header
-      </div>
-
-      {/* Render the Builder page */}
+      <Layout>
+        <div className="h-[2000px]">hi</div>
+        <div className="h-[2000px]">hi</div>
+      </Layout>
       <BuilderComponent model="page" content={page} />
-
-      <div style={{ padding: 50, textAlign: "center" }}>
-        {/* Put your footer or main layout here */}
-        Your footer
-      </div>
+      <Background />
     </>
   );
 }
-

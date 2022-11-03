@@ -9,7 +9,7 @@ import { useState } from "react";
 import { FilterOptions } from "../../shared-ts/enums";
 import FilterSelect from "./FilterSelect";
 import IAM from "./IAM";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface Props {
   projects: any;
