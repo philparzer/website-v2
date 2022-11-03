@@ -9,7 +9,7 @@ import { useState } from "react";
 import { FilterOptions } from "../../shared-ts/enums";
 import FilterSelect from "./FilterSelect";
 import IAM from "./IAM";
-import ProjectSearch from "./ProjectSearch"
+import { AnimatePresence, motion } from "framer-motion";
 
 interface Props {
   projects: any;
@@ -23,22 +23,14 @@ export default function HomeBox({ projects, cookie, about }: Props) {
   const [filterOption, setFilterOption] = useState<FilterOptions>(
     FilterOptions.Recents
   );
+    
 
   const [searchEnabled, setSearchEnabled] = useState<boolean>(false);
-  const [searchTerm, setSearchTerm] = useState<string>("");
 
   const updateFilter = (option: number) => {
     setFilterOption(option);
     projectCounter = 0;
   };
-
-  const updateFilterMode = (status: boolean) => {
-    setSearchEnabled(status);
-  }
-
-  const updateSearchInput = (input: string) => {
-    setSearchTerm(input);
-  }
 
   return (
     <>
@@ -50,76 +42,64 @@ export default function HomeBox({ projects, cookie, about }: Props) {
         <div className="absolute p+ä
          top-5 w-full flex justify-end">
           {/* <CursorCustomizer cookie={cookie} /> TODO: uncomment when liveblocks */}
-          <ProjectSearch updateFilterMode={updateFilterMode} updateSearchInput={updateSearchInput} searchEnabled={searchEnabled} />
         </div>
         <div className="flex flex-col lg:flex-row h-full">
           <div className="flex flex-col justify-center border-b-2 lg:border-r-2 lg:border-b-0 border-trans-white lg:w-[20%]">
             <div className="h-[70%] filter-list-desktop text-white">
-            {searchEnabled === false && 
               <FilterList updateFilter={updateFilter} filterOption={filterOption}/>
-            } 
             </div>
             <div className="flex h-[58px] lg:h-full lg:pt-20 filter-select-desktop w-full px-5 lg:items-start items-center lg:justify-center">
-            {searchEnabled === false && 
               <FilterSelect updateFilter={updateFilter} filterOption={filterOption} />
-            }
             </div>
           </div>
 
           <div className="flex flex-col w-full px-5 lg:px-10 py-10 lg:py-20 text-white lg:w-[80%] overflow-auto">
-            <div className="flex flex-row flex-wrap gap-7 lg:gap-10">
-              <>
+          
+            <ul className="flex flex-row flex-wrap gap-7 lg:gap-10">
               {
+                
                   projects.map((link: any, index: number) => {
                     let linkTags = link.data.category.map((project: string) =>
                       project.toLowerCase()
                     );
-
-                    if (searchEnabled === true) {
-                      let projectNameLower = link.name.toLowerCase();
-                      if (projectNameLower.includes(searchTerm)) {
-                        projectCounter++;
-                        if (projectCounter > 0) {
-                          return (
+                      
+                    if (linkTags.includes(FilterOptions[filterOption].toLowerCase())) {
+                      projectCounter++;
+                      if (projectCounter > 0) {
+                        return (
+                          
+                          <motion.li
+                            layout
+                            key={link.name}
+                            animate={{ scale: 1, opacity: 1 }}
+                            initial= {{ scale: .8, opacity: .8}}
+                            transition={{ type: "spring", bounce: 0.25, delay: 0}}
+                          >
                             <ProjectLink
-                              key={index}
                               url={link.data.link.value.data.url}
                               color={link.data.color}
                               name={link.name}
                               altText={link.data.logoAltText}
                               logoPath={link.data.logo}
                             />
-                          );
-                        }
-                      }
-                    }
-
-                    else if (linkTags.includes(FilterOptions[filterOption].toLowerCase())) {
-                      projectCounter++;
-                      if (projectCounter > 0) {
-                        return (
-                          <ProjectLink
-                            key={index}
-                            url={link.data.link.value.data.url}
-                            color={link.data.color}
-                            name={link.name}
-                            altText={link.data.logoAltText}
-                            logoPath={link.data.logo}
-                          />
+                          </motion.li>
+                          
+                          
                         );
                       }
                     }
 
                   })
                 }
+                
                 {/*Render something if no projects for current selection*/}
                 {projectCounter === 0 && (
                   filterOption === FilterOptions.About 
                   ? <>{about}</>
-                  : <>hmmm</> )
+                  : <>nothing to see here</> )
+                  
                 }
-              </>
-            </div>
+            </ul>
           </div>
         </div>
       </div>

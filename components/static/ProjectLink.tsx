@@ -6,6 +6,7 @@ WHAT:
 import rgbHex from "rgb-hex";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface Props {
   url: string;
@@ -14,6 +15,27 @@ interface Props {
   altText: string;
   logoPath: string;
 }
+
+const parent:any = {
+  "while": {
+    transition: {
+      staggerChildren: 0.1
+    },
+  }
+}
+
+const background:any = {
+  "while": {
+    y: -10,
+    transition: {
+      repeat: Infinity,
+      repeatType: "reverse",
+      type: "ease-in-out",
+      duration: 0.45
+    }
+  }
+}
+
 
 export default function ProjectLink({
   url,
@@ -24,19 +46,24 @@ export default function ProjectLink({
 }: Props) {
 
   return (
-    <div className="flex flex-col w-[127px] font-roboto group">
+    <motion.div 
+      className="flex flex-col w-[127px] font-roboto"
+      whileHover="while"
+    >
       <Link href={url}>
       <div className="">
-        <div className="relative h-[100px] left-[9px]">
-          <div
-            className={`w-[106px] h-[73px] opacity-70 left-[9px] absolute rounded-[15px] transition-all duration-500 group-hover:animate-folderBounce group-hover:-mt-2`}
+        <motion.div className="relative h-[100px] left-[9px]" variants={parent}>
+          <motion.div
+            variants={background}
+            className={`w-[106px] h-[73px] opacity-70 left-[9px] absolute rounded-[15px]`}
             style={{ backgroundColor: `#${rgbHex(color)}` }}
-          ></div>
-          <div
-            className={`w-[106px] h-[73px] opacity-70 absolute top-[9px] rounded-[15px] transition-all duration-500 delay-75 group-hover:animate-folderBounceDelayed group-hover:-mt-2`}
+          ></motion.div>
+          <motion.div
+            variants={background}
+            className={`w-[106px] h-[73px] opacity-70 absolute top-[9px] rounded-[15px]`}
             style={{ backgroundColor: `#${rgbHex(color)}` }}
-          ></div>
-        </div>
+          ></motion.div>
+        </motion.div>
       </div>
       <div className="flex justify-center">
           <div className="flex gap-2 items-center">
@@ -56,6 +83,6 @@ export default function ProjectLink({
           </div>
       </div>
       </Link>
-    </div>
+    </motion.div>
   );
 }
