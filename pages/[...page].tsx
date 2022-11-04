@@ -86,6 +86,14 @@ export default function Page({ page }: any) {
           <Hero />
           <BulletpointWrapper />
         </BodyCard>
+        <BodyCard>
+          <Hero />
+          <BulletpointWrapper />
+        </BodyCard>
+        <BodyCard>
+          <Hero />
+          <BulletpointWrapper />
+        </BodyCard>
       </Layout>
       <Background />
     </>

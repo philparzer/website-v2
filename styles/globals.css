@@ -59,6 +59,11 @@
   
 }
 
+.card-width-main {
+  max-width: 894px;
+  width: 100%;
+}
+
 
 .h1-projects {
   color: #483434;
