@@ -3,11 +3,10 @@ WHAT:
 
 */
   
-export default function BodyCard (props:any) {
+export default function BodyCard ({children}:any) {
     return (
-  <div>
-    <h1>{props.title}</h1>
-    <p>{props.description}</p>
+  <div className="flex flex-wrap card rounded-[30px]">
+    {children}
   </div>
     )
 };

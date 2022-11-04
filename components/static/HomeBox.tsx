@@ -39,7 +39,7 @@ export default function HomeBox({ projects, cookie, about }: Props) {
       </div>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>
-        <div className="absolute p+ä
+        <div className="absolute
          top-5 w-full flex justify-end">
           {/* <CursorCustomizer cookie={cookie} /> TODO: uncomment when liveblocks */}
         </div>

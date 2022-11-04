@@ -6,6 +6,10 @@ import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
 import dynamic from "next/dynamic";
 import Background from "../components/static/Background";
 import Layout from "../components/static/ProjectContentWrapper"
+import ProjectHead from "../components/builder/ProjectHead";
+import BodyCard from "../components/builder/BodyCard";
+import Hero from "../components/builder/Hero";
+import BulletpointWrapper from "../components/builder/BulletpointWrapper";
 
 export async function getStaticProps({ params }: any) {
   /*
@@ -75,10 +79,14 @@ export default function Page({ page }: any) {
         <meta name="description" content={page?.data.descripton} />
       </Head>
       <Layout>
-        <div className="h-[2000px]">hi</div>
-        <div className="h-[2000px]">hi</div>
+        <ProjectHead />
+        <BuilderComponent model="page" content={page} />
+        {/*TODO: remove components below*/}
+        <BodyCard>
+          <Hero />
+          <BulletpointWrapper />
+        </BodyCard>
       </Layout>
-      <BuilderComponent model="page" content={page} />
       <Background />
     </>
   );

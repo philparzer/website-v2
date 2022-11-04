@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-white box-border font-robotoFlex font-medium text-lg;
+    @apply bg-white box-border font-robotoFlex font-medium text-lg overflow-x-hidden;
   }
 }
 
@@ -62,7 +62,11 @@
 
 .h1-projects {
   color: #483434;
-  font-variation-settings: 'wght' 850, 'wdth' 300;
+  font-variation-settings: 'wght' 800, 'wdth' 300;
+}
+
+.variable-semibold {
+  font-variation-settings: 'wght' 600;
 }
 
 /* width */
