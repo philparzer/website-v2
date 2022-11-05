@@ -2,6 +2,11 @@
 WHAT:
 buttton for projects that can be used to like the current project
 */
+import axios from "axios"
+import {
+  useMutation,
+  useQueryClient
+} from 'react-query'
 
 type Props = {
 
@@ -9,9 +14,16 @@ type Props = {
 
 
 export default function FaveButton({  }: Props) {
+
+  const mutation = useMutation(() => {
+    let data = {"projectName": "Zebras"}
+    return axios.post('/api/add-favorite', data)
+  })
+  
   return (
     <button
       className="flex justify-center items-center pl-4 pr-5 py-1 rounded-full bg-trans-white gap-2 project-ctas hover:text-white group hover:bg-main-black"
+      onClick={() => mutation.mutate()}
     >
 <div className="pb-0.5">
 

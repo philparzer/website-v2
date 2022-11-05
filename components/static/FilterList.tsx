@@ -17,8 +17,6 @@ export default function FilterList({ updateFilter, filterOption }:Props) {
         updateFilter(option);
     }
 
-
-
     return (
             <div className="flex justify-center h-full">
             <div className="flex flex-col gap-4">
@@ -27,7 +25,7 @@ export default function FilterList({ updateFilter, filterOption }:Props) {
                 <div key={index} className={`${FilterOptions[option] === FilterOptions[FilterOptions.About] && "grow flex flex-col items-start justify-end"}`}>
                     <button 
                     onClick={() => onFilterButtonClick(option)} 
-                    className={`mx-3 px-4 py-0.5 rounded-full hover:bg-trans-white ${index === filterOption  && "bg-main-black hover:bg-main-black"}`}
+                    className={`mx-3 px-4 py-0.5 rounded-full ${index === filterOption  ? "bg-main-black hover:bg-main-black" : " hover:bg-trans-white"}`}
                     >{FilterOptions[option]}</button>
                 </div>
             )}

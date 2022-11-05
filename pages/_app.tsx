@@ -8,9 +8,15 @@ import {
   useIsPreviewing,
 } from "@builder.io/react";
 import dynamic from "next/dynamic";
+import { 
+  QueryClient,
+  QueryClientProvider
+} from "react-query";
 
 //FIXME: init builder client once
 if (process.env.NEXT_PUBLIC_BUILDERIO_KEY) {builder.init(process.env.NEXT_PUBLIC_BUILDERIO_KEY);}
+
+const queryClient = new QueryClient()
 
 Builder.registerComponent(dynamic(():any => import('../components/builder/BodyCard')), {
   name: 'Card',
@@ -30,7 +36,9 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>Philipp Parzer</title>
       </Head>
+      <QueryClientProvider client={queryClient}>
       <Component {...pageProps} />
+      </QueryClientProvider>
     </>
   );
 }
