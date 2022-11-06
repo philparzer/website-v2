@@ -5,7 +5,7 @@ WHAT:
 
 export default function Hero(props: any) {
   return (
-    <div className="flex flex-col m-9 gap-6 w-7/12">
+    <div className="flex flex-col m-9 gap-6 lg:w-7/12">
       <h2 className="font-robotoFlex text-6xl h1-projects">Going Local</h2>
       <p className="font-robotoFlex text-white"> {/*TODO: look into rich text */}
         At the height of the NFT craze, me, my girlfriend, my brother and two

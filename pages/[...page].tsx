@@ -10,6 +10,10 @@ import ProjectHead from "../components/builder/ProjectHead";
 import BodyCard from "../components/builder/BodyCard";
 import Hero from "../components/builder/Hero";
 import BulletpointWrapper from "../components/builder/BulletpointWrapper";
+import SideBySideWrapper from "../components/builder/SideBySideWrapper";
+import RectImage from "../components/builder/RectImage";
+import SideBySideCard from "../components/builder/SideBySideCard";
+import CardText from "../components/builder/CardText";
 
 export async function getStaticProps({ params }: any) {
   /*
@@ -86,14 +90,12 @@ export default function Page({ page }: any) {
           <Hero />
           <BulletpointWrapper />
         </BodyCard>
-        <BodyCard>
-          <Hero />
-          <BulletpointWrapper />
-        </BodyCard>
-        <BodyCard>
-          <Hero />
-          <BulletpointWrapper />
-        </BodyCard>
+        <SideBySideWrapper>
+          <SideBySideCard>
+            <CardText />
+          </SideBySideCard>
+          <RectImage path="/images/testimg.png" altText="test"/>
+        </SideBySideWrapper>
       </Layout>
       <Background />
     </>

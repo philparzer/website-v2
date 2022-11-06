@@ -8,6 +8,6 @@ interface Props {
 
 export default function Background({  }:Props) {
   return (
-      <div className="fixed background w-full h-full -z-10"></div>
+      <div className="fixed background w-full h-full -z-20"></div>
   )
 }

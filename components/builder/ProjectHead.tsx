@@ -9,8 +9,8 @@ import LinkButton from "./LinkButton";
 
 export default function ProjectHead(props: any) {
   return (
-    <div className="flex sticky top-0 rounded-full z-20 backdrop-blur-md mt-4 pt-2 pb-4 mb-4 px-4 card-width-main">
-      <div className="flex items-center justify-center gap-4">
+    <div className="flex flex-wrap sticky top-0 rounded-full z-20 backdrop-blur-md mt-4 pt-2 pb-4 mb-4 px-4 card-width-main">
+      <div className="flex items-center w-full lg:w-auto lg:justify-center gap-4">
         <div className="w-[45px] h-[45px] bg-white rounded-full"></div>
         {/* <Image src="/" alt="TODO:" width={45} height={45} /> */}{/* TODO: uncomment and delete white rect */}
         <h1 className="font-robotoFlex variable-semibold text-3xl text-white">
@@ -18,8 +18,8 @@ export default function ProjectHead(props: any) {
         </h1>
       </div>
 
-      <div className="flex grow justify-between">
-        <div className="flex justify-center items-center gap-1 pt-1 px-5">
+      <div className="flex grow justify-between -mt-3 lg:-mt-0">
+        <div className="flex justify-center items-center gap-1 pt-1 ml-[60px] lg:ml-0 lg:px-5">
             <svg className="animate-pulse"
               width="10"
               height="10"
@@ -32,7 +32,7 @@ export default function ProjectHead(props: any) {
             <p className="font-robotoFlex variable-semibold text-sm text-main-black">on hold</p>
           </div>
       </div>
-      <div className="flex gap-4 justify-center items-center">
+      <div className="flex gap-4 justify-center items-center -mt-3 lg:-mt-0">
         <LinkButton />
         <FaveButton />
       </div>
