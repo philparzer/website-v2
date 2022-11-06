@@ -15,7 +15,7 @@ type Props = {
 };
 
 
-export default function FaveButton(props: Props) {
+export default function FaveButton(props: any) {
 
   const cookie = useCookie(props.cookie);
 
