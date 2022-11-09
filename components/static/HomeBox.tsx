@@ -58,12 +58,35 @@ export default function HomeBox({ projects, cookie, about }: Props) {
             <ul className="flex flex-row flex-wrap gap-7 lg:gap-10">
               {
                 
-                  projects.map((link: any, index: number) => {
-                    let linkTags = link.data.category.map((project: string) =>
-                      project.toLowerCase()
-                    );
-                      
-                    if (linkTags.includes(FilterOptions[filterOption].toLowerCase())) {
+                  projects.map((link: any) => {
+                    let linkTags = link.data.category.toLowerCase()
+
+                    if (filterOption === FilterOptions.Recents) {
+                      projectCounter++;
+                      if (projectCounter > 0) {
+                        return (
+                          <motion.li
+                            layout
+                            key={link.name}
+                            animate={{ scale: 1, opacity: 1 }}
+                            initial= {{ scale: .8, opacity: .8}}
+                            transition={{ type: "spring", bounce: 0.25, delay: 0}}
+                          >
+                            <ProjectLink
+                              url={link.data.link.value.data.url}
+                              color={link.data.color}
+                              name={link.name}
+                              altText={link.data.logoAltText}
+                              logoPath={link.data.logo}
+                            />
+                          </motion.li>
+                          
+                          
+                        );
+                      }
+                    }
+
+                    else if (linkTags.includes(FilterOptions[filterOption].toLowerCase())) {
                       projectCounter++;
                       if (projectCounter > 0) {
                         return (

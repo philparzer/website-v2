@@ -70,7 +70,7 @@ export default function ProjectLink({
             <div>
               <Image width={21} height={21} src={logoPath} alt={altText} />
             </div>
-            { name.length > 20
+            { name.length > 12
             ?
             <div className="">
               <div className="text-container">

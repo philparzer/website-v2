@@ -6,14 +6,14 @@ import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
 import dynamic from "next/dynamic";
 import Background from "../components/static/Background";
 import Layout from "../components/static/ProjectContentWrapper"
-import ProjectHead from "../components/builder/ProjectHead";
-import BodyCard from "../components/builder/BodyCard";
-import Hero from "../components/builder/Hero";
-import BulletpointWrapper from "../components/builder/BulletpointWrapper";
-import SideBySideWrapper from "../components/builder/SideBySideWrapper";
-import RectImage from "../components/builder/RectImage";
-import SideBySideCard from "../components/builder/SideBySideCard";
-import CardText from "../components/builder/CardText";
+import ProjectHead from "../components/builder-utils/ProjectHead";
+import BodyCard from "../components/builder-utils/BodyCard";
+import Hero from "../components/builder-utils/Hero";
+import BulletpointWrapper from "../components/builder-utils/BulletpointWrapper";
+import SideBySideWrapper from "../components/builder-utils/SideBySideWrapper";
+import RectImage from "../components/builder-utils/RectImage";
+import SideBySideCard from "../components/builder-utils/SideBySideCard";
+import CardText from "../components/builder-utils/CardText";
 
 export async function getStaticProps({ params }: any) {
   /*
@@ -86,7 +86,7 @@ export default function Page({ page }: any) {
         <ProjectHead />
         <BuilderComponent model="page" content={page} />
         {/*TODO: remove components below*/}
-        <BodyCard>
+        {/* <BodyCard>
           <Hero />
           <BulletpointWrapper />
         </BodyCard>
@@ -95,7 +95,7 @@ export default function Page({ page }: any) {
             <CardText />
           </SideBySideCard>
           <RectImage path="/images/testimg.png" altText="test"/>
-        </SideBySideWrapper>
+        </SideBySideWrapper> */}
       </Layout>
       <Background />
     </>
