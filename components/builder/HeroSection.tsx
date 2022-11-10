@@ -1,13 +1,13 @@
 /*
 WHAT:
-  bold defacto h1 for projects, to be placed inside bodycard
+  builder component featuring bold defacto h1 for projects, to be placed inside bodycard
 */
 
 interface Props {
   title: string,
   body: string,
   bulletpointTitle: string,
-  
+
   bulletpointCategories: []
 }
 
