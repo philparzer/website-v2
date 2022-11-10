@@ -167,15 +167,14 @@
   white-space: nowrap;
   top: 0;
   left: 0;
-  
-  animation: 8s cubic-bezier(0.4, 0, 0.2, 1) infinite move;
+  animation: 7s cubic-bezier(0.4, 0, 0.2, 1) infinite move;
 }
 
 @keyframes move{
-  0%, 9%  { top: 0rem; }
-  9%, 10%  { top: -2.25rem; }
-  19%, 20% { top: -4.5rem; }
-  29%, 30% { top: -6.75rem; }
-  39%, 40% { top: -9rem; }
-  49%, 100% { top: 0rem; }
-  }
+  0%, 10%  { top: 0rem; }
+  19%, 20%  { top: -2.25rem; }
+  29%, 30% { top: -4.5rem; }
+  39%, 40% { top: -6.75rem; }
+  49%, 50% { top: -9rem; }
+  59%, 100% { top: 0rem; }
+}
