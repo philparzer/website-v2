@@ -1,23 +1,35 @@
 /*
 WHAT:
-  TODO: 
+  Bulletpoint wrapper for home
 */
 
-//TODO: type props
+
+interface Bulletpoint {
+  text: string
+}
+
+interface BulletpointsEntry {
+  categoryTitle: string, 
+  bulletpoints: [Bulletpoint]
+}
+
+interface Props {
+  title: string,
+  bulletPointEntries: []
+}
 
 import BulletpointsEntry from "./BulletpointsEntry";
 
 
-export default function CardBulletpoints(props:any) {
+export default function CardBulletpoints({title, bulletPointEntries}:Props) {
   return (
     <div className="p-9 flex flex-col border border-transparent border-l-trans-white gap-3">
-      <h2 className="text-white font-robotoFlex variable-semibold text-xl pb-2">Technologies</h2>
-       {/*TODO: Bulletpoint Wrappers here */}
+      <h2 className="text-white font-robotoFlex variable-semibold text-xl pb-2">{title}</h2>
        {
-        props.categories.map((category:any) => 
+        bulletPointEntries.map((entry:BulletpointsEntry) => 
         <BulletpointsEntry 
-          title={category.categoryTitle}
-          bulletpoints={category.bulletpoints}
+          title={entry.categoryTitle}
+          bulletpoints={entry.bulletpoints}
         />)
        }
     </div>

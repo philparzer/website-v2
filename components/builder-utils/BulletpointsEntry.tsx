@@ -1,16 +1,23 @@
 /*
 WHAT:
-  TODO:
+  Bulletpoint entry for hero card
 */
 
-//TODO: type props
+interface Bulletpoint {
+  text: string
+}
 
-export default function BulletpointsEntry(props:any) {
+interface Props {
+  title: string,
+  bulletpoints: [Bulletpoint]
+}
+
+export default function BulletpointsEntry({title, bulletpoints}:Props) {
   return (
     <div>
-      <h3 className="text-white text-sm">{props.title}</h3>
-      <ul className="font-robotoFlex text-main-black text-xl"> {/*TODO: map*/}
-        {props.bulletpoints.map((bulletpoint:any) => <li>{bulletpoint.text}</li>)}
+      <h3 className="text-white text-sm">{title}</h3>
+      <ul className="font-robotoFlex text-main-black text-xl">
+        {bulletpoints.map((bulletpoint:Bulletpoint) => <li>{bulletpoint.text}</li>)}
       </ul>
     </div>
   );
