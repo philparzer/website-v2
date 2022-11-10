@@ -28,8 +28,10 @@ export default function Page(props: any) {
       <div className="index">
         <Layout>
           <HomeBox 
-          projects={props.links} cookie={cookie} 
+            projects={props.links} 
+            cookie={cookie} 
             about={<BuilderComponent model="about" content={props.about} />}
+            IAMStrings={props.IAMStrings}
           />
         </Layout>
         </div>
@@ -57,11 +59,13 @@ export async function getStaticProps({ params }:any) {
   const about = await builder
     .get('about', { userAttributes: { urlPath } })
     .toPromise();
-
+    const IAMStrings = await builder.getAll('i-am', {
+    });
   return {
     props: {
       links: links || null,
       about: about || null,
+      IAMStrings: IAMStrings || null,
     },
     revalidate: 5,
   };

@@ -12,14 +12,15 @@ import IAM from "./IAM";
 import { motion } from "framer-motion";
 
 interface Props {
-  projects: any;
-  cookie: any;
-  about: any;
+  projects: any,
+  cookie: any,
+  about: any,
+  IAMStrings: any
 }
 
 let projectCounter:number = 0;
 
-export default function HomeBox({ projects, cookie, about }: Props) {
+export default function HomeBox({ projects, cookie, about, IAMStrings }: Props) {
   const [filterOption, setFilterOption] = useState<FilterOptions>(
     FilterOptions.Recents
   );
@@ -35,7 +36,7 @@ export default function HomeBox({ projects, cookie, about }: Props) {
   return (
     <>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px]">
-        <IAM />
+        <IAM IAMStrings={IAMStrings}/>
       </div>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>

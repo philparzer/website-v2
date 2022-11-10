@@ -7,12 +7,12 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 
 interface Props {
-
+    IAMStrings: any
 }
 
-export default function IAM({  }:Props) {
+export default function IAM({ IAMStrings }:Props) {
 
-    const [firstRender, setFirstRender] = useState<boolean>(false); //SEO optimization?
+    const [firstRender, setFirstRender] = useState<boolean>(false);
 
     useEffect(() => {
         setFirstRender(true)
@@ -27,23 +27,19 @@ export default function IAM({  }:Props) {
                     ? 
                         <>
                             <p className="text-white opacity-60 px-2">I'm</p>
-                            <div className="animation-subject">
-                                <div className="text-white">Philipp</div>
-                                <div className="text-white">ddd</div>
-                                <div className="text-white">erwer</div>
-                                <div className="text-white">adfadf</div>
-                                <div className="text-white">adfadf</div> {/*TODO: map over CMS? array*/}
+                            <div className="animation-subject text-white relative">
+                                
+                                {IAMStrings.map((item:any) => 
+                                    <div>{item.data.string}</div>
+                                )}
                             </div>
                         </>
                         
                     : 
                         <span>I'm Philipp</span>
                     }
-                    
                 </h1>
             </div>
         </>
-
-        //TODO: get this from builder
     )
 }
