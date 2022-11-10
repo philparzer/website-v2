@@ -7,6 +7,7 @@ interface Props {
   title: string,
   body: string,
   bulletpointTitle: string,
+  
   bulletpointCategories: []
 }
 
