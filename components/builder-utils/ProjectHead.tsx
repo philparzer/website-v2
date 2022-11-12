@@ -1,20 +1,30 @@
 /*
 WHAT:
-
+Project Head section featuring link and like button + logo
 */
 
 import Image from "next/image";
 import FaveButton from "./FaveButton";
 import LinkButton from "./LinkButton";
+import { ProjectStatus } from "../../shared-ts/enums";
 
-export default function ProjectHead(props: any) {
+interface Props {
+  title: string;
+  logoPath: string;
+  externalLink: string;
+  logoAltText: string;
+  databaseLookup: string;
+  status: string
+}
+
+export default function ProjectHead({title, logoPath, externalLink, logoAltText, databaseLookup, status}: Props) {
+  console.log(ProjectStatus[ProjectStatus["on hold"]])
   return (
     <div className="flex flex-wrap sticky top-0 rounded-full z-20 backdrop-blur-md mt-4 pt-2 pb-4 mb-4 px-4 card-width-main">
       <div className="flex items-center w-full lg:w-auto lg:justify-center gap-4">
-        <div className="w-[45px] h-[45px] bg-white rounded-full"></div>
-        {/* <Image src="/" alt="TODO:" width={45} height={45} /> */}{/* TODO: uncomment and delete white rect */}
+        <Image src={logoPath} alt={logoAltText} width={45} height={45} />
         <h1 className="font-robotoFlex variable-semibold text-3xl text-white">
-          Zebras
+          {title}
         </h1>
       </div>
 
@@ -27,14 +37,24 @@ export default function ProjectHead(props: any) {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <circle cx="5" cy="5" r="5" fill="#F2C12B" />
+              <circle cx="5" cy="5" r="5" fill={`
+                ${status === ProjectStatus[ProjectStatus["on hold"]] ? "#F2C12B"
+                : status === ProjectStatus[ProjectStatus["completed"]] ? "#47F22B"
+                : status === ProjectStatus[ProjectStatus["concept"]] ? "#2BAAF2" 
+                : ""
+              }`
+              } />
             </svg>
-            <p className="font-robotoFlex variable-semibold text-sm text-main-black">on hold</p>
+            <p className="font-robotoFlex variable-semibold text-sm text-main-black">{status}</p>
           </div>
       </div>
       <div className="flex gap-4 justify-center items-center -mt-3 lg:-mt-0">
-        <LinkButton />
-        <FaveButton />
+        <LinkButton 
+          externalLink={externalLink}
+        />
+        <FaveButton 
+          databaseLookup={databaseLookup}
+        />
       </div>
     </div>
   );

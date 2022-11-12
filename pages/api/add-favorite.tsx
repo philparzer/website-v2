@@ -14,6 +14,7 @@ export default async function handler(req: any, res: any) {
     let response;
 
     if (entry) {
+      console.log("ENTRY FOUND")
       response = await mongoDB?.collection.updateOne(
         {project: data.projectName},
         {$inc: {faves: 1} }
@@ -21,9 +22,9 @@ export default async function handler(req: any, res: any) {
     }
 
     else {
+      console.log("NO ENTRY FOUND CREATING ENTRY")
       response = await mongoDB?.collection.insertOne(
-        {project: data.projectName},
-        {faves: 0}
+        {project: data.projectName, faves: 1}
         );
     }
 

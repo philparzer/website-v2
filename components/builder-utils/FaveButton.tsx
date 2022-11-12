@@ -10,18 +10,15 @@ import {
 import { useCookie } from "next-cookie";
 import { useState, useEffect } from "react"
 
-type Props = {
-  cookie: string
-};
 
 
-export default function FaveButton(props: any) {
+export default function FaveButton(props:any) {
 
   const cookie = useCookie(props.cookie);
 
-  const project = "Zebras" //TODO: get via props somehow
+  const project = props.databaseLookup;
   let projectsVoted:string[] = [];
-  //TODO: set state for button if already voted
+
   if (cookie.has("projectsVoted")) {
     projectsVoted = cookie.get("projectsVoted")
   }
@@ -30,7 +27,6 @@ export default function FaveButton(props: any) {
 
   useEffect(() => {
     setButtonDisabled(projectsVoted.includes(project));
-    console.log("rerender")
   }, [])
 
   const mutation = useMutation(() => { //TODO: two functions

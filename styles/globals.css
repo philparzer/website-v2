@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-white box-border font-robotoFlex font-medium text-lg overflow-x-hidden;
+    @apply bg-white box-border font-robotoFlex font-medium text-lg overflow-x-hidden selection:bg-trans-white;
   }
 }
 

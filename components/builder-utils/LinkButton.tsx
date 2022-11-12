@@ -5,12 +5,16 @@ buttton for projects that links to live version of current project
 
 import Link from "next/link";
 
-type Props = {};
+type Props = {
+  externalLink: string;
+};
 
-export default function LinkButton({}: Props) {
+export default function LinkButton({externalLink}: Props) {
   return (
-    <Link
-      href="/" //TODO: link
+    <a
+      href={externalLink}
+      target="_blank"
+      rel="noopener noreferrer"
       className="flex justify-center items-center px-4 py-2 lg:pl-4 lg:pr-5 lg:py-1  rounded-[15px] lg:rounded-full bg-trans-white gap-2 group hover:text-white hover:bg-main-black"
     >
       <svg
@@ -34,6 +38,6 @@ export default function LinkButton({}: Props) {
       </svg>
 
       <div className="hidden lg:inline font-robotoFlex variable-semibold text-xl text-main-black group-hover:text-white">visit</div>
-    </Link>
+    </a>
   );
 }

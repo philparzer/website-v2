@@ -6,6 +6,11 @@ export enum FilterOptions {
     "Design",
     "3D",
     "Language",
-    "Misc",
     "About",
+}
+
+export enum ProjectStatus {
+    "on hold",
+    "completed",
+    "concept"
 }

@@ -27,11 +27,18 @@ export async function getStaticProps({ params }: any) {
         urlPath: "/" + (params?.page?.join("/") || ""),
       },
     })
+    
     .toPromise();
+
+  const links = await builder.getAll('project', {
+  });
+
+  const correctLink = links.filter((item:any) => item.data.link.value.data.url === page.data.url)[0]
 
   return {
     props: {
       page: page || null,
+      link: correctLink || null
     },
     revalidate: 5,
   };
@@ -56,7 +63,7 @@ export async function getStaticPaths() {
   };
 }
 
-export default function Page({ page }: any) {
+export default function Page({ page, link }: any) {
   const router = useRouter();
   /*
     This flag indicates if you are viewing the page in the Builder editor.
@@ -64,7 +71,7 @@ export default function Page({ page }: any) {
   const isPreviewing = useIsPreviewing();
 
   if (router.isFallback) {
-    return <h1>Loading...</h1>;
+    return <h1>Loading...</h1>; //TODO: look into this
   }
 
   /*
@@ -72,7 +79,7 @@ export default function Page({ page }: any) {
     content entries published in Builder.
   */
   if (!page && !isPreviewing) {
-    return <DefaultErrorPage statusCode={404} />;
+    return <DefaultErrorPage statusCode={404} />; //TODO: customize 404
   }
 
   return (
@@ -83,7 +90,14 @@ export default function Page({ page }: any) {
         <meta name="description" content={page?.data.descripton} />
       </Head>
       <Layout>
-        <ProjectHead />
+        <ProjectHead 
+          title={link.data.link.value.name}
+          logoPath={link.data.logo}
+          externalLink={link.data.externalLink}
+          logoAltText={link.data.logoAltText}
+          databaseLookup={link.data.databaseLookup}
+          status={link.data.status}
+        />
         <BuilderComponent model="page" content={page} />
         {/*TODO: remove components below*/}
         {/* <BodyCard>
