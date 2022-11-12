@@ -90,6 +90,29 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
                 }
                 
                 let linkIsRecent = link.data.isRecent;
+                
+                //if all is selected
+                if (filterOption === FilterOptions.All) {
+                    projectCounter++;
+                    return (
+                      <motion.li
+                        layout
+                        key={link.name}
+                        animate={{ scale: 1, opacity: 1 }}
+                        initial={{ scale: 0.8, opacity: 0.8 }}
+                        transition={{ type: "spring", bounce: 0.25, delay: 0 }}
+                      >
+                        <ProjectLink
+                          url={link.data.link.value.data.url}
+                          color={link.data.color}
+                          name={link.name}
+                          altText={link.data.logoAltText}
+                          logoPath={link.data.logo}
+                        />
+                      </motion.li>
+                    );
+                } 
+
 
                 //if favorites is selected
                 if (!isLoading && !isError) {
@@ -156,7 +179,7 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
                   linkTags.includes(FilterOptions[filterOption].toLowerCase())
                 ) {
                   projectCounter++;
-                  if (projectCounter > 0) {
+                  
                     return (
                       <motion.li
                         layout
@@ -176,7 +199,7 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
                     );
                   }
                 }
-              })}
+              )}
 
               {/*Render something if no projects for current selection*/}
               {projectCounter === 0 &&

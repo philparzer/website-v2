@@ -1,5 +1,6 @@
 //used in index to filter projects and toggle about
 export enum FilterOptions {
+    "All",
     "Recents",
     "Favorites",
     "Dev",

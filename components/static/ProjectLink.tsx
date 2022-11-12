@@ -88,7 +88,7 @@ export default function ProjectLink({ url, color, name, altText, logoPath, favor
         </motion.div>
       </div>
       <div className="flex justify-center">
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center text-sm">
             <div>
               <Image width={21} height={21} src={logoPath} alt={altText} />
             </div>
