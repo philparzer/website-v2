@@ -4,11 +4,8 @@ export default async function handler(req: any, res: any) {
   let data = req.body;
  
   if (req.method === "GET") {
-    console.log(data)
     const mongoDB = await connect("projects");
-
     const entry = await mongoDB?.collection.find().toArray();
-    console.log(entry)
 
     if (entry) {  
         mongoDB?.client.close();

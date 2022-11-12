@@ -20,8 +20,13 @@ interface Props {
   IAMStrings: any;
 }
 
+interface DatabaseProject {
+  project: string;
+  faves: number;
+}
+
 let projectCounter: number = 0;
-let slicedSortedFavorites: string[];
+let slicedSortedFavorites: DatabaseProject[];
 
 export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
   const [filterOption, setFilterOption] = useState<FilterOptions>(
@@ -39,8 +44,8 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
   const favoritesArray = data?.data;
 
   if (!isLoading && !isError) {
-    const sortedFavorites = [...favoritesArray].sort(
-      (a: any, b: any) => b.faves - a.faves
+    const sortedFavorites:DatabaseProject[] = [...favoritesArray].sort(
+      (a: DatabaseProject, b: DatabaseProject) => b.faves - a.faves
     );
     slicedSortedFavorites = sortedFavorites.slice(0, 4);
   }
@@ -77,9 +82,16 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
           <div className="flex flex-col w-full px-5 lg:px-10 py-10 lg:py-20 text-white lg:w-[80%] overflow-auto">
             <ul className="flex flex-row flex-wrap gap-7 lg:gap-10">
               {projects.map((link: any) => {
-                let linkTags = link.data.category.toLowerCase();
+                let linkCategory1 = link.data.category.toLowerCase();
+                let linkTags = [linkCategory1]
+                if (link.data.category2) { //if project has more than one category
+                  let linkCategory2 = link.data.category2.toLowerCase();
+                  linkTags.push(linkCategory2)
+                }
+                
                 let linkIsRecent = link.data.isRecent;
 
+                //if favorites is selected
                 if (!isLoading && !isError) {
                   let slicedSortedFavoriteLookups = slicedSortedFavorites.map(
                     (item: any) => item.project
@@ -99,11 +111,7 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
                           key={link.name}
                           animate={{ scale: 1, opacity: 1 }}
                           initial={{ scale: 0.8, opacity: 0.8 }}
-                          transition={{
-                            type: "spring",
-                            bounce: 0.25,
-                            delay: 0,
-                          }}
+                          exit={{ scale: 0.8, opacity: 0.8 }}
                         >
                           <ProjectLink
                             url={link.data.link.value.data.url}
@@ -111,6 +119,7 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
                             name={link.name}
                             altText={link.data.logoAltText}
                             logoPath={link.data.logo}
+                            favoriteProjects={slicedSortedFavorites.find(element => element.project === link.data.databaseLookup)}
                           />
                         </motion.li>
                       );
@@ -118,6 +127,7 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
                   }
                 }
 
+                //if recents is selected
                 if (filterOption === FilterOptions.Recents) {
                   if (linkIsRecent) {
                     projectCounter++;
@@ -139,7 +149,10 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
                       </motion.li>
                     );
                   }
-                } else if (
+                } 
+                
+                //if other option in enum is selected
+                else if (
                   linkTags.includes(FilterOptions[filterOption].toLowerCase())
                 ) {
                   projectCounter++;
@@ -169,11 +182,11 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
               {projectCounter === 0 &&
                 (filterOption === FilterOptions.About ? (
                   <>{about}</>
-                ) : isLoading ? (
+                ) : isLoading ? ( //favorites is selected but query has not completed
                   <>loading...</>
-                ) : isError ? (
+                ) : isError ? ( //favorites is selected but query error
                   <>hmm something went wrong</>
-                ) : (
+                ) : ( //no items for current selection
                   <>nothing to see here</>
                 ))}
             </ul>
