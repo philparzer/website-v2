@@ -14,6 +14,7 @@ import SideBySideWrapper from "../components/builder-utils/SideBySideWrapper";
 import RectImage from "../components/builder-utils/RectImage";
 import SideBySideCard from "../components/builder-utils/SideBySideCard";
 import CardText from "../components/builder-utils/CardText";
+import ThreeCard from "../components/builder-utils/Model";
 
 export async function getStaticProps({ params }: any) {
   /*
