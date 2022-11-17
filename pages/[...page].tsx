@@ -3,18 +3,10 @@ import DefaultErrorPage from "next/error";
 import Head from "next/head";
 import React from "react";
 import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
-import dynamic from "next/dynamic";
 import Background from "../components/static/Background";
 import Layout from "../components/static/ProjectContentWrapper"
 import ProjectHead from "../components/builder-utils/ProjectHead";
-import BodyCard from "../components/builder-utils/BodyCard";
-import Hero from "../components/builder-utils/Hero";
-import BulletpointWrapper from "../components/builder-utils/BulletpointWrapper";
-import SideBySideWrapper from "../components/builder-utils/SideBySideWrapper";
-import RectImage from "../components/builder-utils/RectImage";
-import SideBySideCard from "../components/builder-utils/SideBySideCard";
-import CardText from "../components/builder-utils/CardText";
-import ThreeCard from "../components/builder-utils/Model";
+import BackButton from "../components/static/BackButton";
 
 export async function getStaticProps({ params }: any) {
   /*

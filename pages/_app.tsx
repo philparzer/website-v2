@@ -9,6 +9,17 @@ import {
 } from "@builder.io/react";
 import dynamic from "next/dynamic";
 import { QueryClient, QueryClientProvider } from "react-query";
+import {
+  KBarProvider,
+  KBarPortal,
+  KBarPositioner,
+  KBarAnimator,
+  KBarSearch
+} from "kbar";
+
+import { actions } from "../components/kbar/kbarActions"
+import { searchStyle, animatorStyle } from "../components/kbar/kbarStyles";
+import RenderResults from "../components/kbar/RenderResults";
 
 //FIXME: init builder client once
 if (process.env.NEXT_PUBLIC_BUILDERIO_KEY) {
@@ -131,12 +142,22 @@ Builder.registerComponent(
 function App({ Component, pageProps }: AppProps) {
   return (
     <>
+    <KBarProvider actions={actions}>
+      <KBarPortal> 
+        <KBarPositioner style={{zIndex: 50, padding: 100}}>
+        <KBarAnimator style={animatorStyle}>
+            <KBarSearch style={searchStyle} defaultPlaceholder={"Looking for something?"}/>
+            <RenderResults/>
+          </KBarAnimator>
+        </KBarPositioner>
+      </KBarPortal>
       <Head>
         <title>Philipp Parzer</title>
       </Head>
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
       </QueryClientProvider>
+    </KBarProvider>
     </>
   );
 }
