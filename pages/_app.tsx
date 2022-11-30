@@ -144,7 +144,7 @@ function App({ Component, pageProps }: AppProps) {
     <>
     <KBarProvider actions={actions}>
       <KBarPortal> 
-        <KBarPositioner style={{zIndex: 50, padding: 100}}>
+        <KBarPositioner>
         <KBarAnimator style={animatorStyle}>
             <KBarSearch style={searchStyle} defaultPlaceholder={"Looking for something?"}/>
             <RenderResults/>

@@ -2,19 +2,80 @@
 TODO:
 */
 
+const redirect = (page:any, slug:string, anchor:string) => {
+
+  if (slug === "") {
+    if (page === "/")
+    {
+      slug = ""
+    }
+    else 
+    {
+      slug = "../"
+    }
+  }
+
+  if (anchor === "") { page.href = `${slug}`}
+  else {page.href = `${slug}#${anchor}`}
+}
+
 export const actions:any = [
   {
-    id: "blog",
-    name: "Blog",
-    shortcut: ["b"],
-    keywords: "writing words",
-    perform: () => (window.location.pathname = "blog"),
+    id: "email",
+    name: "Email",
+    section: "Contact",
+    perform: () => (window.open(
+      "mailto:parzerphilipp@gmail.com"
+    )
+    ),
   },
   {
-    id: "contact",
-    name: "Contact",
-    shortcut: ["c"],
-    keywords: "email",
-    perform: () => (window.location.pathname = "contact"),
+    id: "linkedin",
+    name: "LinkedIn",
+    section: "Contact",
+    perform: () => (window.open(
+      "https://www.linkedin.com/in/philipp-parzer/",
+      '_blank'
+    )
+    ),
+    
   },
+  {
+    id: "github",
+    name: "Github",
+    section: "Contact",
+    perform: () => (window.open(
+      "https://github.com/philparzer",
+      '_blank'
+    )
+    ),
+  },
+  {
+    id: "twitter",
+    name: "Twitter",
+    section: "Contact",
+    perform: () => (window.open(
+      "https://twitter.com/philipp_parzer",
+      '_blank'
+    )
+    ),
+  },
+
+  //Static Subpages
+  {
+    id: "imprint",
+    name: "Imprint",
+    section: "Legal",
+    perform: () => (redirect(window.location, "imprint", "")),
+  },
+
+  {
+    id: "gdpr",
+    name: "GDPR",
+    section: "Legal",
+    perform: () => (redirect(window.location, "imprint", "")),
+  },
+
+  //TODO: get from api
+
 ]

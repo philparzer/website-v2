@@ -15,7 +15,7 @@ export default function RenderResults({}: Props) {
   console.log(results)
 
   return(
-    <div className="bg-white pb-10">
+    <div className="p-[30px] pt-2 bg-white">
       <KBarResults
       items={results}
       onRender={({ item, active }) =>
@@ -24,24 +24,37 @@ export default function RenderResults({}: Props) {
         ) : (
           <div
             style={{
-              background: "white",
-              padding: "30px",
-              paddingTop: "10px",
-              paddingBottom: "10px",
+              paddingBottom: 5,
               fontSize: "16px",
               color: active ? "black": "#9CA3AF",
+              fontStyle: active ? "600" : "400",
               zIndex: 100,
               fontFamily: "Roboto Flex"
             }}
           >
-            <span>{item.name} 2</span>
+            <span
+              style={{
+                transition: "all 0.5s ease-out",
+                paddingLeft: active ? 5 : 2,
+              }}
+              className="flex items-center gap-2 justify-between"
+            >{item.name} {active &&
+              <span className="bg-gray-200 p-0.5 px-2 text-sm rounded-[10px]">go →</span>
+            }</span>
           </div>
         )
       }
 
       
     />
-    {results.length === 0 && <div>hi</div>}
+    {results.length === 0 && <div
+            style={{
+              background: "white",
+              fontSize: "16px",
+              zIndex: 100,
+              fontFamily: "Roboto Flex"
+            }}
+          >no results</div>}
     </div>
   )
 

@@ -3,24 +3,26 @@ TODO:
 */
 
 export const searchStyle:any = {
-  padding: "20px 30px",
-  fontSize: "16px",
+  padding: 30,
+  paddingTop: 20,
+  paddingBottom: 20,
+  fontSize: "20px",
   fontFamily: "Roboto Flex",
   width: "100%",
   boxSizing: "border-box",
   outline: "none",
-  background: "#00000",
+  background: "white",
   color: "#000000",
   zIndex: 100,
-  borderBottom: "1px solid black" 
 };
 
 export const animatorStyle:any = {
   maxWidth: "600px",
+  maxHeight: "50vh",
   fontFamily: "Roboto Flex",
   width: "100%",
   borderRadius: "30px",
-  overflow: "hidden",
+  overflow: "scroll",
   boxShadow: "0px 6px 20px rgb(0 0 0 / 20%)",
   border: "none",
   color: "#000000",
@@ -28,15 +30,13 @@ export const animatorStyle:any = {
 };
 
 export const groupNameStyle:any = {
-  
-  paddingTop: "12px",
-  display: "flex",
-  height: "50px",
-  zIndex: 100,
-  paddingLeft: "10px",
-  fontFamily: "Roboto Flex",
-  fontSize: "20px",
+  paddingBottom: 10,
+  paddingTop: 10,
   textTransform: "uppercase",
+  fontSize: "16px",
   color: "black",
-  background: "#FAFAFA",
+  opacity: 0.3,
+  zIndex: 100,
+  fontFamily: "Roboto Flex",
+  fontVariationSettings: "'wght' 800, 'wdth' 300",
 };
