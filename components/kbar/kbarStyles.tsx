@@ -13,16 +13,15 @@ export const searchStyle:any = {
   outline: "none",
   background: "white",
   color: "#000000",
-  zIndex: 100,
+  zIndex: 100
 };
 
 export const animatorStyle:any = {
   maxWidth: "600px",
-  maxHeight: "50vh",
   fontFamily: "Roboto Flex",
   width: "100%",
   borderRadius: "30px",
-  overflow: "scroll",
+  overflow: "hidden",
   boxShadow: "0px 6px 20px rgb(0 0 0 / 20%)",
   border: "none",
   color: "#000000",

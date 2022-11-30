@@ -15,7 +15,7 @@ export default function RenderResults({}: Props) {
   console.log(results)
 
   return(
-    <div className="p-[30px] pt-2 bg-white">
+    <div className="p-[30px] pt-2 bg-white max-h-[50vh] overflow-auto">
       <KBarResults
       items={results}
       onRender={({ item, active }) =>
@@ -29,7 +29,8 @@ export default function RenderResults({}: Props) {
               color: active ? "black": "#9CA3AF",
               fontStyle: active ? "600" : "400",
               zIndex: 100,
-              fontFamily: "Roboto Flex"
+              fontFamily: "Roboto Flex",
+              overflow: "scroll",
             }}
           >
             <span
