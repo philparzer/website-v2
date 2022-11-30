@@ -7,7 +7,7 @@ import Layout from "../components/static/IndexLayout";
 import { builder } from '@builder.io/sdk'
 import HomeBox from "../components/static/HomeBox";
 import { BuilderComponent } from "@builder.io/react";
-import KBarButton from "../components/kbar/KbarButton";
+import KBarButton from "../components/kbar/KBarButton";
 
 export default function Page(props: any) {
   // const roomId = useOverrideRoomId("nextjs-live-cursors-chat"); //TODO: test this w more than 10
@@ -29,7 +29,7 @@ export default function Page(props: any) {
       <div className="index">
         
         <Layout>
-        <KBarButton />
+          <KBarButton />
           <HomeBox 
             projects={props.links} 
             cookie={cookie} 
