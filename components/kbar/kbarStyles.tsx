@@ -13,7 +13,8 @@ export const searchStyle:any = {
   outline: "none",
   background: "white",
   color: "#000000",
-  zIndex: 100
+  zIndex: 100,
+  isolation: "isolate"
 };
 
 export const animatorStyle:any = {
@@ -38,4 +39,5 @@ export const groupNameStyle:any = {
   zIndex: 100,
   fontFamily: "Roboto Flex",
   fontVariationSettings: "'wght' 800, 'wdth' 300",
+  isolation: "isolate"
 };

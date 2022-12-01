@@ -8,6 +8,7 @@ import FaveButton from "./FaveButton";
 import LinkButton from "./LinkButton";
 import { ProjectStatus } from "../../shared-ts/enums";
 import BackButton from "../static/BackButton";
+import KBarButton from "../kbar/KBarButton"
 
 interface Props {
   title: string;
@@ -20,7 +21,7 @@ interface Props {
 
 export default function ProjectHead({title, logoPath, externalLink, logoAltText, databaseLookup, status}: Props) {
   return (
-    <div className="flex flex-wrap sticky top-0 rounded-b-[30px] z-20 backdrop-blur-md mt-4 pt-2 pb-4 mb-4 px-4 card-width-main">
+    <div className="flex flex-wrap sticky top-0 rounded-b-[30px] z-20 backdrop-blur-md lg:mt-4 pt-4 pb-4 mb-4 px-4 card-width-main">
       <div className="flex items-center w-full lg:w-auto lg:justify-center gap-4">
         <Image src={logoPath} alt={logoAltText} width={45} height={45} />
         <h1 className="font-robotoFlex variable-semibold text-3xl text-white">
@@ -49,12 +50,16 @@ export default function ProjectHead({title, logoPath, externalLink, logoAltText,
           </div>
       </div>
       <div className="flex gap-4 justify-center items-center -mt-3 lg:-mt-0">
+        
         <LinkButton 
           externalLink={externalLink}
         />
         <FaveButton 
           databaseLookup={databaseLookup}
         />
+        <div className="pl-1">
+        <KBarButton />
+        </div>
       </div>
     </div>
   );

@@ -29,7 +29,6 @@ export default function Page(props: any) {
       <div className="index">
         
         <Layout>
-          <KBarButton />
           <HomeBox 
             projects={props.links} 
             cookie={cookie} 

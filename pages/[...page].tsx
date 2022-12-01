@@ -7,6 +7,7 @@ import Background from "../components/static/Background";
 import Layout from "../components/static/ProjectContentWrapper"
 import ProjectHead from "../components/builder-utils/ProjectHead";
 import BackButton from "../components/static/BackButton";
+import KBarButton from "../components/kbar/KBarButton";
 
 export async function getStaticProps({ params }: any) {
   /*

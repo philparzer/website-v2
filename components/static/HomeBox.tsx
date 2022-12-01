@@ -12,6 +12,7 @@ import IAM from "./IAM";
 import { motion } from "framer-motion";
 import { useQuery } from "react-query";
 import axios from "axios";
+import KBarButton from "../kbar/KBarButton";
 
 interface Props {
   projects: any;
@@ -28,7 +29,12 @@ interface DatabaseProject {
 let projectCounter: number = 0;
 let slicedSortedFavorites: DatabaseProject[];
 
-export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
+export default function HomeBox({
+  projects,
+  cookie,
+  about,
+  IAMStrings,
+}: Props) {
   const [filterOption, setFilterOption] = useState<FilterOptions>(
     FilterOptions.Recents
   );
@@ -44,7 +50,7 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
   const favoritesArray = data?.data;
 
   if (!isLoading && !isError) {
-    const sortedFavorites:DatabaseProject[] = [...favoritesArray].sort(
+    const sortedFavorites: DatabaseProject[] = [...favoritesArray].sort(
       (a: DatabaseProject, b: DatabaseProject) => b.faves - a.faves
     );
     slicedSortedFavorites = sortedFavorites.slice(0, 4);
@@ -57,10 +63,8 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
       </div>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>
-        <div
-          className="absolute
-         top-5 w-full flex justify-end"
-        >
+        <div className="absolute top-5 right-7 w-full flex gap-4 justify-end">
+          <KBarButton />
           {/* <CursorCustomizer cookie={cookie} /> TODO: uncomment when liveblocks */}
         </div>
         <div className="flex flex-col lg:flex-row h-full">
@@ -83,36 +87,36 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
             <ul className="flex flex-row flex-wrap gap-7 lg:gap-10">
               {projects.map((link: any) => {
                 let linkCategory1 = link.data.category.toLowerCase();
-                let linkTags = [linkCategory1]
-                if (link.data.category2) { //if project has more than one category
+                let linkTags = [linkCategory1];
+                if (link.data.category2) {
+                  //if project has more than one category
                   let linkCategory2 = link.data.category2.toLowerCase();
-                  linkTags.push(linkCategory2)
+                  linkTags.push(linkCategory2);
                 }
-                
+
                 let linkIsRecent = link.data.isRecent;
-                
+
                 //if all is selected
                 if (filterOption === FilterOptions.All) {
-                    projectCounter++;
-                    return (
-                      <motion.li
-                        layout
-                        key={link.name}
-                        animate={{ scale: 1, opacity: 1 }}
-                        initial={{ scale: 0.8, opacity: 0.8 }}
-                        transition={{ type: "spring", bounce: 0.25, delay: 0 }}
-                      >
-                        <ProjectLink
-                          url={link.data.link.value.data.url}
-                          color={link.data.color}
-                          name={link.name}
-                          altText={link.data.logoAltText}
-                          logoPath={link.data.logo}
-                        />
-                      </motion.li>
-                    );
-                } 
-
+                  projectCounter++;
+                  return (
+                    <motion.li
+                      layout
+                      key={link.name}
+                      animate={{ scale: 1, opacity: 1 }}
+                      initial={{ scale: 0.8, opacity: 0.8 }}
+                      transition={{ type: "spring", bounce: 0.25, delay: 0 }}
+                    >
+                      <ProjectLink
+                        url={link.data.link.value.data.url}
+                        color={link.data.color}
+                        name={link.name}
+                        altText={link.data.logoAltText}
+                        logoPath={link.data.logo}
+                      />
+                    </motion.li>
+                  );
+                }
 
                 //if favorites is selected
                 if (!isLoading && !isError) {
@@ -142,7 +146,10 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
                             name={link.name}
                             altText={link.data.logoAltText}
                             logoPath={link.data.logo}
-                            favoriteProjects={slicedSortedFavorites.find(element => element.project === link.data.databaseLookup)}
+                            favoriteProjects={slicedSortedFavorites.find(
+                              (element) =>
+                                element.project === link.data.databaseLookup
+                            )}
                           />
                         </motion.li>
                       );
@@ -172,34 +179,33 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
                       </motion.li>
                     );
                   }
-                } 
-                
+                }
+
                 //if other option in enum is selected
                 else if (
                   linkTags.includes(FilterOptions[filterOption].toLowerCase())
                 ) {
                   projectCounter++;
-                  
-                    return (
-                      <motion.li
-                        layout
-                        key={link.name}
-                        animate={{ scale: 1, opacity: 1 }}
-                        initial={{ scale: 0.8, opacity: 0.8 }}
-                        transition={{ type: "spring", bounce: 0.25, delay: 0 }}
-                      >
-                        <ProjectLink
-                          url={link.data.link.value.data.url}
-                          color={link.data.color}
-                          name={link.name}
-                          altText={link.data.logoAltText}
-                          logoPath={link.data.logo}
-                        />
-                      </motion.li>
-                    );
-                  }
+
+                  return (
+                    <motion.li
+                      layout
+                      key={link.name}
+                      animate={{ scale: 1, opacity: 1 }}
+                      initial={{ scale: 0.8, opacity: 0.8 }}
+                      transition={{ type: "spring", bounce: 0.25, delay: 0 }}
+                    >
+                      <ProjectLink
+                        url={link.data.link.value.data.url}
+                        color={link.data.color}
+                        name={link.name}
+                        altText={link.data.logoAltText}
+                        logoPath={link.data.logo}
+                      />
+                    </motion.li>
+                  );
                 }
-              )}
+              })}
 
               {/*Render something if no projects for current selection*/}
               {projectCounter === 0 &&
@@ -209,7 +215,8 @@ export default function HomeBox({projects, cookie, about, IAMStrings}: Props) {
                   <>loading...</>
                 ) : isError ? ( //favorites is selected but query error
                   <>hmm something went wrong</>
-                ) : ( //no items for current selection
+                ) : (
+                  //no items for current selection
                   <>nothing to see here</>
                 ))}
             </ul>
