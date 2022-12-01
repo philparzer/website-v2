@@ -30,7 +30,7 @@ export default function RenderResults({}: Props) {
               fontStyle: active ? "600" : "400",
               zIndex: 100,
               fontFamily: "Roboto Flex",
-              overflow: "scroll",
+              overflow: "hidden",
             }}
           >
             <span
