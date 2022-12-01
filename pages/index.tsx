@@ -1,5 +1,5 @@
 import { RoomProvider } from "../liveblocks.config";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import { useCookie } from "next-cookie";
 import MultiplayerScene from "../components/static/MultiplayerScene";
@@ -8,10 +8,27 @@ import { builder } from '@builder.io/sdk'
 import HomeBox from "../components/static/HomeBox";
 import { BuilderComponent } from "@builder.io/react";
 import KBarButton from "../components/kbar/KBarButton";
+import { useRegisterActions, createAction } from "kbar";
+import { contactActions, legalActions, redirect } from "../components/kbar/kbarActions"
 
 export default function Page(props: any) {
   // const roomId = useOverrideRoomId("nextjs-live-cursors-chat"); //TODO: test this w more than 10
   const cookie = useCookie(props.cookie);
+
+  let projects = props.links.map((project:any) => {
+    return {
+      id: project.name,
+      name: project.name,
+      section: "Projects",
+      perform: () => (
+        redirect(window.location, project.data.link.value.data.url, "")
+      )
+    }
+  })
+
+  let actions = contactActions.concat(projects).concat(legalActions)
+
+  useRegisterActions(actions, [actions])
 
   return (
     // <RoomProvider TODO: uncomment to enable multiplayer

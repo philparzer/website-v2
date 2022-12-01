@@ -7,7 +7,7 @@ const KBarButton = ({}) => {
     <div className="">
       <button
         onClick={query.toggle}
-        className="flex items-center gap-1 group"
+        className="flex items-center gap-1 group focus-visible:none"
       >
         <svg
           className="h-4"

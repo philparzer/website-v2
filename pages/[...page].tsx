@@ -1,13 +1,15 @@
 import { useRouter } from "next/router";
 import DefaultErrorPage from "next/error";
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
 import Background from "../components/static/Background";
 import Layout from "../components/static/ProjectContentWrapper"
 import ProjectHead from "../components/builder-utils/ProjectHead";
 import BackButton from "../components/static/BackButton";
 import KBarButton from "../components/kbar/KBarButton";
+import { redirect } from "../components/kbar/kbarActions"
+import { useRegisterActions } from "kbar";
 
 export async function getStaticProps({ params }: any) {
   /*
@@ -32,7 +34,8 @@ export async function getStaticProps({ params }: any) {
   return {
     props: {
       page: page || null,
-      link: correctLink || null
+      links: links,
+      link: correctLink || null,
     },
     revalidate: 5,
   };
@@ -53,16 +56,38 @@ export async function getStaticPaths() {
 
   return {
     paths: pages.map((page) => `${page.data?.url}`),
-    fallback: true,
+    fallback: "blocking",
   };
 }
 
-export default function Page({ page, link }: any) {
+export default function Page({ page, link, links }: any) {
   const router = useRouter();
   /*
     This flag indicates if you are viewing the page in the Builder editor.
   */
   const isPreviewing = useIsPreviewing();
+  const [kbarProjects, setKbarProjects] = useState<any>([])
+
+  useEffect(() => {
+    let projects = links.map((project:any) => {
+    return {
+      id: project.name,
+      name: project.name,
+      section: "Projects",
+      perform: () => (
+        redirect(window.location, project.data.link.value.data.url, "")
+      )
+    }
+    })
+
+    setKbarProjects(projects)
+  }, [])
+  
+
+  
+
+  useRegisterActions(kbarProjects, [kbarProjects])
+
 
   if (router.isFallback) {
     return <h1>Loading...</h1>; //TODO: look into this

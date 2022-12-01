@@ -2,7 +2,7 @@
 TODO:
 */
 
-const redirect = (page:any, slug:string, anchor:string) => {
+export const redirect = (page:any, slug:string, anchor:string) => {
 
   if (slug === "") {
     if (page === "/")
@@ -19,7 +19,7 @@ const redirect = (page:any, slug:string, anchor:string) => {
   else {page.href = `${slug}#${anchor}`}
 }
 
-export const actions:any = [
+export const contactActions:any = [
   {
     id: "email",
     name: "Email",
@@ -61,7 +61,9 @@ export const actions:any = [
     ),
   },
 
-  //Static Subpages
+]
+
+export const legalActions:any = [
   {
     id: "imprint",
     name: "Imprint",
@@ -75,7 +77,4 @@ export const actions:any = [
     section: "Legal",
     perform: () => (redirect(window.location, "imprint", "")),
   },
-
-  //TODO: get from api
-
 ]

@@ -178,3 +178,7 @@
   49%, 50% { top: -9rem; }
   59%, 100% { top: 0rem; }
 }
+
+.kbar-results-parent div {
+  overflow: hidden!important;
+}

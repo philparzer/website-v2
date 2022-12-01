@@ -14,12 +14,14 @@ import {
   KBarPortal,
   KBarPositioner,
   KBarAnimator,
-  KBarSearch
+  KBarSearch,
 } from "kbar";
 
-import { actions } from "../components/kbar/kbarActions"
+import { contactActions, legalActions, redirect } from "../components/kbar/kbarActions"
 import { searchStyle, animatorStyle } from "../components/kbar/kbarStyles";
 import RenderResults from "../components/kbar/RenderResults";
+import { useEffect, useState } from 'react'
+import { linkSync } from "fs";
 
 //FIXME: init builder client once
 if (process.env.NEXT_PUBLIC_BUILDERIO_KEY) {
@@ -139,12 +141,13 @@ Builder.registerComponent(
   }
 );
 
-function App({ Component, pageProps }: AppProps) {
+function App(props: any) {
+
   return (
     <>
-    <KBarProvider actions={actions}>
+    <KBarProvider>
       <KBarPortal> 
-        <KBarPositioner style={{zIndex: 100}}>
+        <KBarPositioner style={{zIndex: 100, overflow:"hidden"}}>
         <KBarAnimator style={animatorStyle}>
             <KBarSearch style={searchStyle} defaultPlaceholder={"Looking for something?"}/>
             <RenderResults/>
@@ -155,7 +158,7 @@ function App({ Component, pageProps }: AppProps) {
         <title>Philipp Parzer</title>
       </Head>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <props.Component {...props.pageProps} />
       </QueryClientProvider>
     </KBarProvider>
     </>

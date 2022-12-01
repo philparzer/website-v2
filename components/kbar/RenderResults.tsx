@@ -15,7 +15,7 @@ export default function RenderResults({}: Props) {
   console.log(results)
 
   return(
-    <div className="p-[30px] pt-2 bg-white max-h-[50vh] overflow-auto">
+    <div className="p-[30px] pr-0 pt-2 bg-white max-h-[50vh] overflow-auto kbar-results-parent">
       <KBarResults
       items={results}
       onRender={({ item, active }) =>
@@ -25,6 +25,7 @@ export default function RenderResults({}: Props) {
           <div
             style={{
               paddingBottom: 5,
+              paddingRight: 30,
               fontSize: "16px",
               color: active ? "black": "#9CA3AF",
               fontStyle: active ? "600" : "400",
@@ -53,7 +54,8 @@ export default function RenderResults({}: Props) {
               background: "white",
               fontSize: "16px",
               zIndex: 100,
-              fontFamily: "Roboto Flex"
+              fontFamily: "Roboto Flex",
+              overflow: "hidden"
             }}
           >no results</div>}
     </div>

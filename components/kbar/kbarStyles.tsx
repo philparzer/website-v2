@@ -14,7 +14,7 @@ export const searchStyle:any = {
   background: "white",
   color: "#000000",
   zIndex: 100,
-  isolation: "isolate"
+  overflow: "hidden",
 };
 
 export const animatorStyle:any = {
@@ -31,6 +31,7 @@ export const animatorStyle:any = {
 
 export const groupNameStyle:any = {
   paddingBottom: 10,
+  overflow: "hidden",
   paddingTop: 10,
   textTransform: "uppercase",
   fontSize: "16px",
