@@ -15,7 +15,7 @@ export default function RenderResults({}: Props) {
   console.log(results)
 
   return(
-    <div className="p-[30px] pr-0 pt-2 bg-white max-h-[50vh] overflow-auto kbar-results-parent">
+    <div className="p-[30px] pr-0 pt-2 bg-white max-h-[70vh] md:max-h-[50vh] overflow-auto">
       <KBarResults
       items={results}
       onRender={({ item, active }) =>

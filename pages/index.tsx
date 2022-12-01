@@ -26,7 +26,8 @@ export default function Page(props: any) {
     }
   })
 
-  let actions = contactActions.concat(projects).concat(legalActions)
+  let actions = contactActions.concat(projects)
+  actions = actions.concat(legalActions)
 
   useRegisterActions(actions, [actions])
 

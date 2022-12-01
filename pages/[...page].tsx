@@ -8,7 +8,7 @@ import Layout from "../components/static/ProjectContentWrapper"
 import ProjectHead from "../components/builder-utils/ProjectHead";
 import BackButton from "../components/static/BackButton";
 import KBarButton from "../components/kbar/KBarButton";
-import { redirect } from "../components/kbar/kbarActions"
+import { redirect, contactActions, legalActions } from "../components/kbar/kbarActions"
 import { useRegisterActions } from "kbar";
 
 export async function getStaticProps({ params }: any) {
@@ -17,24 +17,22 @@ export async function getStaticProps({ params }: any) {
     The `userAttributes` field is used for targeting content,
     learn more here: https://www.builder.io/c/docs/targeting-with-builder
   */
+  const links = await builder.getAll('project', {
+    });
   const page = await builder
     .get("page", {
       userAttributes: {
         urlPath: "/" + (params?.page?.join("/") || ""),
       },
     })
-    
     .toPromise();
 
-  const links = await builder.getAll('project', {
-  });
-
-  const correctLink = links.filter((item:any) => item.data.link.value.data.url === page.data.url)[0]
+  const correctLink:any = links.filter((item:any) => item.data.link.value.data.url === page.data.url)[0]
 
   return {
     props: {
       page: page || null,
-      links: links,
+      links: links || null,
       link: correctLink || null,
     },
     revalidate: 5,
@@ -79,8 +77,9 @@ export default function Page({ page, link, links }: any) {
       )
     }
     })
+    let actions = contactActions.concat(projects).concat(legalActions)
 
-    setKbarProjects(projects)
+    setKbarProjects(actions)
   }, [])
   
 
