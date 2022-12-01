@@ -17,12 +17,13 @@ export default function Page(props: any) {
 
   let projects = props.links.map((project:any) => {
     return {
-      id: project.name,
+      id: project.data.databaseLookup,
       name: project.name,
       section: "Projects",
       perform: () => (
         redirect(window.location, project.data.link.value.data.url, "")
-      )
+      ),
+      thumbnail: project.data.logo
     }
   })
 

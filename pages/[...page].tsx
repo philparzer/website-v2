@@ -54,7 +54,7 @@ export async function getStaticPaths() {
 
   return {
     paths: pages.map((page) => `${page.data?.url}`),
-    fallback: "blocking",
+    fallback: "blocking", //TODO: look into
   };
 }
 
@@ -69,12 +69,13 @@ export default function Page({ page, link, links }: any) {
   useEffect(() => {
     let projects = links.map((project:any) => {
     return {
-      id: project.name,
+      id: project.data.databaseLookup,
       name: project.name,
       section: "Projects",
       perform: () => (
         redirect(window.location, project.data.link.value.data.url, "")
-      )
+      ),
+      thumbnail: project.data.logo
     }
     })
     let actions = contactActions.concat(projects).concat(legalActions)
