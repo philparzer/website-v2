@@ -147,7 +147,7 @@ function App(props: any) {
     <>
     <KBarProvider>
       <KBarPortal> 
-        <KBarPositioner style={{zIndex: 100, overflow:"hidden"}}>
+        <KBarPositioner style={{zIndex: 100, overflow:"hidden", background: "rgba(72, 52, 52, 0.25)"}}>
         <KBarAnimator style={animatorStyle}>
             <KBarSearch style={searchStyle} defaultPlaceholder={"Looking for something?"}/>
             <RenderResults/>
