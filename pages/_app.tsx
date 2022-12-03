@@ -23,6 +23,8 @@ import RenderResults from "../components/kbar/RenderResults";
 import { useEffect, useState } from 'react'
 import { linkSync } from "fs";
 
+import { Analytics } from '@vercel/analytics/react';
+
 //FIXME: init builder client once
 if (process.env.NEXT_PUBLIC_BUILDERIO_KEY) {
   builder.init(process.env.NEXT_PUBLIC_BUILDERIO_KEY);
@@ -174,6 +176,7 @@ function App(props: any) {
       </Head>
       <QueryClientProvider client={queryClient}>
         <props.Component {...props.pageProps} />
+        <Analytics />
       </QueryClientProvider>
     </KBarProvider>
     </>
