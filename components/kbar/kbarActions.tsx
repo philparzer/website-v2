@@ -68,13 +68,16 @@ export const legalActions:any = [
     id: "imprint",
     name: "Imprint",
     section: "Legal",
-    perform: () => (redirect(window.location, "imprint", "")),
+    perform: () => (redirect(window.location, "imprint", "/imprint")),
   },
 
   {
     id: "gdpr",
     name: "GDPR",
     section: "Legal",
-    perform: () => (redirect(window.location, "imprint", "")),
+    perform: () => (window.open(
+      "https://www.freeprivacypolicy.com/live/44004c26-f156-45c3-9d1c-a7a0d4de864f",
+      '_blank'
+    )),
   },
 ]

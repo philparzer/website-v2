@@ -178,3 +178,17 @@
   49%, 50% { top: -9rem; }
   59%, 100% { top: 0rem; }
 }
+
+.richtext h2{
+  font-size: 1.25rem/* 24px */;
+  line-height: 1.75rem/* 32px */;
+  margin-bottom: 0.5rem;
+  font-variation-settings: 'wght' 800, 'wdth' 300;
+}
+
+
+.richtext h3{
+  font-size: 1.125rem/* 18px */;
+  line-height: 1.75rem/* 28px */;
+  font-variation-settings: 'wght' 800, 'wdth' 300;
+}
