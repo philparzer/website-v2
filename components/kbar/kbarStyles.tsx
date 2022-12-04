@@ -40,5 +40,4 @@ export const groupNameStyle:any = {
   zIndex: 100,
   fontFamily: "Roboto Flex",
   fontVariationSettings: "'wght' 800, 'wdth' 300",
-  isolation: "isolate"
 };
