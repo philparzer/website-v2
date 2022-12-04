@@ -60,6 +60,16 @@ export const contactActions:any = [
     )
     ),
   },
+  {
+    id: "discord",
+    name: "Discord",
+    section: "Contact",
+    perform: () => (window.open(
+      "https://discord.gg/QGyDbpBMgX",
+      '_blank'
+    )
+    ),
+  },
 
 ]
 
