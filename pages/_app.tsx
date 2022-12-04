@@ -215,6 +215,7 @@ function App(props: any) {
       </KBarPortal>
       <Head>
         <title>Philipp Parzer</title>
+        <meta name="viewport" content="viewport-fit=cover" />
         {/* <Favicon /> */}
       </Head>
       <QueryClientProvider client={queryClient}>

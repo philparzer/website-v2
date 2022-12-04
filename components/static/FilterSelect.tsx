@@ -22,7 +22,7 @@ export default function FilterSelect({ updateFilter, filterOption }:Props) {
     }
 
     return (
-        <div className=" bg-main-black text-white rounded-full px-3 lg:py-1 mt-2 mb-1 flex h-[33px] lg:items-center" >
+        <div className=" bg-main-black text-white rounded-full px-3 lg:py-1 mt-2 mb-1 flex h-[33px] lg:items-center relative z-20" >
            <select className="bg-main-black dark:placeholder-white focus:outline-none" value={filterOption} onChange={(e) => onFilterSelectChange(e)}>
                 {filterOptions.map((option, index) => 
                     <option className="bg-main-black" key={index} value={index}>{option}</option>
