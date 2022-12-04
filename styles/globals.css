@@ -80,25 +80,25 @@
 }
 
 /* width */
-/* .index *::-webkit-scrollbar {
+.windows-scrollbars *::-webkit-scrollbar {
   width: 7px;
-} */
+}
 
 /* Track */
-/* .index *::-webkit-scrollbar-track {
+.windows-scrollbars *::-webkit-scrollbar-track {
   
-} */
+}
 
 /* Handle */
-/* .index *::-webkit-scrollbar-thumb {
+.windows-scrollbars *::-webkit-scrollbar-thumb {
   background: #483434; 
   border-radius: 30px;
-} */
+}
 
 /* Handle on hover */
-/* .card::-webkit-scrollbar-thumb:hover {
+.card::-webkit-scrollbar-thumb:hover {
   background: #483434;
-} */
+}
 
 
 

@@ -32,6 +32,12 @@ export default function Page(props: any) {
 
   useRegisterActions(actions, [actions])
 
+  const [isWindows, setIsWindows] = useState(false)
+
+  useEffect(() => {
+    if (navigator.userAgent.indexOf('Win') != -1) setIsWindows(true);
+  }, [])
+
   return (
     // <RoomProvider TODO: uncomment to enable multiplayer
     //   id={roomId}
@@ -45,7 +51,7 @@ export default function Page(props: any) {
     //   })}
     // >
       // <MultiplayerScene>{/*Renders Cursors*/}
-      <div className="index">
+      <div className={`${isWindows && "windows-scrollbars"}`}>
         
         <Layout>
           <HomeBox 
