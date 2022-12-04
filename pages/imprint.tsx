@@ -33,8 +33,8 @@ export default function Page(props: any) {
   return (
     <>
       <Layout>
-      <>
-      <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px]">
+      <div className="index">
+      <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] ">
         <IAM IAMStrings={props.IAMStrings} />
       </div>
       <div className="relative w-11/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
@@ -43,11 +43,11 @@ export default function Page(props: any) {
           <KBarButton />
           {/* <CursorCustomizer cookie={cookie} /> TODO: uncomment when liveblocks */}
         </div>
-        <div className="h-full overflow-scroll">
+        <div className="h-full overflow-auto ">
           <BuilderComponent model="imprint" content={props.imprint} />
         </div>
         </div>
-        </>
+        </div>
       </Layout>
     </>
   );
