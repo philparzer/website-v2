@@ -159,6 +159,47 @@ Builder.registerComponent(
   }
 );
 
+Builder.registerComponent(
+  dynamic((): any => import("../components/builder/TextBlock")),
+  {
+    name: "Text Block",
+    inputs: [
+      {
+        name: "body",
+        type: "richText",
+        defaultValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+    ],
+  }
+);
+
+Builder.registerComponent(
+  dynamic((): any => import("../components/builder/InlineImage")),
+  {
+    name: "Inline Image",
+    inputs: [
+      {
+        name: "path",
+        type: "file",
+      },
+      {
+        name: "alt",
+        type: "string",
+      },
+      {
+        name: "width",
+        type: "number",
+        defaultValue: 200
+      },
+      {
+        name: "height",
+        type: "number",
+        defaultValue: 200
+      },
+    ],
+  }
+);
+
 function App(props: any) {
 
   return (

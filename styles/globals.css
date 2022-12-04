@@ -192,3 +192,11 @@
   line-height: 1.75rem/* 28px */;
   font-variation-settings: 'wght' 800, 'wdth' 300;
 }
+
+.richtext li {
+  padding-top: 5px;
+}
+
+.richtext a{
+  text-decoration: underline solid 2px;
+}
