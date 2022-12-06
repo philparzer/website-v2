@@ -17,9 +17,9 @@ export async function getStaticProps({ params }: any) {
     The `userAttributes` field is used for targeting content,
     learn more here: https://www.builder.io/c/docs/targeting-with-builder
   */
-  const links = await builder.getAll('project', {
+  const links:any = await builder.getAll('project', {
     });
-  const page = await builder
+  const page:any = await builder
     .get("page", {
       userAttributes: {
         urlPath: "/" + (params?.page?.join("/") || ""),
@@ -27,7 +27,7 @@ export async function getStaticProps({ params }: any) {
     })
     .toPromise();
 
-  const correctLink:any = links.filter((item:any) => item.data.link.value.data.url === page.data.url)[0]
+  const correctLink:any = links.filter((item:any) => item.data.link.value.data.url === page?.data?.url)[0]
 
   return {
     props: {

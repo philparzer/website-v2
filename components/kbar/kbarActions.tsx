@@ -24,6 +24,7 @@ export const contactActions:any = [
     id: "email",
     name: "Email",
     section: "Contact",
+    keywords: "имейл",
     perform: () => (window.open(
       "mailto:parzerphilipp@gmail.com"
     )
@@ -33,6 +34,7 @@ export const contactActions:any = [
     id: "linkedin",
     name: "LinkedIn",
     section: "Contact",
+    keywords: "линкдин",
     perform: () => (window.open(
       "https://www.linkedin.com/in/philipp-parzer/",
       '_blank'
@@ -44,6 +46,7 @@ export const contactActions:any = [
     id: "github",
     name: "Github",
     section: "Contact",
+    keywords: "гитхаб",
     perform: () => (window.open(
       "https://github.com/philparzer",
       '_blank'
@@ -54,6 +57,7 @@ export const contactActions:any = [
     id: "twitter",
     name: "Twitter",
     section: "Contact",
+    keywords: "твиттер",
     perform: () => (window.open(
       "https://twitter.com/philipp_parzer",
       '_blank'
@@ -64,6 +68,7 @@ export const contactActions:any = [
     id: "discord",
     name: "Discord",
     section: "Contact",
+    keywords: "дискорд",
     perform: () => (window.open(
       "https://discord.gg/QGyDbpBMgX",
       '_blank'
@@ -78,6 +83,7 @@ export const legalActions:any = [
     id: "imprint",
     name: "Imprint",
     section: "Legal",
+    keywords: "импринт, impressum",
     perform: () => (redirect(window.location, "imprint", "/imprint")),
   },
 
@@ -85,6 +91,7 @@ export const legalActions:any = [
     id: "gdpr",
     name: "GDPR",
     section: "Legal",
+    keywords: "гдпр, dsgvo",
     perform: () => (window.open(
       "https://www.freeprivacypolicy.com/live/44004c26-f156-45c3-9d1c-a7a0d4de864f",
       '_blank'

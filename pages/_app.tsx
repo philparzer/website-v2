@@ -24,7 +24,9 @@ import RenderResults from "../components/kbar/RenderResults";
 import { useEffect, useState } from 'react'
 import { linkSync } from "fs";
 
+import { useRouter } from "next/router";
 import { Analytics } from '@vercel/analytics/react';
+import { localizedKBar, localizedStaticContent } from "../localization/dict";
 
 //FIXME: init builder client once
 if (process.env.NEXT_PUBLIC_BUILDERIO_KEY) {
@@ -202,14 +204,17 @@ Builder.registerComponent(
 
 function App(props: any) {
 
+  const router = useRouter()
+  const locale:any = router.locale;
+
   return (
     <>
     <KBarProvider>
       <KBarPortal> 
         <KBarPositioner style={{zIndex: 100, overflow:"hidden", backdropFilter: "blur(4px)"}}>
         <KBarAnimator style={animatorStyle}>
-            <KBarSearch style={searchStyle} defaultPlaceholder={"Looking for something?"}/>
-            <RenderResults/>
+            <KBarSearch style={searchStyle} defaultPlaceholder={localizedKBar.kbarSearch[locale]}/>
+            <RenderResults locale={locale}/>
           </KBarAnimator>
         </KBarPositioner>
       </KBarPortal>

@@ -5,18 +5,22 @@ I am Philipp text component
 
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { localizedStaticContent } from "../../localization/dict";
 
 interface Props {
-    IAMStrings: any
+    IAMStrings: any;
+    locale: string;
 }
 
-export default function IAM({ IAMStrings }:Props) {
+export default function IAM({ IAMStrings, locale }:Props) {
 
     const [firstRender, setFirstRender] = useState<boolean>(false);
 
     useEffect(() => {
         setFirstRender(true)
     }, [])
+
+    console.log(IAMStrings)
 
     return (
         <>
@@ -26,11 +30,12 @@ export default function IAM({ IAMStrings }:Props) {
                     {firstRender === true
                     ? 
                         <>
-                            <p className="text-white opacity-60 px-2">I'm</p>
+                            <p className="text-white opacity-60 px-2">{localizedStaticContent.IAM[locale]}</p>
                             <div className="animation-subject text-white relative">
                                 
                                 {IAMStrings.map((item:any, index:number) => 
-                                    <div key={index}>{item.data.string}</div>
+                                    <div key={index}>
+                                      {locale === "en" ? item.data.string.Default : item.data.string[locale]}.</div>
                                 )}
                             </div>
                         </>

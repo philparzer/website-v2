@@ -5,6 +5,7 @@ TODO:
 import { useMatches, KBarResults } from "kbar";
 import { groupNameStyle } from "./kbarStyles";
 import Image from 'next/image'
+import { localizedKBar, localizedStaticContent } from "../../localization/dict";
 
 const svgIcons:any = {
   email: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill-opacity="0.2" d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/></svg>,
@@ -16,9 +17,11 @@ const svgIcons:any = {
   discord:<svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-opacity="0.2" d="M19.6361 4.48187C18.212 3.83631 16.6893 3.36715 15.0973 3.1C14.9018 3.44247 14.6734 3.90311 14.5159 4.26954C12.8236 4.02296 11.1469 4.02296 9.48573 4.26954C9.32828 3.90311 9.09468 3.44247 8.89741 3.1C7.30374 3.36715 5.77928 3.83804 4.35518 4.48529C1.48276 8.69077 0.70409 12.7918 1.09342 16.8346C2.99856 18.213 4.84487 19.0504 6.66003 19.5983C7.1082 19.0007 7.50791 18.3654 7.85224 17.6959C7.19644 17.4545 6.56832 17.1565 5.97482 16.8106C6.13227 16.6976 6.28628 16.5795 6.43508 16.4579C10.055 18.0983 13.9882 18.0983 17.5648 16.4579C17.7154 16.5795 17.8694 16.6976 18.0251 16.8106C17.4299 17.1582 16.8 17.4562 16.1442 17.6976C16.4885 18.3654 16.8865 19.0024 17.3364 19.6C19.1533 19.0521 21.0014 18.2147 22.9065 16.8346C23.3633 12.148 22.1261 8.0846 19.6361 4.48187ZM8.34541 14.3483C7.25874 14.3483 6.36759 13.3654 6.36759 12.1685C6.36759 10.9716 7.23972 9.98701 8.34541 9.98701C9.45114 9.98701 10.3423 10.9699 10.3232 12.1685C10.325 13.3654 9.45114 14.3483 8.34541 14.3483ZM15.6545 14.3483C14.5678 14.3483 13.6767 13.3654 13.6767 12.1685C13.6767 10.9716 14.5488 9.98701 15.6545 9.98701C16.7602 9.98701 17.6514 10.9699 17.6323 12.1685C17.6323 13.3654 16.7602 14.3483 15.6545 14.3483Z" fill="black"/></svg>
 }
 
-interface Props {}
+interface Props {
+  locale: string
+}
 
-export default function RenderResults({}: Props) {
+export default function RenderResults({locale}: Props) {
   const { results }: any = useMatches();
   console.log(results);
 
@@ -28,7 +31,7 @@ export default function RenderResults({}: Props) {
         items={results}
         onRender={({ item, active }:any) =>
           typeof item === "string" ? (
-            <div style={groupNameStyle}>{item}</div>
+            <div style={groupNameStyle}>{localizedKBar[item][locale]}</div>
           ) : (
             <div
               style={{
@@ -56,7 +59,7 @@ export default function RenderResults({}: Props) {
                       <Image 
                         width={18}
                         height={18}
-                        alt={""}
+                        alt={"TODO:"}
                         src={item.thumbnail}
                       />
                     </span>
@@ -69,7 +72,7 @@ export default function RenderResults({}: Props) {
                 </span>
                 {active && (
                   <span className="bg-gray-200 p-0.5 px-2 text-sm rounded-[10px]">
-                    go →
+                    {localizedKBar.go[locale]}
                   </span>
                 )}
               </span>
@@ -87,7 +90,7 @@ export default function RenderResults({}: Props) {
             overflow: "hidden",
           }}
         >
-          no results
+          {localizedKBar.noResults[locale]} :{"("}
         </div>
       )}
     </div>

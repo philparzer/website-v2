@@ -19,6 +19,7 @@ interface Props {
   cookie: any;
   about: any;
   IAMStrings: any;
+  locale: string;
 }
 
 interface DatabaseProject {
@@ -34,6 +35,7 @@ export default function HomeBox({
   cookie,
   about,
   IAMStrings,
+  locale
 }: Props) {
   const [filterOption, setFilterOption] = useState<FilterOptions>(
     FilterOptions.Recents
@@ -59,7 +61,7 @@ export default function HomeBox({
   return (
     <>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px]">
-        <IAM IAMStrings={IAMStrings} />
+        <IAM IAMStrings={IAMStrings} locale={locale}/>
       </div>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>
@@ -71,12 +73,14 @@ export default function HomeBox({
           <div className="flex flex-col justify-center border-b-2 lg:border-r-2 lg:border-b-0 border-trans-white lg:w-[20%]">
             <div className="h-[70%] filter-list-desktop text-white">
               <FilterList
+                locale={locale}
                 updateFilter={updateFilter}
                 filterOption={filterOption}
               />
             </div>
             <div className="flex h-[58px] lg:h-full lg:pt-20 filter-select-desktop w-full px-5 lg:items-start items-center lg:justify-center">
               <FilterSelect
+                locale={locale}
                 updateFilter={updateFilter}
                 filterOption={filterOption}
               />

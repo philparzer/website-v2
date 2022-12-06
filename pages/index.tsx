@@ -55,9 +55,10 @@ export default function Page(props: any) {
         
         <Layout>
           <HomeBox 
+            locale={props.locale}
             projects={props.links} 
             cookie={cookie} 
-            about={<BuilderComponent model="about" content={props.about} />}
+            about={<BuilderComponent model="about" content={props.about} data={{ locale: props.locale }}/>}
             IAMStrings={props.IAMStrings}
           />
         </Layout>
@@ -79,20 +80,23 @@ export default function Page(props: any) {
 // }
 
 
-export async function getStaticProps({ params }:any) {
+export async function getStaticProps({ params, locale }:any) {
   const urlPath = '/' + (params?.page?.join('/') || '');
   const links = await builder.getAll('project', {
   });
-  const about = await builder
-    .get('about', { userAttributes: { urlPath } })
-    .toPromise();
-    const IAMStrings = await builder.getAll('i-am', {
-    });
+  
+
+
+  const about = await builder.get('about', { url: urlPath,}).toPromise();
+
+  const IAMStrings = await builder.getAll('i-am', {});
+
   return {
     props: {
       links: links || null,
       about: about || null,
       IAMStrings: IAMStrings || null,
+      locale: locale || null
     },
     revalidate: 5,
   };
