@@ -39,7 +39,6 @@ export default function CursorCustomizer(props: Props) {
 
   //TODO: add interface for data
   const onSubmit = (data: any) => {
-    console.log(data);
     cookie.set("name", data.username);
     cookie.set("visibilityPref", data.visibilityPref);
     updateMyPresence({

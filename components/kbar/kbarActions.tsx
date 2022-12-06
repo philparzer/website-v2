@@ -3,7 +3,7 @@ TODO:
 */
 
 export const redirect = (page:any, slug:string, anchor:string) => {
-
+  //FIXME: redirect to localized content doesnt work
   if (slug === "") {
     if (page === "/")
     {
@@ -84,7 +84,7 @@ export const legalActions:any = [
     name: "Imprint",
     section: "Legal",
     keywords: "импринт, impressum",
-    perform: () => (redirect(window.location, "imprint", "/imprint")),
+    perform: () => (redirect(window.location, "imprint", "")),
   },
 
   {

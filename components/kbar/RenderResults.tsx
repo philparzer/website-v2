@@ -23,7 +23,6 @@ interface Props {
 
 export default function RenderResults({locale}: Props) {
   const { results }: any = useMatches();
-  console.log(results);
 
   return (
     <div className="p-[30px] pr-0 pt-2 bg-white">

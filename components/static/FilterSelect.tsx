@@ -19,7 +19,6 @@ const filterOptions:string[] = enumToValueArray(Object.values(FilterOptions));
 export default function FilterSelect({ updateFilter, filterOption, locale }:Props) {
 
     const onFilterSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        console.log(e.target.value);
         updateFilter(parseInt(e.target.value));
     }
 

@@ -20,8 +20,6 @@ export default function IAM({ IAMStrings, locale }:Props) {
         setFirstRender(true)
     }, [])
 
-    console.log(IAMStrings)
-
     return (
         <>
             <div className="text-3xl text-white pb-6 lg:pb-8 font-roboto px-4 lg:px-10 flex items-center ">
