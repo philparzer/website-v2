@@ -1,11 +1,17 @@
 import { useKBar } from "kbar";
+import { localizedKBar } from "../../localization/dict";
 
-const KBarButton = ({}) => {
+interface Props {
+  locale: string;
+}
+
+const KBarButton = ({locale}: Props) => {
   const { query, options } = useKBar();
 
   return (
     <div className="">
       <button
+        title={localizedKBar.searchButton[locale]}
         onClick={query.toggle}
         className="flex items-center gap-1 group focus-visible:none"
       >

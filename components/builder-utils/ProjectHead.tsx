@@ -63,7 +63,7 @@ export default function ProjectHead({locale, title, logoPath, externalLink, logo
         />
         <LanguageSelect locale={locale}/>
         <div className="lg:pl-1">
-        <KBarButton />
+        <KBarButton locale={locale}/>
         </div>
       </div>
     </div>

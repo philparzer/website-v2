@@ -64,6 +64,11 @@ export const localizedKBar:any = {
     de: "Projekte",
     ru: "Проекты"
   },
+  searchButton: {
+    en: "navigation menu",
+    de: "Navigationsmenü",
+    ru: "меню навигации"
+  }
 }
 
 export const localizedStaticContent:any = {
@@ -102,4 +107,19 @@ export const localizedStaticContent:any = {
     de: "abgeschlossen",
     ru: "завершено"
   },
+  username: {
+    en: "username",
+    de: "Username",
+    ru: "имя пользователя"
+  },
+  visibility: {
+    en: "visible to others",
+    de: "für andere sichtbar",
+    ru: "вас видно другим"
+  },
+  save: {
+    en: "save",
+    de: "speichern",
+    ru: "cохранить"
+  }
 }

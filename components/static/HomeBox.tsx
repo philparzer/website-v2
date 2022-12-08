@@ -66,10 +66,10 @@ export default function HomeBox({
       </div>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>
-        <div className="absolute top-5 right-7 w-full flex gap-2 justify-end items-center">
+        <div className="absolute top-5 right-7 w-full flex gap-4 justify-end items-center">
           <LanguageSelect locale={locale}/>
-          <KBarButton />
-          {/* <CursorCustomizer cookie={cookie} /> TODO: uncomment when liveblocks */}
+          <CursorCustomizer cookie={cookie} locale={locale}/>
+          <KBarButton locale={locale}/>
         </div>
         <div className="flex flex-col lg:flex-row h-full">
           <div className="flex flex-col justify-center border-b-2 lg:border-r-2 lg:border-b-0 border-trans-white lg:w-[20%]">
