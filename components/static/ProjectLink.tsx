@@ -66,13 +66,8 @@ export default function ProjectLink({ url, color, name, altText, logoPath, favor
             className={`right-[0px] -top-7 z-10 absolute text-main-black px-2 rounded-full backdrop:blur-xl bg-trans-white flex text-sm items-center gap-1 pt-0.5`}
           >
             <div className="pb-0.5">
-            <Image 
-              width={10}
-              height={10}
-              src="/svgs/fave.svg"
-              alt="favorite icon"
-            >
-            </Image>
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" className={`stroke-main-black fill-main-black`} viewBox="0 0 24 24"><path d="M23.677 18.52c.914 1.523-.183 3.472-1.967 3.472h-19.414c-1.784 0-2.881-1.949-1.967-3.472l9.709-16.18c.891-1.483 3.041-1.48 3.93 0l9.709 16.18z"/></svg>
+
             </div>
             <p>
             {favoriteProjects?.faves}

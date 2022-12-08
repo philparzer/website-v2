@@ -10,6 +10,7 @@ import { ProjectStatus } from "../../shared-ts/enums";
 import BackButton from "../static/BackButton";
 import KBarButton from "../kbar/KBarButton"
 import LanguageSelect from "../static/LanguageSelect";
+import { localizedStaticContent } from "../../localization/dict"
 
 interface Props {
   title: string;
@@ -48,15 +49,17 @@ export default function ProjectHead({locale, title, logoPath, externalLink, logo
               }`
               } />
             </svg>
-            <p className="font-robotoFlex variable-semibold text-sm text-main-black">{status}</p>
+            <p className="font-robotoFlex variable-semibold text-sm text-main-black">{localizedStaticContent[status][locale]}</p>
           </div>
       </div>
       <div className="flex ml-[60px] mt-1 lg:m-0 gap-4 lg:justify-center items-center w-full lg:w-auto">
         <LinkButton 
           externalLink={externalLink}
+          locale={locale}
         />
         <FaveButton 
           databaseLookup={databaseLookup}
+          locale={locale}
         />
         <LanguageSelect locale={locale}/>
         <div className="lg:pl-1">

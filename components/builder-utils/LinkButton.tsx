@@ -4,12 +4,14 @@ buttton for projects that links to live version of current project
 */
 
 import Link from "next/link";
+import { localizedStaticContent } from "../../localization/dict";
 
 type Props = {
   externalLink: string;
+  locale: string;
 };
 
-export default function LinkButton({externalLink}: Props) {
+export default function LinkButton({externalLink, locale}: Props) {
   return (
     <a
       href={externalLink}
@@ -37,7 +39,7 @@ export default function LinkButton({externalLink}: Props) {
         </defs>
       </svg>
 
-      <div className="hidden lg:inline font-robotoFlex variable-semibold text-xl text-main-black group-hover:text-white">visit</div>
+      <div className="hidden lg:inline font-robotoFlex variable-semibold text-xl text-main-black group-hover:text-white">{localizedStaticContent.visit[locale]}</div>
     </a>
   );
 }

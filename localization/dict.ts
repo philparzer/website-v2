@@ -71,5 +71,35 @@ export const localizedStaticContent:any = {
     en: "I'm",
     de: "Ich bin",
     ru: "Я"
-  }
+  },
+  upvote: {
+    en: "upvote",
+    de: "voten",
+    ru: "нравится"
+  },
+  upvoted: {
+    en: "upvoted",
+    de: "gevotet",
+    ru: "нравится"
+  },
+  visit: {
+    en: "visit",
+    de: "zum Projekt",
+    ru: "к проекту"
+  },
+  "on hold": {
+    en: "on hold",
+    de: "pausiert",
+    ru: "в ожиданнии"
+  },
+  "concept": {
+    en: "concept",
+    de: "Konzept",
+    ru: "концепция"
+  },
+  "completed": {
+    en: "completed",
+    de: "abgeschlossen",
+    ru: "завершено"
+  },
 }

@@ -119,7 +119,7 @@ export default function Page({ page, link, links, locale }: any) {
           databaseLookup={link.data.databaseLookup}
           status={link.data.status}
         />
-        <BuilderComponent model="page" content={page} />
+        <BuilderComponent model="page" content={page} data={{ locale: locale }}/>
         {/*TODO: remove components below*/}
         {/* <BodyCard>
           <Hero />
