@@ -16,7 +16,7 @@ interface Props {
 }
 
 export default function LanguageSelect({locale}: Props) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const { x, y, reference, floating, strategy, context } = useFloating({
     open,
     onOpenChange: setOpen,
