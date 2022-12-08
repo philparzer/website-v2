@@ -10,6 +10,7 @@ import { BuilderComponent } from "@builder.io/react";
 import KBarButton from "../components/kbar/KBarButton";
 import { useRegisterActions, createAction } from "kbar";
 import { contactActions, legalActions, redirect } from "../components/kbar/kbarActions"
+import { FloatingOverlay } from "@floating-ui/react-dom-interactions";
 
 export default function Page(props: any) {
   // const roomId = useOverrideRoomId("nextjs-live-cursors-chat"); //TODO: test this w more than 10
@@ -52,7 +53,6 @@ export default function Page(props: any) {
     // >
       // <MultiplayerScene>{/*Renders Cursors*/}
       <div className={`${isWindows && "windows-scrollbars"}`}>
-        
         <Layout>
           <HomeBox 
             locale={props.locale}

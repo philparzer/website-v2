@@ -224,7 +224,7 @@ function App(props: any) {
         {/* <Favicon /> */}
       </Head>
       <QueryClientProvider client={queryClient}>
-        <props.Component {...props.pageProps} />
+        <props.Component {...props.pageProps}/>
         <Analytics />
       </QueryClientProvider>
     </KBarProvider>

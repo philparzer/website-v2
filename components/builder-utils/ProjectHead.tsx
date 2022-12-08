@@ -9,6 +9,7 @@ import LinkButton from "./LinkButton";
 import { ProjectStatus } from "../../shared-ts/enums";
 import BackButton from "../static/BackButton";
 import KBarButton from "../kbar/KBarButton"
+import LanguageSelect from "../static/LanguageSelect";
 
 interface Props {
   title: string;
@@ -16,21 +17,22 @@ interface Props {
   externalLink: string;
   logoAltText: string;
   databaseLookup: string;
-  status: string
+  status: string;
+  locale: string;
 }
 
-export default function ProjectHead({title, logoPath, externalLink, logoAltText, databaseLookup, status}: Props) {
+export default function ProjectHead({locale, title, logoPath, externalLink, logoAltText, databaseLookup, status}: Props) {
   return (
     <div className="flex flex-wrap sticky top-0 rounded-b-[30px] z-20 backdrop-blur-md lg:mt-4 pt-4 pb-4 mb-4 px-4 card-width-main">
-      <div className="flex items-center w-full lg:w-auto lg:justify-center gap-4">
+      <div className="flex items-center lg:w-auto lg:justify-center gap-4">
         <Image src={logoPath} alt={logoAltText} width={45} height={45} />
-        <h1 className="font-robotoFlex variable-semibold text-3xl text-white">
+        <h1 className="font-robotoFlex variable-semibold text-2xl lg:mb-0 lg:text-3xl text-white">
           {title}
         </h1>
       </div>
 
-      <div className="flex grow justify-between -mt-3 lg:-mt-0">
-        <div className="flex justify-center items-center gap-1 pt-1 ml-[60px] lg:ml-0 lg:px-5">
+      <div className="hidden lg:flex grow justify-between lg:w-auto">
+        <div className="flex justify-center items-center gap-1 pt-1 lg:px-5">
             <svg className="animate-pulse"
               width="10"
               height="10"
@@ -49,15 +51,15 @@ export default function ProjectHead({title, logoPath, externalLink, logoAltText,
             <p className="font-robotoFlex variable-semibold text-sm text-main-black">{status}</p>
           </div>
       </div>
-      <div className="flex gap-4 justify-center items-center -mt-3 lg:-mt-0">
-        
+      <div className="flex ml-[60px] mt-1 lg:m-0 gap-4 lg:justify-center items-center w-full lg:w-auto">
         <LinkButton 
           externalLink={externalLink}
         />
         <FaveButton 
           databaseLookup={databaseLookup}
         />
-        <div className="pl-1">
+        <LanguageSelect locale={locale}/>
+        <div className="lg:pl-1">
         <KBarButton />
         </div>
       </div>

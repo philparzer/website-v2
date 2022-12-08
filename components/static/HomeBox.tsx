@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 import { useQuery } from "react-query";
 import axios from "axios";
 import KBarButton from "../kbar/KBarButton";
+import LanguageSelect from "./LanguageSelect";
 
 interface Props {
   projects: any;
@@ -65,7 +66,8 @@ export default function HomeBox({
       </div>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>
-        <div className="absolute top-5 right-7 w-full flex gap-4 justify-end">
+        <div className="absolute top-5 right-7 w-full flex gap-2 justify-end items-center">
+          <LanguageSelect locale={locale}/>
           <KBarButton />
           {/* <CursorCustomizer cookie={cookie} /> TODO: uncomment when liveblocks */}
         </div>

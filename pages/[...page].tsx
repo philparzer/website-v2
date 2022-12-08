@@ -11,7 +11,7 @@ import KBarButton from "../components/kbar/KBarButton";
 import { redirect, contactActions, legalActions } from "../components/kbar/kbarActions"
 import { useRegisterActions } from "kbar";
 
-export async function getStaticProps({ params }: any) {
+export async function getStaticProps({ params, locale }: any) {
   /*
     Fetch the first page from Builder that matches the current URL.
     The `userAttributes` field is used for targeting content,
@@ -34,6 +34,7 @@ export async function getStaticProps({ params }: any) {
       page: page || null,
       links: links || null,
       link: correctLink || null,
+      locale: locale || null,
     },
     revalidate: 5,
   };
@@ -58,7 +59,7 @@ export async function getStaticPaths() {
   };
 }
 
-export default function Page({ page, link, links }: any) {
+export default function Page({ page, link, links, locale }: any) {
   const router = useRouter();
   /*
     This flag indicates if you are viewing the page in the Builder editor.
@@ -110,6 +111,7 @@ export default function Page({ page, link, links }: any) {
       </Head>
       <Layout>
         <ProjectHead 
+          locale={locale}
           title={link.data.link.value.name}
           logoPath={link.data.logo}
           externalLink={link.data.externalLink}
