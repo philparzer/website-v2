@@ -56,9 +56,9 @@ export default function LanguageSelect({locale}: Props) {
           }}
           className="absolute z-50 flex flex-col gap-1 text-md font-roboto-flex rounded-xl p-1 py-3 bg-white"
         >
-          {locale !== "ru" &&<button className="p-1 px-3 text-sm rounded-full bg-white hover:bg-main-black hover:text-white  text-md" onClick={() => handleClick("ru")}>Русский</button>}
-          {locale !== "en" &&<button className="p-1 px-3 text-sm rounded-full bg-white hover:bg-main-black hover:text-white  " onClick={() => handleClick("en")}>English</button>}
-          {locale !== "de" &&<button className="p-1 px-3 text-sm rounded-full bg-white hover:bg-main-black hover:text-white  " onClick={() => handleClick("de")}>Deutsch</button>}
+          {locale !== "ru" &&<button className="p-1 px-3 rounded-full bg-white hover:bg-main-black hover:text-white  text-md" onClick={() => handleClick("ru")}>Русский</button>}
+          {locale !== "en" &&<button className="p-1 px-3 rounded-full bg-white hover:bg-main-black hover:text-white  " onClick={() => handleClick("en")}>English</button>}
+          {locale !== "de" &&<button className="p-1 px-3 rounded-full bg-white hover:bg-main-black hover:text-white  " onClick={() => handleClick("de")}>Deutsch</button>}
         </div>
         
       )}

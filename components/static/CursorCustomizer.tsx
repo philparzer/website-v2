@@ -103,8 +103,8 @@ export default function CursorCustomizer(props: Props) {
               onSubmit={handleSubmit(onSubmit)}
             >
               <div className="flex flex-col items-center">
-                <label className="text-sm">{localizedStaticContent.username[props.locale]}</label>
-                <input className="border p-1 text-center px-3 rounded-full text-md w-36" {...register("username")} />
+                {/* <label className="text-sm">{localizedStaticContent.username[props.locale]}</label> */}
+                <input className="border p-1 text-center px-3 rounded-full text-md w-32" autoFocus={open} {...register("username")} />
               </div>
               <div className="flex gap-2 items-center">
                 <label className="text-sm">{localizedStaticContent.visibility[props.locale]}</label>
@@ -114,7 +114,7 @@ export default function CursorCustomizer(props: Props) {
                   {...register("visibilityPref")}
                 />
               </div>
-              <button className="bg-cta-grey text-main-black hover:text-white hover:bg-main-black mt-1 p-1 rounded-full px-3 font-roboto text-base" type="submit">
+              <button className="bg-cta-grey text-main-black hover:text-white hover:bg-main-black p-1 rounded-full px-3 font-roboto text-base" type="submit">
               {localizedStaticContent.save[props.locale]}
               </button>
             </form>

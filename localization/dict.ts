@@ -108,9 +108,9 @@ export const localizedStaticContent:any = {
     ru: "завершено"
   },
   username: {
-    en: "username",
-    de: "Username",
-    ru: "имя пользователя"
+    en: "change username",
+    de: "Username ändern",
+    ru: "выбираете имя"
   },
   visibility: {
     en: "visible to others",
