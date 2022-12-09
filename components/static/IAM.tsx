@@ -22,9 +22,9 @@ export default function IAM({ IAMStrings, locale }:Props) {
 
     return (
         <>
-            <div className="text-3xl text-white pb-6 lg:pb-8 font-roboto px-4 lg:px-10 flex items-center ">
-                <div><Image src="/svgs/Philipp_Parzer_Logo_Warm.svg" alt="test" width={50} height={50} priority={true}></Image></div>
-                <h1 className="px-4 animation-prefix">
+            <div className="text-xl lg:text-3xl text-white pb-6 lg:pb-8 font-roboto px-4 lg:px-10 flex items-center ">
+                <div><Image src="/svgs/Philipp_Parzer_Logo_Warm.svg" className="w-[40px] h-[40px] lg:w-[50px] lg:h-[50px]" alt="test" width={50} height={50} priority={true}></Image></div>
+                <h1 className="px-2 lg:px-4 animation-prefix">
                     {firstRender === true
                     ? 
                         <>

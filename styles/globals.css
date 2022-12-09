@@ -106,15 +106,7 @@
   display: none
 }
 
-@media screen and (max-width: 1024px) { 
-  .filter-select-desktop {
-    display: flex
-  }
 
-  .filter-list-desktop {
-    display: none
-  }
-}
 
 @media screen and (max-height: 800px) {
   .filter-list-desktop {
@@ -150,25 +142,7 @@
   }
 }
 
-.animation-prefix p {
-  height: 2.25rem;
-  float: left;
-}
-.animation-prefix {
-  overflow: hidden;
-  position: relative;
-  height: 2.25rem;
-  top: 0px;
-}
-.animation-prefix .animation-subject {
-  display: inline-block;
-  color: #ffffff;
-  position: relative;
-  white-space: nowrap;
-  top: 0;
-  left: 0;
-  animation: 7s cubic-bezier(0.4, 0, 0.2, 1) infinite move;
-}
+
 
 @keyframes move{
   0%, 10%  { top: 0rem; }
@@ -176,6 +150,15 @@
   29%, 30% { top: -4.5rem; }
   39%, 40% { top: -6.75rem; }
   49%, 50% { top: -9rem; }
+  59%, 100% { top: 0rem; }
+}
+
+@keyframes move2{
+  0%, 10%  { top: 0rem; }
+  19%, 20%  { top: -28px; }
+  29%, 30% { top: -56px; }
+  39%, 40% { top: -84px; }
+  49%, 50% { top: -113px; }
   59%, 100% { top: 0rem; }
 }
 
@@ -199,4 +182,58 @@
 
 .richtext a{
   text-decoration: underline solid 2px;
+}
+
+.animation-prefix p {
+  height: 1.75rem;
+  float: left;
+}
+
+.animation-prefix {
+  overflow: hidden;
+  position: relative;
+  height: 1.75rem;
+  top: 0px;
+}
+.animation-prefix .animation-subject {
+  display: inline-block;
+  color: #ffffff;
+  position: relative;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  animation: 7s cubic-bezier(0.4, 0, 0.2, 1) infinite move2;
+}
+
+@media screen and (max-width: 1024px) { 
+  .filter-select-desktop {
+    display: flex
+  }
+
+  .filter-list-desktop {
+    display: none
+  }
+}
+
+@media screen and (min-width: 1025px) { 
+  .animation-prefix p {
+    height: 2.25rem;
+    float: left;
+  }
+  
+  .animation-prefix {
+    overflow: hidden;
+    position: relative;
+    height: 2.25rem;
+    top: 0px;
+  }
+  .animation-prefix .animation-subject {
+    display: inline-block;
+    color: #ffffff;
+    position: relative;
+    white-space: nowrap;
+    top: 0;
+    left: 0;
+    animation: 7s cubic-bezier(0.4, 0, 0.2, 1) infinite move;
+  }
 }
