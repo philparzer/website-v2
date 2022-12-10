@@ -85,12 +85,12 @@ export const localizedStaticContent:any = {
   upvoted: {
     en: "upvoted",
     de: "gevotet",
-    ru: "нравится"
+    ru: "лайк"
   },
   visit: {
     en: "visit",
-    de: "zum Projekt",
-    ru: "к проекту"
+    de: "Link",
+    ru: "ссылка"
   },
   "on hold": {
     en: "on hold",
