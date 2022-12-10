@@ -53,10 +53,12 @@ export default function ProjectHead({locale, title, logoPath, externalLink, logo
           </div>
       </div>
       <div className="flex ml-[60px] mt-1 lg:m-0 gap-4 lg:justify-center items-center w-full lg:w-auto">
+        {externalLink !== "" && 
         <LinkButton 
           externalLink={externalLink}
           locale={locale}
         />
+        }
         <FaveButton 
           databaseLookup={databaseLookup}
           locale={locale}
