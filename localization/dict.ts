@@ -80,7 +80,7 @@ export const localizedStaticContent:any = {
   upvote: {
     en: "upvote",
     de: "voten",
-    ru: "нравится"
+    ru: "лайк"
   },
   upvoted: {
     en: "upvoted",
