@@ -87,6 +87,13 @@ export default function HomeBox({
     );
   }
 
+  const [isOnTop, setIsOnTop] = useState<boolean>(false)
+
+  const handleScroll = (e:any) => {
+      const top = e.target.scrollHeight - e.target.scrollTop > e.target.scrollHeight - 30
+      setIsOnTop(top)
+  }
+
   return (
     <>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px]">
@@ -94,7 +101,7 @@ export default function HomeBox({
       </div>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>
-        <div className="absolute top-5 right-7 w-full flex gap-4 justify-end items-center">
+        <div className={`absolute top-5 right-7 w-full flex gap-4 justify-end items-center z-50 opacity-100 transition-all ease-in-out ${isOnTop ? "lg:top-5, opacity-1" : "lg:-top-3 lg:opacity-0" }`}> 
           <LanguageSelect locale={locale} />
           <CursorCustomizer cookie={cookie} locale={locale} />
           <KBarButton locale={locale} />
@@ -117,7 +124,7 @@ export default function HomeBox({
             </div>
           </div>
 
-          <div className="flex flex-col w-full px-5 lg:px-10 py-10 lg:py-20 text-white lg:w-[80%] overflow-auto">
+          <div className="flex flex-col w-full px-5 lg:px-10 py-10 lg:py-20 text-white lg:w-[80%] overflow-auto" onScroll={handleScroll}>
             <ul className="flex flex-row flex-wrap gap-7 lg:gap-10">
               {projectsState.map((link: any) => {
                 let linkCategory1 = link.data.category.toLowerCase();
