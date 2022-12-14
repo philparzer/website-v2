@@ -87,7 +87,7 @@ export default function HomeBox({
     );
   }
 
-  const [isOnTop, setIsOnTop] = useState<boolean>(false)
+  const [isOnTop, setIsOnTop] = useState<boolean>(true)
 
   const handleScroll = (e:any) => {
       const top = e.target.scrollHeight - e.target.scrollTop > e.target.scrollHeight - 30
