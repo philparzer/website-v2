@@ -221,7 +221,7 @@ function App(props: any) {
       <Head>
         <title>Philipp Parzer</title>
         {/* <meta name="viewport" content="viewport-fit=cover" /> */}
-        {/* <Favicon /> */}
+        <Favicon />
       </Head>
       <QueryClientProvider client={queryClient}>
         <props.Component {...props.pageProps}/>

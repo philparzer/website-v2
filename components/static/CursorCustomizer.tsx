@@ -88,7 +88,7 @@ export default function CursorCustomizer(props: Props) {
           </svg>
         </button>
         {open && (
-          <div className="absolute z-50 bg-white p-5 rounded-xl"
+          <div className="absolute z-50 bg-white drop-shadow-lg p-5 rounded-xl"
           ref={floating}
           style={{
             position: strategy,
