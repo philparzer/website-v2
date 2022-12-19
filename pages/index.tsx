@@ -15,6 +15,7 @@ import { FloatingOverlay } from "@floating-ui/react-dom-interactions";
 export default function Page(props: any) {
   // const roomId = useOverrideRoomId("nextjs-live-cursors-chat"); //TODO: test this w more than 10
   const cookie = useCookie(props.cookie);
+  const router = useRouter();
 
   let projects = props.links.map((project:any) => {
     return {
@@ -38,6 +39,10 @@ export default function Page(props: any) {
   useEffect(() => {
     if (navigator.userAgent.indexOf('Win') != -1) setIsWindows(true);
   }, [])
+
+  if (router.isFallback) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     // <RoomProvider TODO: uncomment to enable multiplayer
