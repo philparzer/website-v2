@@ -14,7 +14,7 @@ const font: any = fetch(url).then(
 const titleLookup: any = {
   en: ["Hi 👋", "I'm", "Philipp"],
   de: ["Hi 👋", "ich bin", "Philipp"],
-  ru: ["Прив 👋", "Я", "Филилпп"]
+  ru: ["Прив 👋", "Я", "Филипп"]
 
 }
 
@@ -22,9 +22,7 @@ export default async function handler (req: NextRequest) {
 
   const fontData = await font;
   const { searchParams } = new URL(req.url);
-
-    // ?title=<title>
-    const locale: any = searchParams.get('locale');
+  const locale: any = searchParams.get('locale');
 
 
   return new ImageResponse(
