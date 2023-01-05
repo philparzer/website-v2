@@ -62,7 +62,7 @@ export default function Page(props: any) {
         <title>{props.locale === "default" || props.locale === "de" ? "Philipp Parzer" : "Филипп Парцер"}</title>
         <meta
           property="og:image"
-          content={`api/og-home?locale=${props.locale}`}
+          content={`https://website-v2-umber.vercel.app/api/og-home?locale=${props.locale}`}
         />
         <Favicon />
       </Head>
