@@ -59,7 +59,7 @@ export default function Page(props: any) {
     // <MultiplayerScene>{/*Renders Cursors*/}
     <>
       <Head>
-        <title>{props.locale === "default" || props.locale === "de" ? "Philipp Parzer" : "Филипп Парцер"}</title>
+        <title>{props.locale === "en" || props.locale === "de" ? "Philipp Parzer" : "Филипп Парцер"}</title>
         <meta
           property="og:image"
           content={`/api/og-home?locale=${props.locale}`}

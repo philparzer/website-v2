@@ -12,7 +12,7 @@ const font: any = fetch(url).then(
 );
 
 const titleLookup: any = {
-  default: ["Hi 👋", "I'm", "Philipp"],
+  en: ["Hi 👋", "I'm", "Philipp"],
   de: ["Hi 👋", "ich bin", "Philipp"],
   ru: ["Прив 👋", "Я", "Филилпп"]
 
