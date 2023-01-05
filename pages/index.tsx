@@ -4,40 +4,45 @@ import { useRouter } from "next/router";
 import { useCookie } from "next-cookie";
 import MultiplayerScene from "../components/static/MultiplayerScene";
 import Layout from "../components/static/IndexLayout";
-import { builder } from '@builder.io/sdk'
+import { builder } from "@builder.io/sdk";
 import HomeBox from "../components/static/HomeBox";
 import { BuilderComponent } from "@builder.io/react";
 import KBarButton from "../components/kbar/KBarButton";
 import { useRegisterActions, createAction } from "kbar";
-import { contactActions, legalActions, redirect } from "../components/kbar/kbarActions"
+import {
+  contactActions,
+  legalActions,
+  redirect,
+} from "../components/kbar/kbarActions";
 import { FloatingOverlay } from "@floating-ui/react-dom-interactions";
+import Head from "next/head"
+import Favicon from "../components/static/Favicon";
 
 export default function Page(props: any) {
   // const roomId = useOverrideRoomId("nextjs-live-cursors-chat"); //TODO: test this w more than 10
   const cookie = useCookie(props.cookie);
 
-  let projects = props.links.map((project:any) => {
+  let projects = props.links.map((project: any) => {
     return {
       id: project.data.databaseLookup,
       name: project.name,
       section: "Projects",
-      perform: () => (
-        redirect(window.location, project.data.link.value.data.url, "")
-      ),
-      thumbnail: project.data.logo
-    }
-  })
+      perform: () =>
+        redirect(window.location, project.data.link.value.data.url, ""),
+      thumbnail: project.data.logo,
+    };
+  });
 
-  let actions = contactActions.concat(projects)
-  actions = actions.concat(legalActions)
+  let actions = contactActions.concat(projects);
+  actions = actions.concat(legalActions);
 
-  useRegisterActions(actions, [actions])
+  useRegisterActions(actions, [actions]);
 
-  const [isWindows, setIsWindows] = useState(false)
+  const [isWindows, setIsWindows] = useState(false);
 
   useEffect(() => {
-    if (navigator.userAgent.indexOf('Win') != -1) setIsWindows(true);
-  }, [])
+    if (navigator.userAgent.indexOf("Win") != -1) setIsWindows(true);
+  }, []);
 
   return (
     // <RoomProvider TODO: uncomment to enable multiplayer
@@ -51,25 +56,41 @@ export default function Page(props: any) {
     //       : false,
     //   })}
     // >
-      // <MultiplayerScene>{/*Renders Cursors*/}
+    // <MultiplayerScene>{/*Renders Cursors*/}
+    <>
+      <Head>
+        <title>{props.locale === "default" || props.locale === "de" ? "Philipp Parzer" : "Филипп Парцер"}</title>
+        <meta
+          property="og:image"
+          content={`api/og-home?locale=${props.locale}`}
+        />
+        <Favicon />
+      </Head>
       <div className={`${isWindows && "windows-scrollbars"}`}>
         <Layout>
-          <HomeBox 
+          <HomeBox
             locale={props.locale}
-            projects={props.links} 
-            cookie={cookie} 
-            about={<BuilderComponent model="about" content={props.about} data={{ locale: props.locale }}/>}
+            projects={props.links}
+            cookie={cookie}
+            about={
+              <BuilderComponent
+                model="about"
+                content={props.about}
+                data={{ locale: props.locale }}
+              />
+            }
             IAMStrings={props.IAMStrings}
           />
         </Layout>
-        </div>
-      // </MultiplayerScene>
+      </div>
+    </>
+    // </MultiplayerScene>
     // </RoomProvider>
   );
 }
 
 // function useOverrideRoomId(roomId: string) {
-  
+
 //   const { query } = useRouter();
 
 //   const overrideRoomId = useMemo(() => {
@@ -79,24 +100,20 @@ export default function Page(props: any) {
 //   return overrideRoomId;
 // }
 
+export async function getStaticProps({ params, locale }: any) {
+  const urlPath = "/" + (params?.page?.join("/") || "");
+  const links = await builder.getAll("project", {});
 
-export async function getStaticProps({ params, locale }:any) {
-  const urlPath = '/' + (params?.page?.join('/') || '');
-  const links = await builder.getAll('project', {
-  });
-  
+  const about = await builder.get("about", { url: urlPath }).toPromise();
 
-
-  const about = await builder.get('about', { url: urlPath,}).toPromise();
-
-  const IAMStrings = await builder.getAll('i-am', {});
+  const IAMStrings = await builder.getAll("i-am", {});
 
   return {
     props: {
       links: links || null,
       about: about || null,
       IAMStrings: IAMStrings || null,
-      locale: locale || null
+      locale: locale || null,
     },
     revalidate: 5,
   };

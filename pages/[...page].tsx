@@ -10,6 +10,7 @@ import BackButton from "../components/static/BackButton";
 import KBarButton from "../components/kbar/KBarButton";
 import { redirect, contactActions, legalActions } from "../components/kbar/kbarActions"
 import { useRegisterActions } from "kbar";
+import Favicon from "../components/static/Favicon";
 
 export async function getStaticProps({ params, locale }: any) {
   /*
@@ -108,6 +109,7 @@ export default function Page({ page, link, links, locale }: any) {
         {/* Add any relevant SEO metadata or open graph tags here */}
         <title>{page?.data.title}</title>
         <meta name="description" content={page?.data.descripton} />
+        <Favicon />
       </Head>
       <Layout>
         <ProjectHead 
