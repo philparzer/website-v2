@@ -6,7 +6,7 @@ export const config = {
 };
 
 const font: any = fetch(new URL('../../public/fonts/Roboto-Medium.ttf', import.meta.url)).then(
-  (res) => res.arrayBuffer(),
+  (res:any) => res.arrayBuffer(),
 );
 
 const titleLookup: any = {
