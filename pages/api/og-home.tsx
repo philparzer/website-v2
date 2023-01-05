@@ -5,7 +5,9 @@ export const config = {
   runtime: 'experimental-edge',
 };
 
-const font: any = fetch(new URL('../../public/fonts/Roboto-Medium.ttf', import.meta.url)).then(
+const url: any = new URL('../../public/fonts/Roboto-Medium.ttf', import.meta.url)
+
+const font: any = fetch(url).then(
   (res:any) => res.arrayBuffer(),
 );
 
