@@ -198,6 +198,11 @@ Builder.registerComponent(
         type: "number",
         defaultValue: 200
       },
+      {
+        name: "isVideo",
+        type: "boolean",
+        defaultValue: false
+      },
     ],
   }
 );
