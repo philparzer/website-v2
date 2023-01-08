@@ -18,6 +18,10 @@ export async function getStaticProps({ params, locale }: any) {
     The `userAttributes` field is used for targeting content,
     learn more here: https://www.builder.io/c/docs/targeting-with-builder
   */
+
+  /*FIXME: /spi Warning: data for page "/[...page]" (path "/spi") is 133 kB which exceeds the threshold of 128 kB, this amount of data can reduce performance.
+    See more info here: https://nextjs.org/docs/messages/large-page-data*/
+    
   const links:any = await builder.getAll('project', {
     });
   const page:any = await builder
@@ -126,17 +130,6 @@ export default function Page({ page, link, links, locale }: any) {
           status={link.data.status}
         />
         <BuilderComponent model="page" content={page} data={{ locale: locale }}/>
-        {/*TODO: remove components below*/}
-        {/* <BodyCard>
-          <Hero />
-          <BulletpointWrapper />
-        </BodyCard>
-        <SideBySideWrapper>
-          <SideBySideCard>
-            <CardText />
-          </SideBySideCard>
-          <RectImage path="/images/testimg.png" altText="test"/>
-        </SideBySideWrapper> */}
       </Layout>
       <Background />
     </>
