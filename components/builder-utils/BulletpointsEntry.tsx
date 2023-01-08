@@ -17,7 +17,7 @@ export default function BulletpointsEntry({title, bulletpoints}:Props) {
     <div>
       <h3 className="text-white text-sm">{title}</h3>
       <ul className="font-robotoFlex text-main-black text-xl">
-        {bulletpoints.map((bulletpoint:Bulletpoint) => <li>{bulletpoint.text}</li>)}
+        {bulletpoints.map((bulletpoint:Bulletpoint, i) => <li key={i}>{bulletpoint.text}</li>)}
       </ul>
     </div>
   );
