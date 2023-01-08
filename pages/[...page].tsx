@@ -108,6 +108,10 @@ export default function Page({ page, link, links, locale }: any) {
       <Head>
         {/* Add any relevant SEO metadata or open graph tags here */}
         <title>{page?.data.title}</title>
+        <meta
+          property="og:image"
+          content={`/api/og-project?locale=${locale}&lookup=${link.data.databaseLookup}&name=${link.data.link.value.name}&status=${link.data.status}`}
+        />
         <meta name="description" content={page?.data.descripton} />
         <Favicon />
       </Head>
