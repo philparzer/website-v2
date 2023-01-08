@@ -3,6 +3,8 @@ WHAT:
 used to update multiplayer settings for cursors (username, visibility) -> sets cookie and updates presence
 */
 
+//FIXME: t input
+
 import { useForm } from "react-hook-form";
 import { useCookie } from "next-cookie";
 import { useMyPresence } from "../../liveblocks.config";
@@ -50,14 +52,15 @@ export default function CursorCustomizer(props: Props) {
 
   const { getReferenceProps, getFloatingProps } = useInteractions([dismiss]);
 
-  //TODO: add interface for data
   const onSubmit = (data: any) => {
+    
     cookie.set("name", data.username);
     cookie.set("visibilityPref", data.visibilityPref);
     updateMyPresence({
       username: data.username,
       hidden: !data.visibilityPref,
     });
+    setOpen(!open)
   };
 
   return (
@@ -125,7 +128,7 @@ export default function CursorCustomizer(props: Props) {
                 <div className="flex sm:hidden -mt-2 text-sm max-w-[160px] text-center">{localizedStaticContent.mobile[props.locale]}</div>
 
               </div>
-              <button className="hidden  sm:flex bg-cta-grey text-main-black hover:text-white hover:bg-main-black p-1 rounded-full px-3 font-roboto text-base" type="submit">
+              <button  className="hidden  sm:flex bg-cta-grey text-main-black hover:text-white hover:bg-main-black p-1 rounded-full px-3 font-roboto text-base" type="submit">
               {localizedStaticContent.save[props.locale]}
               </button>
             </form>

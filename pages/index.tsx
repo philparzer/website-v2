@@ -45,8 +45,8 @@ export default function Page(props: any) {
 
   useEffect(() => {
     toast(<UpdateToast locale={props.locale} content={props.updateToastContent} />, {
-      position: "top-right",
-      autoClose: 8000,
+      position: window.innerWidth > 640 ? 'top-right' : 'bottom-center',
+      autoClose: 6000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,

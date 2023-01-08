@@ -241,3 +241,10 @@
 :root {
   --toastify-color-progress-light: #483434!important
 }
+
+.Toastify__toast {
+
+  border-radius: 15px!important;
+  padding-bottom: 15px!important;
+  padding-top: 15px!important; 
+}
