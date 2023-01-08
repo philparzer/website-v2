@@ -5,7 +5,8 @@ import Layout from "../components/static/IndexLayout";
 import { redirect, legalActions, contactActions } from "../components/kbar/kbarActions"
 import { useRegisterActions } from "kbar";
 import KBarButton from "../components/kbar/KBarButton";
-import IAM from "../components/static/IAM"
+import IAM from "../components/static/IAM";
+import { useState, useEffect} from "react"
 
 export default function Page(props: any) {
 
@@ -26,21 +27,27 @@ export default function Page(props: any) {
 
   useRegisterActions(actions, [actions])
 
+  const [isWindows, setIsWindows] = useState(false)
+
+  useEffect(() => {
+    if (navigator.userAgent.indexOf('Win') != -1) setIsWindows(true);
+  }, [])
+
+
   //FIXME: styling of card
   return (
     <>
       <Layout>
-      <div className="index">
+      <div className={`${isWindows && "windows-scrollbars"}`}>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] ">
         <IAM IAMStrings={props.IAMStrings} locale={props.locale}/>
       </div>
-      <div className="relative w-11/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
+      <div className="mx-4 lg:mx-0 h-full sm:max-w-[895px] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>
         <div className="absolute top-5 right-7 w-full flex gap-4 justify-end">
           <KBarButton locale={props.locale}/>
-          {/* <CursorCustomizer cookie={cookie} /> TODO: uncomment when liveblocks */}
         </div>
-        <div className="h-full overflow-auto ">
+        <div className="h-full overflow-auto max-h-[70vh]">
           <BuilderComponent model="imprint" content={props.imprint} />
         </div>
         </div>

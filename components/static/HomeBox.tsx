@@ -101,7 +101,7 @@ export default function HomeBox({
       </div>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>
-        <div className={`absolute top-5 right-7 w-full flex gap-4 justify-end items-center z-50 opacity-100 transition-all ease-in-out ${isOnTop ? "lg:top-5, opacity-1" : "lg:-top-3 lg:opacity-0" }`}> 
+        <div className={`absolute top-5 right-7 lg:w-full flex gap-4 justify-end items-center z-50 opacity-100 transition-all ease-in-out ${isOnTop ? "lg:top-5, opacity-1" : "lg:-top-3 lg:opacity-0" }`}> 
           <LanguageSelect locale={locale} />
           <CursorCustomizer cookie={cookie} locale={locale} />
           <KBarButton locale={locale} />

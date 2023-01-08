@@ -2,7 +2,7 @@
 WHAT:
 TODO:
 */
-
+import { Suspense } from "react";
 import Image from "next/image";
 
 interface Props {
