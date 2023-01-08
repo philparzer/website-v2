@@ -7,6 +7,8 @@ import { useRegisterActions } from "kbar";
 import KBarButton from "../components/kbar/KBarButton";
 import IAM from "../components/static/IAM";
 import { useState, useEffect} from "react"
+import Head from "next/head";
+import Favicon from "../components/static/Favicon";
 
 export default function Page(props: any) {
 
@@ -33,9 +35,16 @@ export default function Page(props: any) {
 
   useRegisterActions(actions, [actions])
 
-  //FIXME: styling of card
   return (
     <>
+      <Head>
+        <title>{props.locale === "en" || props.locale === "de" ? "Philipp Parzer" : "Филипп Парцер"}</title>
+        <meta
+          property="og:image"
+          content={`/api/og-home?locale=${props.locale}`}
+        />
+        <Favicon />
+      </Head>
       <Layout>
       <div className={`${isWindows && "windows-scrollbars"}`}>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] ">
