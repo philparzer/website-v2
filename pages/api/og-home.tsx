@@ -38,7 +38,7 @@ export default async function handler (req: NextRequest) {
           display: 'flex',
           textAlign: 'center',
           alignItems: 'center',
-          padding: 80,
+          padding: 150,
           fontFamily: "Roboto Flex"
         }}
       > 
