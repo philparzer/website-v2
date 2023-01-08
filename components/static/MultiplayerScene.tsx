@@ -26,6 +26,7 @@ type CursorState =
 
 export default function MultiplayerScene(props: any) {
   const others = useOthers();
+  const [isMobile, setIsMobile] = useState(false)
   const [{ cursor }, updateMyPresence] = useMyPresence();
   const [state, setState] = useState<CursorState>({
     mode: CursorMode.Chat,
@@ -35,6 +36,11 @@ export default function MultiplayerScene(props: any) {
   const inputEl = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+
+    if (window.ontouchstart !== undefined) {
+      setIsMobile(true)
+    }
+
     function onKeyUp(e: KeyboardEvent) {
       // if (e.key === "t" && state.mode !== CursorMode.Chat) {
       //   setState({ mode: CursorMode.Chat, previousMessage: null, message: "" });
@@ -81,27 +87,31 @@ export default function MultiplayerScene(props: any) {
         // }}
         onPointerMove={(event) => {
           event.preventDefault();
-
+          if (!isMobile) {
           updateMyPresence({
             cursor: {
               x: event.clientX / window.innerWidth,
               y: event.clientY / window.innerHeight,
             },
           });
+        }
         }}
         onPointerLeave={() => {
           // 1;
+          if (!isMobile) {
           updateMyPresence({
             cursor: null,
-          });
+          });}
         }}
         onPointerDown={(event) => {
+          if (!isMobile) {
           updateMyPresence({
             cursor: {
               x: event.clientX / window.innerWidth,
               y: event.clientY / window.innerHeight,
             },
           });
+          }
           setState((state) => state);
           updateMyPresence({ message: "" });
           setState({ mode: CursorMode.Hidden });

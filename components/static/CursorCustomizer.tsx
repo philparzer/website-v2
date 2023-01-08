@@ -106,14 +106,14 @@ export default function CursorCustomizer(props: Props) {
                 <div className="flex flex-col items-center gap-2">
               <div className="text-sm max-w-[140px] text-center pl-1 font-roboto">{localizedStaticContent.multiplayer[props.locale]}</div>
               <div className="">
-              <div className="hidden lg:flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="fill-blue-400" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-6h-2v-2h4v8zm-1-9.75c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>{localizedStaticContent.enter[props.locale]}</div>
-              <div className="hidden lg:flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="fill-blue-400" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-6h-2v-2h4v8zm-1-9.75c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>{localizedStaticContent.exit[props.locale]}</div>
+              <div className="hidden sm:flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="fill-blue-400" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-6h-2v-2h4v8zm-1-9.75c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>{localizedStaticContent.enter[props.locale]}</div>
+              <div className="hidden sm:flex items-center gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="fill-blue-400" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-6h-2v-2h4v8zm-1-9.75c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>{localizedStaticContent.exit[props.locale]}</div>
               </div>
               </div>
-                <label className="text-sm mt-8 mb-1 hidden lg:flex">{localizedStaticContent.username[props.locale]}</label>
-                <input className="hidden lg:flex border border-main-black p-1  text-center px-3 rounded-full text-md w-32" autoFocus={open} {...register("username")} />
+                <label className="text-sm mt-8 mb-1 hidden sm:flex">{localizedStaticContent.username[props.locale]}</label>
+                <input className="hidden sm:flex border border-main-black p-1  text-center px-3 rounded-full text-md w-32" autoFocus={open} {...register("username")} />
               </div>
-              <div className="hidden lg:flex gap-2 items-center">
+              <div className="hidden sm:flex gap-2 items-center">
                 <label className="text-sm">{localizedStaticContent.visibility[props.locale]}</label>
                 <input
                   type="checkbox"
@@ -122,10 +122,10 @@ export default function CursorCustomizer(props: Props) {
                 />
               </div>
               <div>
-                <div className="flex lg:hidden -mt-2 text-sm max-w-[160px] text-center">{localizedStaticContent.mobile[props.locale]}</div>
+                <div className="flex sm:hidden -mt-2 text-sm max-w-[160px] text-center">{localizedStaticContent.mobile[props.locale]}</div>
 
               </div>
-              <button className="hidden  lg:flex bg-cta-grey text-main-black hover:text-white hover:bg-main-black p-1 rounded-full px-3 font-roboto text-base" type="submit">
+              <button className="hidden  sm:flex bg-cta-grey text-main-black hover:text-white hover:bg-main-black p-1 rounded-full px-3 font-roboto text-base" type="submit">
               {localizedStaticContent.save[props.locale]}
               </button>
             </form>
