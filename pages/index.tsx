@@ -81,7 +81,7 @@ export default function Page(props: any) {
           : false,
       })}
     >
-    <MultiplayerScene>{/*Renders Cursors*/}
+    <MultiplayerScene locale={props.locale}>{/*Renders Cursors*/}
       <div className={`${isWindows && "windows-scrollbars"}`}>
         <Layout>
           <ToastContainer transition={Zoom}/>

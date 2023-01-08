@@ -6,6 +6,7 @@ home screen wrapper, renders multiplayer cursors
 import { useMyPresence, useOthers } from "../../liveblocks.config";
 import { useState, useEffect, useRef } from "react";
 import Cursor from "./Cursor";
+import { localizedStaticContent } from "../../localization/dict";
 
 const COLORS = ["#DC2626", "#D97706", "#059669", "#7C3AED", "#DB2777"];
 
@@ -143,7 +144,7 @@ export default function MultiplayerScene(props: any) {
                 >
                   {state.previousMessage && <div>{state.previousMessage}</div>}
                   <input
-                    className="bg-transparent border-none	outline-none text-amber-900 placeholder-amber-900"
+                    className="bg-transparent border-none	outline-none text-amber-900 placeholder-main-black"
                     autoFocus={true}
                     ref={inputEl}
                     onChange={(e) => {
@@ -167,7 +168,7 @@ export default function MultiplayerScene(props: any) {
                         });
                       }
                     }}
-                    placeholder={state.previousMessage ? "" : "Say something…"}
+                    placeholder={state.previousMessage ? "" : localizedStaticContent.textMultiplayer[props.locale]}
                     value={state.message}
                     maxLength={50}
                   />

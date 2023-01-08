@@ -78,6 +78,11 @@ export const localizedStaticContent:any = {
     de: "was ich zur Zeit so mache",
     ru: "в настоящее время"
   },
+  textMultiplayer: {
+    en: "Say something...",
+    de: "Schreib was...",
+    ru: "Пишите..."
+  },
   IAM: {
     en: "I'm",
     de: "Ich bin",
