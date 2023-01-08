@@ -9,6 +9,8 @@ import HomeBox from "../components/static/HomeBox";
 import { BuilderComponent } from "@builder.io/react";
 import KBarButton from "../components/kbar/KBarButton";
 import { useRegisterActions, createAction } from "kbar";
+import { ToastContainer, toast, Zoom } from 'react-toastify';
+import UpdateToast from "../components/static/UpdateToast";
 import {
   contactActions,
   legalActions,
@@ -17,9 +19,10 @@ import {
 import { FloatingOverlay } from "@floating-ui/react-dom-interactions";
 import Head from "next/head"
 import Favicon from "../components/static/Favicon";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Page(props: any) {
-  // const roomId = useOverrideRoomId("nextjs-live-cursors-chat"); //TODO: test this w more than 10
+  const roomId = useOverrideRoomId("nextjs-live-cursors-chat"); //TODO: test this w more than 10
   const cookie = useCookie(props.cookie);
 
   let projects = props.links.map((project: any) => {
@@ -41,22 +44,23 @@ export default function Page(props: any) {
   const [isWindows, setIsWindows] = useState(false);
 
   useEffect(() => {
+    toast(<UpdateToast locale={props.locale} content={props.updateToastContent} />, {
+      position: "top-right",
+      autoClose: 8000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      
+      });
     if (navigator.userAgent.indexOf("Win") != -1) setIsWindows(true);
   }, []);
 
+
   return (
-    // <RoomProvider TODO: uncomment to enable multiplayer
-    //   id={roomId}
-    //   initialPresence={() => ({
-    //     cursor: null,
-    //     message: "",
-    //     username: cookie.has("name") ? cookie.get("name") : "User",
-    //     hidden: cookie.has("visibilityPref")
-    //       ? !JSON.parse(cookie.get("visibilityPref"))
-    //       : false,
-    //   })}
-    // >
-    // <MultiplayerScene>{/*Renders Cursors*/}
+    
     <>
       <Head>
         <title>{props.locale === "en" || props.locale === "de" ? "Philipp Parzer" : "Филипп Парцер"}</title>
@@ -66,8 +70,21 @@ export default function Page(props: any) {
         />
         <Favicon />
       </Head>
+      <RoomProvider
+      id={roomId}
+      initialPresence={() => ({
+        cursor: null,
+        message: "",
+        username: cookie.has("name") ? cookie.get("name") : "User",
+        hidden: cookie.has("visibilityPref")
+          ? !JSON.parse(cookie.get("visibilityPref"))
+          : false,
+      })}
+    >
+    <MultiplayerScene>{/*Renders Cursors*/}
       <div className={`${isWindows && "windows-scrollbars"}`}>
         <Layout>
+          <ToastContainer transition={Zoom}/>
           <HomeBox
             locale={props.locale}
             projects={props.links}
@@ -83,29 +100,29 @@ export default function Page(props: any) {
           />
         </Layout>
       </div>
+      </MultiplayerScene>
+    </RoomProvider>
     </>
-    // </MultiplayerScene>
-    // </RoomProvider>
   );
 }
 
-// function useOverrideRoomId(roomId: string) {
+function useOverrideRoomId(roomId: string) {
 
-//   const { query } = useRouter();
+  const { query } = useRouter();
 
-//   const overrideRoomId = useMemo(() => {
-//     return query?.roomId ? `${roomId}-${query.roomId}` : roomId;
-//   }, [query, roomId]);
+  const overrideRoomId = useMemo(() => {
+    return query?.roomId ? `${roomId}-${query.roomId}` : roomId;
+  }, [query, roomId]);
 
-//   return overrideRoomId;
-// }
+  return overrideRoomId;
+}
 
 export async function getStaticProps({ params, locale }: any) {
   const urlPath = "/" + (params?.page?.join("/") || "");
   const links = await builder.getAll("project", {});
 
   const about = await builder.get("about", { url: urlPath }).toPromise();
-
+  const updateToastContent = await builder.getAll("update-toast", {})
   const IAMStrings = await builder.getAll("i-am", {});
 
   return {
@@ -114,6 +131,7 @@ export async function getStaticProps({ params, locale }: any) {
       about: about || null,
       IAMStrings: IAMStrings || null,
       locale: locale || null,
+      updateToastContent: updateToastContent || null
     },
     revalidate: 5,
   };

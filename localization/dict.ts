@@ -68,10 +68,16 @@ export const localizedKBar:any = {
     en: "navigation menu",
     de: "Navigationsmenü",
     ru: "меню навигации"
-  }
+  },
+  
 }
 
 export const localizedStaticContent:any = {
+  currentlyToast: {
+    en: "what I'm up to",
+    de: "was ich zur Zeit so mache",
+    ru: "в настоящее время"
+  },
   IAM: {
     en: "I'm",
     de: "Ich bin",
@@ -112,14 +118,34 @@ export const localizedStaticContent:any = {
     de: "Username ändern",
     ru: "выбираете имя"
   },
+  multiplayer: {
+    en: "This is a multiplayer session 🎉",
+    de: "Du bist im Multiplayer 🎉",
+    ru: "Вы в мультиплеере 🎉"
+  },
+  enter: {
+    en: "'t' to type",
+    de: '"t", um zu schreiben',
+    ru: "'t', для чат",
+  },
+  exit: {
+    en: "'esc' to exit",
+    de: '"esc", zum Verlassen',
+    ru: "'esc',чтобы выйти",
+  },
   visibility: {
     en: "visible to others",
     de: "für andere sichtbar",
-    ru: "вас видно другим"
+    ru: "Вас видно другим"
   },
   save: {
     en: "save",
     de: "speichern",
     ru: "cохранить"
-  }
+  }, 
+  mobile: {
+    en: "🤔 sorry, on mobile devices you can't participate in multiplayer",
+    de: "🤔 leider kann man auf Mobile nicht am Multiplayer teilnehmen",
+    ru: "🤔 жаль, но на телефоне не возможно принять участие в мултиплеере"
+  } 
 }
