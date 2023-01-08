@@ -11,6 +11,7 @@ import KBarButton from "../components/kbar/KBarButton";
 import { redirect, contactActions, legalActions } from "../components/kbar/kbarActions"
 import { useRegisterActions } from "kbar";
 import Favicon from "../components/static/Favicon";
+import Custom404 from "./Custom404"
 
 export async function getStaticProps({ params, locale }: any) {
   /*
@@ -104,7 +105,7 @@ export default function Page({ page, link, links, locale }: any) {
     content entries published in Builder.
   */
   if (!page && !isPreviewing) {
-    return <DefaultErrorPage statusCode={404} />; //TODO: customize 404
+    return <Custom404 />; //TODO: customize 404
   }
 
   return (
