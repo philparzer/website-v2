@@ -26,7 +26,7 @@ type Props = {
 
 export default function CursorCustomizer(props: Props) {
   const cookie = useCookie(props.cookie);
-  // const [{ username }, updateMyPresence] = useMyPresence();
+  const [{ username }, updateMyPresence] = useMyPresence();
   const [open, setOpen] = useState(false);
 
   const { register, handleSubmit } = useForm({
@@ -54,10 +54,10 @@ export default function CursorCustomizer(props: Props) {
   const onSubmit = (data: any) => {
     cookie.set("name", data.username);
     cookie.set("visibilityPref", data.visibilityPref);
-    // updateMyPresence({
-    //   username: data.username,
-    //   hidden: !data.visibilityPref,
-    // });
+    updateMyPresence({
+      username: data.username,
+      hidden: !data.visibilityPref,
+    });
   };
 
   return (
