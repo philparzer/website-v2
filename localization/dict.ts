@@ -76,7 +76,7 @@ export const localizedStaticContent:any = {
   metaHome: {
     en: "Philipp Parzer is always building. He's a developer, designer, and linguist. Go check out his portfolio featuring all his projects.",
     de: "Philipp Parzer hat immer ein Side-Project. Er ist Entwickler, Designer und Linguist. Hier findest du alle Projekte.",
-    ru: "Филипп Парцер постоянно создает. Он разработчик, дизайнер и лингвист. Ознакомьтесь с его портфолио, в котором представлены все его проекты."
+    ru: "Филипп Парцер постоянно создаёт. Он разработчик, дизайнер и лингвист. Ознакомьтесь с его портфолио, в котором представлены все его проекты."
   },
 
   cursorButtonTitle: {
@@ -87,7 +87,7 @@ export const localizedStaticContent:any = {
   currentlyToast: {
     en: "what I'm up to",
     de: "was ich zur Zeit so mache",
-    ru: "в настоящее время"
+    ru: "чем я занимаюсь на данный момент"
   },
   textMultiplayer: {
     en: "Say something...",
@@ -107,7 +107,7 @@ export const localizedStaticContent:any = {
   upvoted: {
     en: "upvoted",
     de: "gevotet",
-    ru: "лайк"
+    ru: "лайкнуто"
   },
   visit: {
     en: "visit",
@@ -117,7 +117,7 @@ export const localizedStaticContent:any = {
   "on hold": {
     en: "on hold",
     de: "pausiert",
-    ru: "в ожиданнии"
+    ru: "в ожидании"
   },
   "concept": {
     en: "concept",
@@ -125,9 +125,9 @@ export const localizedStaticContent:any = {
     ru: "концепция"
   },
   "completed": {
-    en: "completed",
-    de: "abgeschlossen",
-    ru: "завершено"
+    en: "done",
+    de: "fertig",
+    ru: "закончено"
   },
   username: {
     en: "change username",
@@ -160,7 +160,7 @@ export const localizedStaticContent:any = {
     ru: "cохранить"
   }, 
   mobile: {
-    en: "🤔 it's a bummer, on mobile you can't participate in multiplayer",
+    en: "🤔 a bummer, on mobile you can't participate in multiplayer",
     de: "🤔 leider kann man auf Mobile nicht am Multiplayer teilnehmen",
     ru: "🤔 жаль, но на телефоне не возможно принять участие в мултиплеере"
   } 
