@@ -67,6 +67,7 @@ export default function CursorCustomizer(props: Props) {
     <>
       <div className="flex items-center group">
         <button
+          title={localizedStaticContent.cursorButtonTitle[props.locale]}
           ref={reference}
           onClick={() => setOpen(!open)}
         >

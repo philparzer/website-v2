@@ -11,11 +11,13 @@
 @font-face {
   font-family: "Roboto Flex";
   src: url("../public/fonts/RobotoFlex-VariableFont_GRAD,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Roboto";
   src: url("../public/fonts/Roboto-Medium.ttf");
+  font-display: swap;
 }
 
 

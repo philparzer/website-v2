@@ -20,6 +20,7 @@ import { FloatingOverlay } from "@floating-ui/react-dom-interactions";
 import Head from "next/head"
 import Favicon from "../components/static/Favicon";
 import 'react-toastify/dist/ReactToastify.css';
+import { localizedStaticContent } from "../localization/dict";
 
 export default function Page(props: any) {
   const roomId = useOverrideRoomId("nextjs-live-cursors-chat"); //TODO: test this w more than 10
@@ -67,6 +68,10 @@ export default function Page(props: any) {
         <meta
           property="og:image"
           content={`/api/og-home?locale=${props.locale}`}
+        />
+        <meta 
+          name="description"
+          content={localizedStaticContent.metaHome[props.locale]}
         />
         <Favicon />
       </Head>

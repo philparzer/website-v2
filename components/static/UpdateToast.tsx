@@ -6,15 +6,14 @@ interface Props {
 }
 
 const UpdateToast = ({ locale, content }: Props) => {
-  console.log(content[0].data.content.Default);
   return (
     <div className="flex flex-col text-xs gap-2 font-robotoFlex">
       <p className="">{localizedStaticContent.currentlyToast[locale]}</p>
-      <p className="text-black text-base">
-        {content.map((element:any) => <p>- {locale === "en"
+      <div className="text-black text-base">
+        {content.map((element:any, i:number) => <p key={i}>- {locale === "en"
           ? element.data.content.Default
           : element.data.content[locale]}</p>)}
-      </p>
+      </div>
     </div>
   );
 };

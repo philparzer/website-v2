@@ -73,6 +73,17 @@ export const localizedKBar:any = {
 }
 
 export const localizedStaticContent:any = {
+  metaHome: {
+    en: "Philipp Parzer is always building. He's a developer, designer, and linguist. Go check out his portfolio featuring all his projects.",
+    de: "Philipp Parzer hat immer ein Side-Project. Er ist Entwickler, Designer und Linguist. Hier findest du alle Projekte.",
+    ru: "Филипп Парцер постоянно создает. Он разработчик, дизайнер и лингвист. Ознакомьтесь с его портфолио, в котором представлены все его проекты."
+  },
+
+  cursorButtonTitle: {
+    en: "customize your multiplayer cursor",
+    de: "bearbeite deinen Multiplayer-Cursor",
+    ru: "настройка мултиплеер-курсора"
+  },
   currentlyToast: {
     en: "what I'm up to",
     de: "was ich zur Zeit so mache",
