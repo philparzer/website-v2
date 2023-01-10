@@ -239,12 +239,18 @@
     animation: none;
   }
 
-  .Toastify__toast {
+  .Toastify__toast-container--bottom-center {
 
+    display: flex;
+    justify-content: center;
+
+  }
+  .Toastify__toast {
     border-radius: 15px!important;
     padding-bottom: 15px!important;
     padding-top: 15px!important;
-    margin-bottom: 20px!important
+    margin-bottom: 20px!important;
+    width: 80%!important;
   }
 
 }
