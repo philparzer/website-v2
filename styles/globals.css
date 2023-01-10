@@ -216,6 +216,14 @@
   animation: 7s cubic-bezier(0.4, 0, 0.2, 1) infinite move2;
 }
 
+.Toastify__toast {
+
+  border-radius: 15px!important;
+  padding-bottom: 15px!important;
+  padding-top: 15px!important;
+}
+
+
 @media screen and (max-width: 1024px) { 
   .filter-select-desktop {
     display: flex
@@ -229,6 +237,14 @@
     background: linear-gradient(#F06063, #F3905C);
     background-size: 100% 100%;
     animation: none;
+  }
+
+  .Toastify__toast {
+
+    border-radius: 15px!important;
+    padding-bottom: 15px!important;
+    padding-top: 15px!important;
+    margin-bottom: 20px!important
   }
 
 }
@@ -260,9 +276,3 @@
   --toastify-color-progress-light: #483434!important
 }
 
-.Toastify__toast {
-
-  border-radius: 15px!important;
-  padding-bottom: 15px!important;
-  padding-top: 15px!important; 
-}

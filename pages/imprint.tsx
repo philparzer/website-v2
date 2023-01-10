@@ -9,6 +9,7 @@ import IAM from "../components/static/IAM";
 import { useState, useEffect} from "react"
 import Head from "next/head";
 import { localizedStaticContent } from "../localization/dict";
+import Link from "next/link";
 
 export default function Page(props: any) {
 
@@ -57,13 +58,14 @@ export default function Page(props: any) {
       <Layout>
       <div className={`${isWindows && "windows-scrollbars"}`}>
       <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] ">
+        <Link href="/" title="home">
         <IAM IAMStrings={props.IAMStrings} locale={props.locale}/>
+        </Link>
       </div>
-      <div className="mx-4 lg:mx-0 h-full sm:max-w-[895px] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
+      <div className="mx-4 lg:mx-0 h-[95%] sm:max-w-[895px] lg:h-[65%] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>
         <div className="absolute top-5 right-7 w-full flex gap-4 justify-end">
           <KBarButton locale={props.locale}/>
-          {/* <CursorCustomizer cookie={cookie} /> TODO: uncomment when liveblocks */}
         </div>
         <div className="h-full overflow-auto max-h-[70vh]">
           <BuilderComponent model="imprint" content={props.imprint} />

@@ -18,7 +18,7 @@ export default function InlineImage({
   isVideo,
 }: Props) {
   return (
-    <>
+    <div className="max-w-xs pt-5">
       {isVideo ? (
         <>
           <video
@@ -32,7 +32,7 @@ export default function InlineImage({
       ) : (
         <>
           <Image
-            className="pt-10 w-8/12 lg:w-full lg:p-0"
+            className="object-cover w-full h-full cover"
             src={path}
             width={width}
             height={height}
@@ -40,6 +40,6 @@ export default function InlineImage({
           />
         </>
       )}
-    </>
+    </div>
   );
 }
