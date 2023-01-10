@@ -96,10 +96,10 @@ export default function HomeBox({
 
   return (
     <>
-      <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px]">
+      <div className="relative w-11/12 md:w-8/12 lg:w-8/12 sm:max-w-[895px]">
         <IAM IAMStrings={IAMStrings} locale={locale} />
       </div>
-      <div className="relative w-11/12 lg:w-7/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
+      <div className="relative w-11/12 lg:w-8/12 md:w-8/12 sm:max-w-[895px] h-[70%] lg:h-[65%] lg:max-h-[567.54px] rounded-[30px] card">
         <div className="absolute w-full h-full rounded-[30px] -z-10 card-noise"></div>
         <div className={`absolute top-5 right-7 lg:w-full flex gap-4 justify-end items-center z-50 opacity-100 transition-all ease-in-out ${isOnTop ? "lg:top-5, opacity-1" : "lg:-top-3 lg:opacity-0" }`}> 
           <LanguageSelect locale={locale} />

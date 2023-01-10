@@ -136,6 +136,7 @@
   overflow: hidden;
 }
 
+
 .text-scroll {
   display: inline-block;
   position: relative;
@@ -232,6 +233,8 @@
   .filter-list-desktop {
     display: none
   }
+
+  
 
   .background-projects {
     background: linear-gradient(#F06063, #F3905C);
