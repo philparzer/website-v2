@@ -26,8 +26,10 @@
   background: linear-gradient(-15deg, #f5bc54, #ed4167, #f5bc54);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); /*TODO: look into*/
 }
+
+
+
 
 @keyframes gradient {
   0% {
@@ -118,6 +120,8 @@
   .filter-select-desktop {
     display: flex
   }
+
+  
 
   /*TODO: show select*/
 }
@@ -215,6 +219,13 @@
   .filter-list-desktop {
     display: none
   }
+
+  .background {
+    background: linear-gradient(#F06063, #f5bc54);
+    background-size: 100% 100%;
+    animation: none;
+  }
+
 }
 
 @media screen and (min-width: 1025px) { 

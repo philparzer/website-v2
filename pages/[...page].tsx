@@ -122,7 +122,7 @@ export default function Page({ page, link, links, locale }: any) {
         <link rel="icon" type="image/png" sizes="16x16" href={`${locale !== "en" && "../"}favicon/favicon-16x16.png`} />
         <link rel="manifest" href={`${locale !== "en" && "../"}favicon/site.webmanifest`} />
         <meta name="msapplication-TileColor" content="#ef476a" />
-        <meta name="theme-color" content="#ffe7d8" />
+        <meta name="theme-color" content="#F06063" />
       </Head>
       <Layout>
         <ProjectHead 
