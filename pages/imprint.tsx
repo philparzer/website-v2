@@ -52,7 +52,7 @@ export default function Page(props: any) {
           <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
           <link rel="manifest" href="favicon/site.webmanifest" />
           <meta name="msapplication-TileColor" content="#ef476a" />
-          <meta name="theme-color" content="#ffe7d8" />
+          <meta name="theme-color"  content="#EF476A"  />
       </Head>
       <Layout>
       <div className={`${isWindows && "windows-scrollbars"}`}>
