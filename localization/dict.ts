@@ -36,7 +36,7 @@ export const localizedFilterOptions:any = {
 export const localizedKBar:any = {
   kbarSearch: {
     en: "Looking for something...",
-    de: "Nach was suchen Sie...",
+    de: "Nach was suchst du...",
     ru: "Что Вы ищете..."
   },
   go: {
@@ -160,7 +160,7 @@ export const localizedStaticContent:any = {
     ru: "cохранить"
   }, 
   mobile: {
-    en: "🤔 sorry, on mobile devices you can't participate in multiplayer",
+    en: "🤔 it's a bummer, on mobile you can't participate in multiplayer",
     de: "🤔 leider kann man auf Mobile nicht am Multiplayer teilnehmen",
     ru: "🤔 жаль, но на телефоне не возможно принять участие в мултиплеере"
   } 
