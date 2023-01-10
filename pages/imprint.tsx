@@ -8,7 +8,7 @@ import KBarButton from "../components/kbar/KBarButton";
 import IAM from "../components/static/IAM";
 import { useState, useEffect} from "react"
 import Head from "next/head";
-import Favicon from "../components/static/Favicon";
+import { localizedStaticContent } from "../localization/dict";
 
 export default function Page(props: any) {
 
@@ -38,12 +38,21 @@ export default function Page(props: any) {
   return (
     <>
       <Head>
-        <title>{props.locale === "en" || props.locale === "de" ? "Philipp Parzer" : "Филипп Парцер"}</title>
+      <title>Impressum</title>
         <meta
           property="og:image"
           content={`/api/og-home?locale=${props.locale}`}
         />
-        <Favicon />
+        <meta 
+          name="description"
+          content={localizedStaticContent.metaHome[props.locale]}
+        />
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+          <link rel="manifest" href="favicon/site.webmanifest" />
+          <meta name="msapplication-TileColor" content="#ef476a" />
+          <meta name="theme-color" content="#ffe7d8" />
       </Head>
       <Layout>
       <div className={`${isWindows && "windows-scrollbars"}`}>

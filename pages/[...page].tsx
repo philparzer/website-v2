@@ -10,7 +10,6 @@ import BackButton from "../components/static/BackButton";
 import KBarButton from "../components/kbar/KBarButton";
 import { redirect, contactActions, legalActions } from "../components/kbar/kbarActions"
 import { useRegisterActions } from "kbar";
-import Favicon from "../components/static/Favicon";
 import Custom404 from "./Custom404"
 
 export async function getStaticProps({ params, locale }: any) {
@@ -118,7 +117,12 @@ export default function Page({ page, link, links, locale }: any) {
           content={`/api/og-project?locale=${locale}&lookup=${link.data.databaseLookup}&name=${link.data.link.value.name}&status=${link.data.status}`}
         />
         <meta name="description" content={page?.data.descripton} />
-        <Favicon />
+        <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+        <link rel="manifest" href="../favicon/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#ef476a" />
+        <meta name="theme-color" content="#ffe7d8" />
       </Head>
       <Layout>
         <ProjectHead 

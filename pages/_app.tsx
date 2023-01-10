@@ -16,7 +16,6 @@ import {
   KBarAnimator,
   KBarSearch,
 } from "kbar";
-import Favicon from "../components/static/Favicon";
 
 import { contactActions, legalActions, redirect } from "../components/kbar/kbarActions"
 import { searchStyle, animatorStyle } from "../components/kbar/kbarStyles";
