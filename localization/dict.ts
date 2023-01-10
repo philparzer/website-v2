@@ -74,9 +74,9 @@ export const localizedKBar:any = {
 
 export const localizedStaticContent:any = {
   metaHome: {
-    en: "Philipp Parzer is always building. He's a developer, designer, and linguist. Go check out his portfolio featuring all his projects.",
-    de: "Philipp Parzer hat immer ein Side-Project. Er ist Entwickler, Designer und Linguist. Hier findest du alle Projekte.",
-    ru: "Филипп Парцер постоянно создаёт. Он разработчик, дизайнер и лингвист. Ознакомьтесь с его портфолио, в котором представлены все его проекты."
+    en: "Hi, I'm Phil 👋 I'm always building. I'm a developer, designer, and linguist. Go check out my portfolio featuring all of my projects.",
+    de: "Hi, Ich bin Philipp 👋 Ich habe immer ein Side-Project. Ich bin Entwickler, Designer und Linguist. Hier findest du alle Projekte.",
+    ru: "Прив, Я Фил 👋 Я постоянно создаю. Я разработчик, дизайнер и лингвист. Ознакомьтесь с моего портфолио, в котором представлены все проекты."
   },
 
   cursorButtonTitle: {
