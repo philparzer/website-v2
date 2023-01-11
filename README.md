@@ -16,4 +16,4 @@
 - Visual CMS (builder.io)
 - like projects (mongodb)
 - innovative navigation (kbar, floating-ui)
-- SSR + React 18 (Next.js 13)
+- React 18 (Next.js 13)
