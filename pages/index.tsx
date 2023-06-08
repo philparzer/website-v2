@@ -128,7 +128,7 @@ function useOverrideRoomId(roomId: string) {
 
 export async function getStaticProps({ params, locale }: any) {
   const urlPath = "/" + (params?.page?.join("/") || "");
-  const links = await builder.getAll("project", {});
+  const links = await builder.getAll("project", {}); //TODO: optimize by only getting info we need?
 
   const about = await builder.get("about", { url: urlPath }).toPromise();
   const updateToastContent = await builder.getAll("update-toast", {})
