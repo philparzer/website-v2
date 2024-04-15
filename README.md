@@ -1,7 +1,7 @@
 # Personal Website v2
 
 <a href="https://personal-website-jt89awyic-philparzer.vercel.app/" >This is my revamped portfolio website</a>
-For my newest portfolio site / personal site check out <a href="https://personal-website-jt89awyic-philparzer.vercel.app/" >philippparzer.com</a>
+For my newest portfolio site / personal site check out <a href="https://philippparzer.com/" >philippparzer.com</a>
 
 ## Stack
 
